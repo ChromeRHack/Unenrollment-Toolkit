@@ -141,6 +141,7 @@ main() {
 (25) Check for UTK updates
 (26) Check for UTK updates with certain branches
 (27) Sh1mmer
+(28) Cryptosmite
 EOF
         
         swallow_stdin
@@ -173,6 +174,7 @@ EOF
         25) runjob do_updates && exit 0 ;;
         26) runjob do_toolkit_updates && exit 0 ;;
         27) runjob sh1mmer ;;
+        28) runjob cryptosmite
         101) runjob hard_disable_nokill ;;
         111) runjob hard_enable_nokill ;;
         112) runjob ext_purge ;;
@@ -185,6 +187,9 @@ EOF
     done
 }
 
+cryptosmite() {
+bash /opt/cryptosmite.sh
+}
 install_plugin_legacy() {
   local raw_url="https://raw.githubusercontent.com/rainestorme/murkmod/main/plugins"
 
