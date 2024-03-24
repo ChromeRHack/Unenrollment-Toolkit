@@ -72,7 +72,8 @@ cryptohome --action=set_firmware_management_parameters --flags=0x01
 echo "Reenrolled. Powerwash to take effect."
 echo "Rebooting in 3 seconds"
 time 3
-reboot
+# Unhashtag this comment when we add a check to see if UTK is here
+#./revert.sh
 }
 
 key_ecryptfs() {
