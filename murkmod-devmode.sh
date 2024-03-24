@@ -208,10 +208,6 @@ EOF
             echo "Installing common_minimal.sh..."
             install "common_minimal.sh" ./lib/common_minimal.sh
             chmod 777 ./lib/common_minimal.sh
-            echo "Installing tpmc fake"
-            mv /usr/bin/tpmc /usr/bin/tpmc.old
-            install "tpmc" /usr/bin
-            chmod 777 /usr/bin/tpmc
         popd
         echo "Invoking image_patcher.sh..."
         bash /usr/local/tmp/image_patcher.sh "$FILENAME"

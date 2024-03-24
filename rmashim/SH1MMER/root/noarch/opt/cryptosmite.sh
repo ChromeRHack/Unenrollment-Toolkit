@@ -67,13 +67,23 @@ EOF
 }
 
 reenroll() {
-tpm_manager_client take_ownership
-cryptohome --action=set_firmware_management_parameters --flags=0x01
-echo "Reenrolled. Powerwash to take effect."
-echo "Rebooting in 3 seconds"
-time 3
-# Unhashtag this comment when we add a check to see if UTK is here
-#./revert.sh
+if test -f /croshunblocker.sh #Test if UTK is installed
+then
+    echo "UTK is installed. Emergency Reverting UTK"
+    ./revert.sh
+    echo "Reenrolling"
+    tpm_manager_client take_ownership
+    cryptohome --action=set_firmware_management_parameters --flags=0x01
+    echo "Reenrolled. Powerwash to take effect."
+    echo "Rebooting in 3 seconds"
+    time 3
+else
+    echo "Reenrolling"
+    tpm_manager_client take_ownership
+    cryptohome --action=set_firmware_management_parameters --flags=0x01
+    echo "Reenrolled. Powerwash to take effect."
+    echo "Rebooting in 3 seconds"
+    time 3
 }
 
 key_ecryptfs() {
