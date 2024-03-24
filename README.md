@@ -7,7 +7,7 @@
 - ~Design UTK logo~
 - ~Add cryptosmite/Sh1mmer both to RMA shim and crosh~ (We maybe should actually launch sh1mmer idk how tho)
 - ~Add enrollment to Cryptosmite~ (TESTING REQUIRED and we must add a check to see if UTK is installed. If UTK is installed we will have to emergency revert using Revert file)
-- implement Crosmidi within RMA shim
+- implement Crosmidi within RMA shim (Let's wait on implementing crosmidi until we are done adding checks and testing)
 - Implement Crosmidi to be accesible via crosh
 - implement install via crosh shell
 - Add access crosh via special shortcut other crosh is blocked by policy. (Safety)
