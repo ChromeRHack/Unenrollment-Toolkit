@@ -1,0 +1,6 @@
+{
+ "CUTOFF_METHOD": "battery_cutoff",
+ "CUTOFF_AC_STATE": "remove_ac",
+ "CUTOFF_BATTERY_MIN_PERCENTAGE": 60,
+ "CUTOFF_BATTERY_MAX_PERCENTAGE": 90
+}

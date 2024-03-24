@@ -1,0 +1,45 @@
+#! /bin/sh
+
+
+DTC=dtc
+
+source_and_sort () {
+    DT="$1"
+    if [ -d "$DT" ]; then
+	IFORMAT=fs
+    elif [ -f "$DT" ]; then
+	case "$DT" in
+	    *.dts)
+		IFORMAT=dts
+		;;
+	    *.dtb)
+		IFORMAT=dtb
+		;;
+	esac
+    fi
+
+    if [ -z "$IFORMAT" ]; then
+	echo "Unrecognized format for $DT" >&2
+	exit 2
+    fi
+
+    $DTC -I $IFORMAT -O dts -qq -f -s -o - "$DT"
+}
+
+if [ $# != 2 ]; then
+    echo "Usage: dtdiff <device tree> <device tree>" >&2
+    exit 1
+fi
+
+for dir in /dev/fd /proc/self/fd; do
+    if [ -d "${dir}" ]; then
+        break
+    fi
+done
+
+source_and_sort "$1" | (
+    # Duplicate current stdin from the first file to fd 3 so we can change fd 0
+    # to the second file.
+    exec 3<&0
+    source_and_sort "$2" | diff -u "${dir}/3" "${dir}/0"
+)

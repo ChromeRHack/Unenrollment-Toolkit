@@ -1,0 +1,918 @@
+# GNU libc iconv configuration.
+# Copyright (C) 1997-2016 Free Software Foundation, Inc.
+# This file is part of the GNU C Library.
+
+# The GNU C Library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+
+# The GNU C Library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+
+# You should have received a copy of the GNU Lesser General Public
+# License along with the GNU C Library; if not, see
+# <http://www.gnu.org/licenses/>.
+
+# All lines contain the following information:
+
+# If the lines start with `module'
+#  fromset:	either a name triple or a regular expression triple.
+#  toset:	a name triple or an expression with \N to get regular
+#		expression matching results.
+#  filename:	filename of the module implementing the transformation.
+#		If it is not absolute the path is made absolute by prepending
+#		the directory the configuration file is found in.
+#  cost:	optional cost of the transformation.  Default is 1.
+
+# If the lines start with `alias'
+#  alias:	alias name which is not really recognized.
+#  name:	the real name of the character set
+
+alias	ISO-IR-4//		BS_4730//
+alias	ISO646-GB//		BS_4730//
+alias	GB//			BS_4730//
+alias	UK//			BS_4730//
+alias	CSISO4UNITEDKINGDOM//	BS_4730//
+module	BS_4730//		INTERNAL		ISO646		2
+module	INTERNAL		BS_4730//		ISO646		2
+
+alias	ISO-IR-121//		CSA_Z243.4-1985-1//
+alias	ISO646-CA//		CSA_Z243.4-1985-1//
+alias	CSA7-1//		CSA_Z243.4-1985-1//
+alias	CA//			CSA_Z243.4-1985-1//
+alias	CSISO121CANADIAN1//	CSA_Z243.4-1985-1//
+alias	CSA_Z243.419851//	CSA_Z243.4-1985-1//
+module	CSA_Z243.4-1985-1//	INTERNAL		ISO646		2
+module	INTERNAL		CSA_Z243.4-1985-1//	ISO646		2
+
+alias	ISO-IR-122//		CSA_Z243.4-1985-2//
+alias	ISO646-CA2//		CSA_Z243.4-1985-2//
+alias	CSA7-2//		CSA_Z243.4-1985-2//
+alias	CSISO122CANADIAN2//	CSA_Z243.4-1985-2//
+alias	CSA_Z243.419852//	CSA_Z243.4-1985-2//
+module	CSA_Z243.4-1985-2//	INTERNAL		ISO646		2
+module	INTERNAL		CSA_Z243.4-1985-2//	ISO646		2
+
+alias	ISO-IR-21//		DIN_66003//
+alias	DE//			DIN_66003//
+alias	ISO646-DE//		DIN_66003//
+alias	CSISO21GERMAN//		DIN_66003//
+module	DIN_66003//		INTERNAL		ISO646		2
+module	INTERNAL		DIN_66003//		ISO646		2
+
+alias	DS2089//		DS_2089//
+alias	ISO646-DK//		DS_2089//
+alias	DK//			DS_2089//
+alias	CSISO646DANISH//	DS_2089//
+module	DS_2089//		INTERNAL		ISO646		2
+module	INTERNAL		DS_2089//		ISO646		2
+
+alias	ISO-IR-17//		ES//
+alias	ISO646-ES//		ES//
+alias	CSISO17SPANISH//	ES//
+module	ES//			INTERNAL		ISO646		2
+module	INTERNAL		ES//			ISO646		2
+
+alias	ISO-IR-85//		ES2//
+alias	ISO646-ES2//		ES2//
+alias	CSISO85SPANISH2//	ES2//
+module	ES2//			INTERNAL		ISO646		2
+module	INTERNAL		ES2//			ISO646		2
+
+alias	ISO-IR-57//		GB_1988-80//
+alias	CN//			GB_1988-80//
+alias	ISO646-CN//		GB_1988-80//
+alias	CSISO58GB1988//		GB_1988-80//
+alias	GB_198880//		GB_1988-80//
+module	GB_1988-80//		INTERNAL		ISO646		2
+module	INTERNAL		GB_1988-80//		ISO646		2
+
+alias	ISO-IR-15//		IT//
+alias	ISO646-IT//		IT//
+alias	CSISO15ITALIAN//	IT//
+module	IT//			INTERNAL		ISO646		2
+module	INTERNAL		IT//			ISO646		2
+
+alias	ISO-IR-14//		JIS_C6220-1969-RO//
+alias	JP//			JIS_C6220-1969-RO//
+alias	ISO646-JP//		JIS_C6220-1969-RO//
+alias	CSISO14JISC6220RO//	JIS_C6220-1969-RO//
+alias	JIS_C62201969RO//	JIS_C6220-1969-RO//
+module	JIS_C6220-1969-RO//	INTERNAL		ISO646		2
+module	INTERNAL		JIS_C6220-1969-RO//	ISO646		2
+
+alias	ISO-IR-92//		JIS_C6229-1984-B//
+alias	ISO646-JP-OCR-B//	JIS_C6229-1984-B//
+alias	JP-OCR-B//		JIS_C6229-1984-B//
+alias	CSISO92JISC62991984B//	JIS_C6229-1984-B//
+alias	JIS_C62291984B//	JIS_C6229-1984-B//
+module	JIS_C6229-1984-B//	INTERNAL		ISO646		2
+module	INTERNAL		JIS_C6229-1984-B//	ISO646		2
+
+alias	ISO-IR-141//		JUS_I.B1.002//
+alias	ISO646-YU//		JUS_I.B1.002//
+alias	JS//			JUS_I.B1.002//
+alias	YU//			JUS_I.B1.002//
+alias	CSISO141JUSIB1002//	JUS_I.B1.002//
+module	JUS_I.B1.002//		INTERNAL		ISO646		2
+module	INTERNAL		JUS_I.B1.002//		ISO646		2
+
+alias	ISO646-KR//		KSC5636//
+alias	CSKSC5636//		KSC5636//
+module	KSC5636//		INTERNAL		ISO646		2
+module	INTERNAL		KSC5636//		ISO646		2
+
+alias	ISO-IR-86//		MSZ_7795.3//
+alias	ISO646-HU//		MSZ_7795.3//
+alias	HU//			MSZ_7795.3//
+alias	CSISO86HUNGARIAN//	MSZ_7795.3//
+module	MSZ_7795.3//		INTERNAL		ISO646		2
+module	INTERNAL		MSZ_7795.3//		ISO646		2
+
+alias	CUBA//			NC_NC00-10//
+alias	NC_NC00-10:81//		NC_NC00-10//
+alias	ISO-IR-151//		NC_NC00-10//
+alias	ISO646-CU//		NC_NC00-10//
+alias	CSISO151CUBA//		NC_NC00-10//
+alias	NC_NC0010//		NC_NC00-10//
+module	NC_NC00-10//		INTERNAL		ISO646		2
+module	INTERNAL		NC_NC00-10//		ISO646		2
+
+alias	ISO-IR-69//		NF_Z_62-010//
+alias	ISO646-FR//		NF_Z_62-010//
+alias	FR//			NF_Z_62-010//
+alias	CSISO69FRENCH//		NF_Z_62-010//
+alias	NF_Z_62010//		NF_Z_62-010//
+module	NF_Z_62-010//		INTERNAL		ISO646		2
+module	INTERNAL		NF_Z_62-010//		ISO646		2
+
+alias	ISO-IR-25//		NF_Z_62-010_1973//
+alias	ISO646-FR1//		NF_Z_62-010_1973//
+alias	NF_Z_62-010_(1973)//	NF_Z_62-010_1973//
+alias	CSISO25FRENCH//		NF_Z_62-010_1973//
+alias	NF_Z_62010_1973//	NF_Z_62-010_1973//
+module	NF_Z_62-010_1973//	INTERNAL		ISO646		2
+module	INTERNAL		NF_Z_62-010_1973//	ISO646		2
+
+alias	ISO-IR-60//		NS_4551-1//
+alias	ISO646-NO//		NS_4551-1//
+alias	NO//			NS_4551-1//
+alias	CSISO60DANISHNORWEGIAN// NS_4551-1//
+alias	CSISO60NORWEGIAN1//	NS_4551-1//
+alias	NS_45511//		NS_4551-1//
+module	NS_4551-1//		INTERNAL		ISO646		2
+module	INTERNAL		NS_4551-1//		ISO646		2
+
+alias	ISO646-NO2//		NS_4551-2//
+alias	ISO-IR-61//		NS_4551-2//
+alias	NO2//			NS_4551-2//
+alias	CSISO61NORWEGIAN2//	NS_4551-2//
+alias	NS_45512//		NS_4551-2//
+module	NS_4551-2//		INTERNAL		ISO646		2
+module	INTERNAL		NS_4551-2//		ISO646		2
+
+alias	ISO-IR-16//		PT//
+alias	ISO646-PT//		PT//
+alias	CSISO16PORTUGESE//	PT//
+module	PT//			INTERNAL		ISO646		2
+module	INTERNAL		PT//			ISO646		2
+
+alias	ISO-IR-84//		PT2//
+alias	ISO646-PT2//		PT2//
+alias	CSISO84PORTUGUESE2//	PT2//
+module	PT2//			INTERNAL		ISO646		2
+module	INTERNAL		PT2//			ISO646		2
+
+alias	ISO-IR-10//		SEN_850200_B//
+alias	FI//			SEN_850200_B//
+alias	ISO646-FI//		SEN_850200_B//
+alias	ISO646-SE//		SEN_850200_B//
+alias	SE//			SEN_850200_B//
+alias	CSISO10SWEDISH//	SEN_850200_B//
+alias	SS636127//		SEN_850200_B//
+module	SEN_850200_B//		INTERNAL		ISO646		2
+module	INTERNAL		SEN_850200_B//		ISO646		2
+
+alias	ISO-IR-11//		SEN_850200_C//
+alias	ISO646-SE2//		SEN_850200_C//
+alias	SE2//			SEN_850200_C//
+alias	CSISO11SWEDISHFORNAMES// SEN_850200_C//
+module	SEN_850200_C//		INTERNAL		ISO646		2
+module	INTERNAL		SEN_850200_C//		ISO646		2
+
+#	from			to			module		cost
+alias	ISO-IR-100//		ISO-8859-1//
+alias	ISO_8859-1:1987//	ISO-8859-1//
+alias	ISO_8859-1//		ISO-8859-1//
+alias	ISO8859-1//		ISO-8859-1//
+alias	ISO88591//		ISO-8859-1//
+alias	LATIN1//		ISO-8859-1//
+alias	L1//			ISO-8859-1//
+alias	IBM819//		ISO-8859-1//
+alias	CP819//			ISO-8859-1//
+alias	CSISOLATIN1//		ISO-8859-1//
+alias	8859_1//		ISO-8859-1//
+alias	OSF00010001//		ISO-8859-1//
+module	ISO-8859-1//		INTERNAL		ISO8859-1	1
+module	INTERNAL		ISO-8859-1//		ISO8859-1	1
+
+#	from			to			module		cost
+
+#	from			to			 module		cost
+alias	ISO-IR-109//		ISO-8859-3//
+alias	ISO_8859-3:1988//	ISO-8859-3//
+alias	ISO_8859-3//		ISO-8859-3//
+alias	ISO8859-3//		ISO-8859-3//
+alias	ISO88593//		ISO-8859-3//
+alias	LATIN3//		ISO-8859-3//
+alias	L3//			ISO-8859-3//
+alias	CSISOLATIN3//		ISO-8859-3//
+alias	8859_3//		ISO-8859-3//
+alias	OSF00010003//		ISO-8859-3//
+module	ISO-8859-3//		INTERNAL		ISO8859-3	1
+module	INTERNAL		ISO-8859-3//		ISO8859-3	1
+
+#	from			to			module		cost
+alias	ISO-IR-110//		ISO-8859-4//
+alias	ISO_8859-4:1988//	ISO-8859-4//
+alias	ISO_8859-4//		ISO-8859-4//
+alias	ISO8859-4//		ISO-8859-4//
+alias	ISO88594//		ISO-8859-4//
+alias	LATIN4//		ISO-8859-4//
+alias	L4//			ISO-8859-4//
+alias	CSISOLATIN4//		ISO-8859-4//
+alias	8859_4//		ISO-8859-4//
+alias	OSF00010004//		ISO-8859-4//
+module	ISO-8859-4//		INTERNAL		ISO8859-4	1
+module	INTERNAL		ISO-8859-4//		ISO8859-4	1
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+alias	ISO-IR-148//		ISO-8859-9//
+alias	ISO_8859-9:1989//	ISO-8859-9//
+alias	ISO_8859-9//		ISO-8859-9//
+alias	ISO8859-9//		ISO-8859-9//
+alias	ISO88599//		ISO-8859-9//
+alias	LATIN5//		ISO-8859-9//
+alias	L5//			ISO-8859-9//
+alias	CSISOLATIN5//		ISO-8859-9//
+alias	8859_9//		ISO-8859-9//
+alias	OSF00010009//		ISO-8859-9//
+alias	IBM920//		ISO-8859-9//
+alias	CP920//			ISO-8859-9//
+alias	TS-5881//		ISO-8859-9//
+alias	ECMA-128//		ISO-8859-9//
+module	ISO-8859-9//		INTERNAL		ISO8859-9	1
+module	INTERNAL		ISO-8859-9//		ISO8859-9	1
+
+#	from			to			module		cost
+alias	ISO-IR-157//		ISO-8859-10//
+alias	ISO_8859-10:1992//	ISO-8859-10//
+alias	ISO_8859-10//		ISO-8859-10//
+alias	ISO8859-10//		ISO-8859-10//
+alias	ISO885910//		ISO-8859-10//
+alias	LATIN6//		ISO-8859-10//
+alias	L6//			ISO-8859-10//
+alias	CSISOLATIN6//		ISO-8859-10//
+alias	OSF0001000A//		ISO-8859-10//
+module	ISO-8859-10//		INTERNAL		ISO8859-10	1
+module	INTERNAL		ISO-8859-10//		ISO8859-10	1
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+alias	ISO8859-13//		ISO-8859-13//
+alias	ISO885913//		ISO-8859-13//
+alias	ISO-IR-179//		ISO-8859-13//
+alias	LATIN7//		ISO-8859-13//
+alias	L7//			ISO-8859-13//
+alias	BALTIC//		ISO-8859-13//
+module	ISO-8859-13//		INTERNAL		ISO8859-13	1
+module	INTERNAL		ISO-8859-13//		ISO8859-13	1
+
+#	from			to			module		cost
+alias	ISO8859-14//		ISO-8859-14//
+alias	ISO885914//		ISO-8859-14//
+alias	ISO-IR-199//		ISO-8859-14//
+alias	LATIN8//		ISO-8859-14//
+alias	L8//			ISO-8859-14//
+alias	ISO_8859-14:1998//	ISO-8859-14//
+alias	ISO_8859-14//		ISO-8859-14//
+alias	ISO-CELTIC//		ISO-8859-14//
+module	ISO-8859-14//		INTERNAL		ISO8859-14	1
+module	INTERNAL		ISO-8859-14//		ISO8859-14	1
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+alias	CP437//			IBM437//
+alias	437//			IBM437//
+alias	CSPC8CODEPAGE437//	IBM437//
+alias	OSF100201B5//		IBM437//
+module	IBM437//		INTERNAL		IBM437		1
+module	INTERNAL		IBM437//		IBM437		1
+
+#	from			to			module		cost
+alias	CP500//			IBM500//
+alias	500//			IBM500//
+alias	500V1//			IBM500//
+alias	EBCDIC-CP-BE//		IBM500//
+alias	EBCDIC-CP-CH//		IBM500//
+alias	CSIBM500//		IBM500//
+alias	OSF100201F4//		IBM500//
+alias	CP1084//		IBM500//
+module	IBM500//		INTERNAL		IBM500		1
+module	INTERNAL		IBM500//		IBM500		1
+
+#	from			to			module		cost
+alias	CP850//			IBM850//
+alias	850//			IBM850//
+alias	CSPC850MULTILINGUAL//	IBM850//
+alias	OSF10020352//		IBM850//
+module	IBM850//		INTERNAL		IBM850		1
+module	INTERNAL		IBM850//		IBM850		1
+
+#	from			to			module		cost
+alias	CP851//			IBM851//
+alias	851//			IBM851//
+alias	CSIBM851//		IBM851//
+module	IBM851//		INTERNAL		IBM851		1
+module	INTERNAL		IBM851//		IBM851		1
+
+#	from			to			module		cost
+alias	CP852//			IBM852//
+alias	852//			IBM852//
+alias	CSPCP852//		IBM852//
+alias	OSF10020354//		IBM852//
+module	IBM852//		INTERNAL		IBM852		1
+module	INTERNAL		IBM852//		IBM852		1
+
+#	from			to			module		cost
+alias	CP855//			IBM855//
+alias	855//			IBM855//
+alias	CSIBM855//		IBM855//
+alias	OSF10020357//		IBM855//
+module	IBM855//		INTERNAL		IBM855		1
+module	INTERNAL		IBM855//		IBM855		1
+
+#	from			to			module		cost
+alias	IBM-856//		IBM856//
+alias	CP856//			IBM856//
+alias	856//			IBM856//
+alias	CSIBM856//		IBM856//
+module	IBM856//		INTERNAL		IBM856		1
+module	INTERNAL		IBM856//		IBM856		1
+
+#	from			to			module		cost
+alias	CP857//			IBM857//
+alias	857//			IBM857//
+alias	CSIBM857//		IBM857//
+alias	OSF10020359//		IBM857//
+module	IBM857//		INTERNAL		IBM857		1
+module	INTERNAL		IBM857//		IBM857		1
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+alias	CP861//			IBM861//
+alias	861//			IBM861//
+alias	CPIBM861//		IBM861//
+alias	OSF1002035D//		IBM861//
+module	IBM861//		INTERNAL		IBM861		1
+module	INTERNAL		IBM861//		IBM861		1
+
+#	from			to			module		cost
+alias	CP862//			IBM862//
+alias	862//			IBM862//
+alias	CSPC862LATINHEBREW//	IBM862//
+alias	OSF1002035E//		IBM862//
+module	IBM862//		INTERNAL		IBM862		1
+module	INTERNAL		IBM862//		IBM862		1
+
+#	from			to			module		cost
+alias	CP863//			IBM863//
+alias	863//			IBM863//
+alias	CSIBM863//		IBM863//
+alias	OSF1002035F//		IBM863//
+module	IBM863//		INTERNAL		IBM863		1
+module	INTERNAL		IBM863//		IBM863		1
+
+#	from			to			module		cost
+alias	CP864//			IBM864//
+alias	864//			IBM864//
+alias	CSIBM864//		IBM864//
+alias	OSF10020360//		IBM864//
+module	IBM864//		INTERNAL		IBM864		1
+module	INTERNAL		IBM864//		IBM864		1
+
+#	from			to			module		cost
+alias	CP865//			IBM865//
+alias	865//			IBM865//
+alias	CSIBM865//		IBM865//
+module	IBM865//		INTERNAL		IBM865		1
+module	INTERNAL		IBM865//		IBM865		1
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+alias	CP869//			IBM869//
+alias	869//			IBM869//
+alias	CP-GR//			IBM869//
+alias	CSIBM869//		IBM869//
+alias	OSF10020365//		IBM869//
+module	IBM869//		INTERNAL		IBM869		1
+module	INTERNAL		IBM869//		IBM869		1
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+alias	CP904//			IBM904//
+alias	904//			IBM904//
+alias	CSIBM904//		IBM904//
+alias	OSF10020388//		IBM904//
+module	IBM904//		INTERNAL		IBM904		1
+module	INTERNAL		IBM904//		IBM904		1
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+alias	CP1026//		IBM1026//
+alias	1026//			IBM1026//
+alias	CSIBM1026//		IBM1026//
+alias	OSF10020402//		IBM1026//
+module	IBM1026//		INTERNAL		IBM1026		1
+module	INTERNAL		IBM1026//		IBM1026		1
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+alias	874//			IBM874//
+alias	CP874//			IBM874//
+alias	WINDOWS-874//		IBM874//
+module	IBM874//		INTERNAL		IBM874		1
+module	INTERNAL		IBM874//		IBM874		1
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+alias	DEC//			DEC-MCS//
+alias	CSDECMCS//		DEC-MCS//
+alias	DECMCS//		DEC-MCS//
+module	DEC-MCS//		INTERNAL		DEC-MCS		1
+module	INTERNAL		DEC-MCS//		DEC-MCS		1
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+alias	UTF16//			UTF-16//
+module	UTF-16//		INTERNAL		UTF-16		1
+module	INTERNAL		UTF-16//		UTF-16		1
+
+#	from			to			module		cost
+alias	UTF16LE//		UTF-16LE//
+module	UTF-16LE//		INTERNAL		UTF-16		1
+module	INTERNAL		UTF-16LE//		UTF-16		1
+
+#	from			to			module		cost
+alias	UTF16BE//		UTF-16BE//
+module	UTF-16BE//		INTERNAL		UTF-16		1
+module	INTERNAL		UTF-16BE//		UTF-16		1
+
+#	from			to			module		cost
+alias	CSUNICODE//		UNICODE//
+module	UNICODE//		INTERNAL		UNICODE		1
+module	INTERNAL		UNICODE//		UNICODE		1
+
+#	from			to			module		cost
+alias	UTF32//			UTF-32//
+module	UTF-32//		INTERNAL		UTF-32		1
+module	INTERNAL		UTF-32//		UTF-32		1
+
+#	from			to			module		cost
+alias	UTF32LE//		UTF-32LE//
+module	UTF-32LE//		INTERNAL		UTF-32		1
+module	INTERNAL		UTF-32LE//		UTF-32		1
+
+#	from			to			module		cost
+alias	UTF32BE//		UTF-32BE//
+module	UTF-32BE//		INTERNAL		UTF-32		1
+module	INTERNAL		UTF-32BE//		UTF-32		1
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost
+
+#	from			to			module		cost

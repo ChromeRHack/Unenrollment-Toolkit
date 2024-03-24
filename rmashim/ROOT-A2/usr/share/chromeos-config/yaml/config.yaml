@@ -1,0 +1,3190 @@
+{
+  "chromeos": {
+    "configs": [
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "grunt",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "grunt",
+            "files": [
+              {
+                "destination": "/etc/cras/grunt/acpd7219m98357",
+                "source": "cras-config/grunt/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/grunt/dsp.ini",
+                "source": "cras-config/grunt/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.grunt/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.grunt/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.grunt/acpd7219m98357.grunt.conf",
+                "source": "ucm-config/acpd7219m98357.grunt/acpd7219m98357.grunt.conf"
+              }
+            ],
+            "ucm-suffix": "grunt"
+          }
+        },
+        "brand-code": "ZZCR",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "grunt",
+            "depthcharge": "grunt",
+            "ec": "grunt",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Grunt_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Grunt.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "grunt"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 1,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "grunt",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "grunt",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "grunt",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "grunt",
+            "files": [
+              {
+                "destination": "/etc/cras/grunt/acpd7219m98357",
+                "source": "cras-config/grunt/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/grunt/dsp.ini",
+                "source": "cras-config/grunt/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.grunt/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.grunt/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.grunt/acpd7219m98357.grunt.conf",
+                "source": "ucm-config/acpd7219m98357.grunt/acpd7219m98357.grunt.conf"
+              }
+            ],
+            "ucm-suffix": "grunt"
+          }
+        },
+        "brand-code": "ZZCR",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "grunt",
+            "depthcharge": "grunt",
+            "ec": "grunt",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Grunt_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Grunt.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "grunt"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 2,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "grunt",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "grunt",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "grunt",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "grunt",
+            "files": [
+              {
+                "destination": "/etc/cras/grunt/acpd7219m98357",
+                "source": "cras-config/grunt/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/grunt/dsp.ini",
+                "source": "cras-config/grunt/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.grunt/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.grunt/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.grunt/acpd7219m98357.grunt.conf",
+                "source": "ucm-config/acpd7219m98357.grunt/acpd7219m98357.grunt.conf"
+              }
+            ],
+            "ucm-suffix": "grunt"
+          }
+        },
+        "brand-code": "ZZCR",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "grunt",
+            "depthcharge": "grunt",
+            "ec": "grunt",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Grunt_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Grunt.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "grunt"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 3,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "grunt",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "grunt",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "grunt",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "grunt",
+            "files": [
+              {
+                "destination": "/etc/cras/grunt/acpd7219m98357",
+                "source": "cras-config/grunt/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/grunt/dsp.ini",
+                "source": "cras-config/grunt/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.grunt/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.grunt/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.grunt/acpd7219m98357.grunt.conf",
+                "source": "ucm-config/acpd7219m98357.grunt/acpd7219m98357.grunt.conf"
+              }
+            ],
+            "ucm-suffix": "grunt"
+          }
+        },
+        "brand-code": "ZZCR",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "grunt",
+            "depthcharge": "grunt",
+            "ec": "grunt",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Grunt_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Grunt.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "grunt"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 4,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "grunt",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "grunt",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "grunt",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "grunt",
+            "files": [
+              {
+                "destination": "/etc/cras/grunt/acpd7219m98357",
+                "source": "cras-config/grunt/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/grunt/dsp.ini",
+                "source": "cras-config/grunt/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.grunt/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.grunt/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.grunt/acpd7219m98357.grunt.conf",
+                "source": "ucm-config/acpd7219m98357.grunt/acpd7219m98357.grunt.conf"
+              }
+            ],
+            "ucm-suffix": "grunt"
+          }
+        },
+        "brand-code": "ZZCR",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "grunt",
+            "depthcharge": "grunt",
+            "ec": "grunt",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Grunt_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Grunt.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "grunt"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 5,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "grunt",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "grunt",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "grunt",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "grunt",
+            "files": [
+              {
+                "destination": "/etc/cras/grunt/acpd7219m98357",
+                "source": "cras-config/grunt/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/grunt/dsp.ini",
+                "source": "cras-config/grunt/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.grunt/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.grunt/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.grunt/acpd7219m98357.grunt.conf",
+                "source": "ucm-config/acpd7219m98357.grunt/acpd7219m98357.grunt.conf"
+              }
+            ],
+            "ucm-suffix": "grunt"
+          }
+        },
+        "brand-code": "ZZCR",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "grunt",
+            "depthcharge": "grunt",
+            "ec": "grunt",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Grunt_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Grunt.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "grunt"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 6,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "grunt",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "grunt",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "files": [
+              {
+                "destination": "/etc/cras/careena/acpd7219m98357",
+                "source": "cras-config/careena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/careena/dsp.ini",
+                "source": "cras-config/careena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.careena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/acpd7219m98357.careena.conf",
+                "source": "ucm-config/acpd7219m98357.careena/acpd7219m98357.careena.conf"
+              }
+            ],
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "careena",
+            "depthcharge": "grunt",
+            "ec": "careena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Careena_EC.11031.34.0.tbz2",
+          "main-image": "bcs://Careena.11031.34.0.tbz2",
+          "main-rw-image": "bcs://Careena.11031.44.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "CAREENA",
+          "signature-id": "careena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 16,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa200082c_1.3.bin",
+              "source": "touch/raydium/raydium_0xa200082c_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa200082c.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a2b_1.2.bin",
+              "source": "touch/raydium/raydium_0xa2000a2b_1.2.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a2b.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a3d_1.4.bin",
+              "source": "touch/raydium/raydium_0xa2000a3d_1.4.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a3d.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/213.0_2.0.bin",
+              "source": "touch/elan/213.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_213.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/180.0_2.0.bin",
+              "source": "touch/elan/180.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_180.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2f88_5600.bin",
+              "source": "touch/elan/2f88_5600.bin",
+              "symlink": "/lib/firmware/elants_i2c_2f88.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2fe5_5612.bin",
+              "source": "touch/elan/2fe5_5612.bin",
+              "symlink": "/lib/firmware/elants_i2c_2fe5.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "files": [
+              {
+                "destination": "/etc/cras/careena/acpd7219m98357",
+                "source": "cras-config/careena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/careena/dsp.ini",
+                "source": "cras-config/careena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.careena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/acpd7219m98357.careena.conf",
+                "source": "ucm-config/acpd7219m98357.careena/acpd7219m98357.careena.conf"
+              }
+            ],
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "careena",
+            "depthcharge": "grunt",
+            "ec": "careena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Careena_EC.11031.34.0.tbz2",
+          "main-image": "bcs://Careena.11031.34.0.tbz2",
+          "main-rw-image": "bcs://Careena.11031.44.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "CAREENA",
+          "signature-id": "careena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 17,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa200082c_1.3.bin",
+              "source": "touch/raydium/raydium_0xa200082c_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa200082c.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a2b_1.2.bin",
+              "source": "touch/raydium/raydium_0xa2000a2b_1.2.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a2b.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a3d_1.4.bin",
+              "source": "touch/raydium/raydium_0xa2000a3d_1.4.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a3d.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/213.0_2.0.bin",
+              "source": "touch/elan/213.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_213.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/180.0_2.0.bin",
+              "source": "touch/elan/180.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_180.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2f88_5600.bin",
+              "source": "touch/elan/2f88_5600.bin",
+              "symlink": "/lib/firmware/elants_i2c_2f88.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2fe5_5612.bin",
+              "source": "touch/elan/2fe5_5612.bin",
+              "symlink": "/lib/firmware/elants_i2c_2fe5.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "files": [
+              {
+                "destination": "/etc/cras/careena/acpd7219m98357",
+                "source": "cras-config/careena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/careena/dsp.ini",
+                "source": "cras-config/careena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.careena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/acpd7219m98357.careena.conf",
+                "source": "ucm-config/acpd7219m98357.careena/acpd7219m98357.careena.conf"
+              }
+            ],
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "careena",
+            "depthcharge": "grunt",
+            "ec": "careena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Careena_EC.11031.34.0.tbz2",
+          "main-image": "bcs://Careena.11031.34.0.tbz2",
+          "main-rw-image": "bcs://Careena.11031.44.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "CAREENA",
+          "signature-id": "careena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 18,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa200082c_1.3.bin",
+              "source": "touch/raydium/raydium_0xa200082c_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa200082c.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a2b_1.2.bin",
+              "source": "touch/raydium/raydium_0xa2000a2b_1.2.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a2b.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a3d_1.4.bin",
+              "source": "touch/raydium/raydium_0xa2000a3d_1.4.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a3d.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/213.0_2.0.bin",
+              "source": "touch/elan/213.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_213.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/180.0_2.0.bin",
+              "source": "touch/elan/180.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_180.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2f88_5600.bin",
+              "source": "touch/elan/2f88_5600.bin",
+              "symlink": "/lib/firmware/elants_i2c_2f88.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2fe5_5612.bin",
+              "source": "touch/elan/2fe5_5612.bin",
+              "symlink": "/lib/firmware/elants_i2c_2fe5.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "files": [
+              {
+                "destination": "/etc/cras/careena/acpd7219m98357",
+                "source": "cras-config/careena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/careena/dsp.ini",
+                "source": "cras-config/careena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.careena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/acpd7219m98357.careena.conf",
+                "source": "ucm-config/acpd7219m98357.careena/acpd7219m98357.careena.conf"
+              }
+            ],
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "careena",
+            "depthcharge": "grunt",
+            "ec": "careena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Careena_EC.11031.34.0.tbz2",
+          "main-image": "bcs://Careena.11031.34.0.tbz2",
+          "main-rw-image": "bcs://Careena.11031.44.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "CAREENA",
+          "signature-id": "careena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 19,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa200082c_1.3.bin",
+              "source": "touch/raydium/raydium_0xa200082c_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa200082c.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a2b_1.2.bin",
+              "source": "touch/raydium/raydium_0xa2000a2b_1.2.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a2b.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a3d_1.4.bin",
+              "source": "touch/raydium/raydium_0xa2000a3d_1.4.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a3d.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/213.0_2.0.bin",
+              "source": "touch/elan/213.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_213.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/180.0_2.0.bin",
+              "source": "touch/elan/180.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_180.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2f88_5600.bin",
+              "source": "touch/elan/2f88_5600.bin",
+              "symlink": "/lib/firmware/elants_i2c_2f88.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2fe5_5612.bin",
+              "source": "touch/elan/2fe5_5612.bin",
+              "symlink": "/lib/firmware/elants_i2c_2fe5.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "files": [
+              {
+                "destination": "/etc/cras/careena/acpd7219m98357",
+                "source": "cras-config/careena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/careena/dsp.ini",
+                "source": "cras-config/careena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.careena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/acpd7219m98357.careena.conf",
+                "source": "ucm-config/acpd7219m98357.careena/acpd7219m98357.careena.conf"
+              }
+            ],
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "careena",
+            "depthcharge": "grunt",
+            "ec": "careena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Careena_EC.11031.34.0.tbz2",
+          "main-image": "bcs://Careena.11031.34.0.tbz2",
+          "main-rw-image": "bcs://Careena.11031.44.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "CAREENA",
+          "signature-id": "careena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 20,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa200082c_1.3.bin",
+              "source": "touch/raydium/raydium_0xa200082c_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa200082c.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a2b_1.2.bin",
+              "source": "touch/raydium/raydium_0xa2000a2b_1.2.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a2b.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a3d_1.4.bin",
+              "source": "touch/raydium/raydium_0xa2000a3d_1.4.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a3d.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/213.0_2.0.bin",
+              "source": "touch/elan/213.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_213.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/180.0_2.0.bin",
+              "source": "touch/elan/180.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_180.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2f88_5600.bin",
+              "source": "touch/elan/2f88_5600.bin",
+              "symlink": "/lib/firmware/elants_i2c_2f88.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2fe5_5612.bin",
+              "source": "touch/elan/2fe5_5612.bin",
+              "symlink": "/lib/firmware/elants_i2c_2fe5.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "files": [
+              {
+                "destination": "/etc/cras/careena/acpd7219m98357",
+                "source": "cras-config/careena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/careena/dsp.ini",
+                "source": "cras-config/careena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.careena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/acpd7219m98357.careena.conf",
+                "source": "ucm-config/acpd7219m98357.careena/acpd7219m98357.careena.conf"
+              }
+            ],
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "careena",
+            "depthcharge": "grunt",
+            "ec": "careena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Careena_EC.11031.34.0.tbz2",
+          "main-image": "bcs://Careena.11031.34.0.tbz2",
+          "main-rw-image": "bcs://Careena.11031.44.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "CAREENA",
+          "signature-id": "careena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 21,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa200082c_1.3.bin",
+              "source": "touch/raydium/raydium_0xa200082c_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa200082c.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a2b_1.2.bin",
+              "source": "touch/raydium/raydium_0xa2000a2b_1.2.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a2b.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a3d_1.4.bin",
+              "source": "touch/raydium/raydium_0xa2000a3d_1.4.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a3d.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/213.0_2.0.bin",
+              "source": "touch/elan/213.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_213.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/180.0_2.0.bin",
+              "source": "touch/elan/180.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_180.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2f88_5600.bin",
+              "source": "touch/elan/2f88_5600.bin",
+              "symlink": "/lib/firmware/elants_i2c_2f88.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2fe5_5612.bin",
+              "source": "touch/elan/2fe5_5612.bin",
+              "symlink": "/lib/firmware/elants_i2c_2fe5.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "files": [
+              {
+                "destination": "/etc/cras/careena/acpd7219m98357",
+                "source": "cras-config/careena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/careena/dsp.ini",
+                "source": "cras-config/careena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.careena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/acpd7219m98357.careena.conf",
+                "source": "ucm-config/acpd7219m98357.careena/acpd7219m98357.careena.conf"
+              }
+            ],
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "careena",
+            "depthcharge": "grunt",
+            "ec": "careena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Careena_EC.11031.34.0.tbz2",
+          "main-image": "bcs://Careena.11031.34.0.tbz2",
+          "main-rw-image": "bcs://Careena.11031.44.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "CAREENA",
+          "signature-id": "careena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 22,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa200082c_1.3.bin",
+              "source": "touch/raydium/raydium_0xa200082c_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa200082c.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a2b_1.2.bin",
+              "source": "touch/raydium/raydium_0xa2000a2b_1.2.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a2b.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a3d_1.4.bin",
+              "source": "touch/raydium/raydium_0xa2000a3d_1.4.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a3d.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/213.0_2.0.bin",
+              "source": "touch/elan/213.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_213.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/180.0_2.0.bin",
+              "source": "touch/elan/180.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_180.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2f88_5600.bin",
+              "source": "touch/elan/2f88_5600.bin",
+              "symlink": "/lib/firmware/elants_i2c_2f88.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2fe5_5612.bin",
+              "source": "touch/elan/2fe5_5612.bin",
+              "symlink": "/lib/firmware/elants_i2c_2fe5.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "files": [
+              {
+                "destination": "/etc/cras/careena/acpd7219m98357",
+                "source": "cras-config/careena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/careena/dsp.ini",
+                "source": "cras-config/careena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.careena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/acpd7219m98357.careena.conf",
+                "source": "ucm-config/acpd7219m98357.careena/acpd7219m98357.careena.conf"
+              }
+            ],
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "careena",
+            "depthcharge": "grunt",
+            "ec": "careena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Careena_EC.11031.34.0.tbz2",
+          "main-image": "bcs://Careena.11031.34.0.tbz2",
+          "main-rw-image": "bcs://Careena.11031.44.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "CAREENA",
+          "signature-id": "careena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 23,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa200082c_1.3.bin",
+              "source": "touch/raydium/raydium_0xa200082c_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa200082c.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a2b_1.2.bin",
+              "source": "touch/raydium/raydium_0xa2000a2b_1.2.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a2b.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a3d_1.4.bin",
+              "source": "touch/raydium/raydium_0xa2000a3d_1.4.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a3d.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/213.0_2.0.bin",
+              "source": "touch/elan/213.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_213.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/180.0_2.0.bin",
+              "source": "touch/elan/180.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_180.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2f88_5600.bin",
+              "source": "touch/elan/2f88_5600.bin",
+              "symlink": "/lib/firmware/elants_i2c_2f88.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2fe5_5612.bin",
+              "source": "touch/elan/2fe5_5612.bin",
+              "symlink": "/lib/firmware/elants_i2c_2fe5.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "barla",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "files": [
+              {
+                "destination": "/etc/cras/careena/acpd7219m98357",
+                "source": "cras-config/careena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/careena/dsp.ini",
+                "source": "cras-config/careena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.careena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/acpd7219m98357.careena.conf",
+                "source": "ucm-config/acpd7219m98357.careena/acpd7219m98357.careena.conf"
+              }
+            ],
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "PXDO",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "careena",
+            "depthcharge": "grunt",
+            "ec": "careena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Careena_EC.11031.34.0.tbz2",
+          "main-image": "bcs://Careena.11031.34.0.tbz2",
+          "main-rw-image": "bcs://Careena.11031.44.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "CAREENA",
+          "signature-id": "barla"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 32,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "barla",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "barla",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa200082c_1.3.bin",
+              "source": "touch/raydium/raydium_0xa200082c_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa200082c.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a2b_1.2.bin",
+              "source": "touch/raydium/raydium_0xa2000a2b_1.2.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a2b.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a3d_1.4.bin",
+              "source": "touch/raydium/raydium_0xa2000a3d_1.4.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a3d.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/213.0_2.0.bin",
+              "source": "touch/elan/213.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_213.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/180.0_2.0.bin",
+              "source": "touch/elan/180.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_180.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2f88_5600.bin",
+              "source": "touch/elan/2f88_5600.bin",
+              "symlink": "/lib/firmware/elants_i2c_2f88.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2fe5_5612.bin",
+              "source": "touch/elan/2fe5_5612.bin",
+              "symlink": "/lib/firmware/elants_i2c_2fe5.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "barla",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "files": [
+              {
+                "destination": "/etc/cras/careena/acpd7219m98357",
+                "source": "cras-config/careena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/careena/dsp.ini",
+                "source": "cras-config/careena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.careena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.careena/acpd7219m98357.careena.conf",
+                "source": "ucm-config/acpd7219m98357.careena/acpd7219m98357.careena.conf"
+              }
+            ],
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "PXDO",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "careena",
+            "depthcharge": "grunt",
+            "ec": "careena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Careena_EC.11031.34.0.tbz2",
+          "main-image": "bcs://Careena.11031.34.0.tbz2",
+          "main-rw-image": "bcs://Careena.11031.44.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "CAREENA",
+          "signature-id": "barla"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 33,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "barla",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "barla",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa200082c_1.3.bin",
+              "source": "touch/raydium/raydium_0xa200082c_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa200082c.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a2b_1.2.bin",
+              "source": "touch/raydium/raydium_0xa2000a2b_1.2.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a2b.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2000a3d_1.4.bin",
+              "source": "touch/raydium/raydium_0xa2000a3d_1.4.bin",
+              "symlink": "/lib/firmware/raydium_0xa2000a3d.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/213.0_2.0.bin",
+              "source": "touch/elan/213.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_213.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/180.0_2.0.bin",
+              "source": "touch/elan/180.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_180.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2f88_5600.bin",
+              "source": "touch/elan/2f88_5600.bin",
+              "symlink": "/lib/firmware/elants_i2c_2f88.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/2fe5_5612.bin",
+              "source": "touch/elan/2fe5_5612.bin",
+              "symlink": "/lib/firmware/elants_i2c_2fe5.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "files": [
+              {
+                "destination": "/etc/cras/aleena/acpd7219m98357",
+                "source": "cras-config/aleena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/aleena/dsp.ini",
+                "source": "cras-config/aleena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/acpd7219m98357.aleena.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/acpd7219m98357.aleena.conf"
+              }
+            ],
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "aleena",
+            "depthcharge": "grunt",
+            "ec": "aleena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Aleena_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Aleena.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "aleena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 64,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa222173f_2.6.bin",
+              "source": "touch/raydium/raydium_0xa222173f_2.6.bin",
+              "symlink": "/lib/firmware/raydium_0xa222173f.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/176.0_4.0.bin",
+              "source": "touch/elan/176.0_4.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_176.0.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "files": [
+              {
+                "destination": "/etc/cras/aleena/acpd7219m98357",
+                "source": "cras-config/aleena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/aleena/dsp.ini",
+                "source": "cras-config/aleena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/acpd7219m98357.aleena.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/acpd7219m98357.aleena.conf"
+              }
+            ],
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "aleena",
+            "depthcharge": "grunt",
+            "ec": "aleena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Aleena_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Aleena.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "aleena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 65,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa222173f_2.6.bin",
+              "source": "touch/raydium/raydium_0xa222173f_2.6.bin",
+              "symlink": "/lib/firmware/raydium_0xa222173f.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/176.0_4.0.bin",
+              "source": "touch/elan/176.0_4.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_176.0.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "files": [
+              {
+                "destination": "/etc/cras/aleena/acpd7219m98357",
+                "source": "cras-config/aleena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/aleena/dsp.ini",
+                "source": "cras-config/aleena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/acpd7219m98357.aleena.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/acpd7219m98357.aleena.conf"
+              }
+            ],
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "aleena",
+            "depthcharge": "grunt",
+            "ec": "aleena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Aleena_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Aleena.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "aleena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 66,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa222173f_2.6.bin",
+              "source": "touch/raydium/raydium_0xa222173f_2.6.bin",
+              "symlink": "/lib/firmware/raydium_0xa222173f.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/176.0_4.0.bin",
+              "source": "touch/elan/176.0_4.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_176.0.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "files": [
+              {
+                "destination": "/etc/cras/aleena/acpd7219m98357",
+                "source": "cras-config/aleena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/aleena/dsp.ini",
+                "source": "cras-config/aleena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/acpd7219m98357.aleena.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/acpd7219m98357.aleena.conf"
+              }
+            ],
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "aleena",
+            "depthcharge": "grunt",
+            "ec": "aleena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Aleena_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Aleena.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "aleena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 67,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa222173f_2.6.bin",
+              "source": "touch/raydium/raydium_0xa222173f_2.6.bin",
+              "symlink": "/lib/firmware/raydium_0xa222173f.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/176.0_4.0.bin",
+              "source": "touch/elan/176.0_4.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_176.0.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "files": [
+              {
+                "destination": "/etc/cras/aleena/acpd7219m98357",
+                "source": "cras-config/aleena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/aleena/dsp.ini",
+                "source": "cras-config/aleena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/acpd7219m98357.aleena.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/acpd7219m98357.aleena.conf"
+              }
+            ],
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "aleena",
+            "depthcharge": "grunt",
+            "ec": "aleena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Aleena_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Aleena.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "aleena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 68,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa222173f_2.6.bin",
+              "source": "touch/raydium/raydium_0xa222173f_2.6.bin",
+              "symlink": "/lib/firmware/raydium_0xa222173f.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/176.0_4.0.bin",
+              "source": "touch/elan/176.0_4.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_176.0.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "files": [
+              {
+                "destination": "/etc/cras/aleena/acpd7219m98357",
+                "source": "cras-config/aleena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/aleena/dsp.ini",
+                "source": "cras-config/aleena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/acpd7219m98357.aleena.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/acpd7219m98357.aleena.conf"
+              }
+            ],
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "aleena",
+            "depthcharge": "grunt",
+            "ec": "aleena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Aleena_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Aleena.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "aleena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 69,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa222173f_2.6.bin",
+              "source": "touch/raydium/raydium_0xa222173f_2.6.bin",
+              "symlink": "/lib/firmware/raydium_0xa222173f.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/176.0_4.0.bin",
+              "source": "touch/elan/176.0_4.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_176.0.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "files": [
+              {
+                "destination": "/etc/cras/aleena/acpd7219m98357",
+                "source": "cras-config/aleena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/aleena/dsp.ini",
+                "source": "cras-config/aleena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/acpd7219m98357.aleena.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/acpd7219m98357.aleena.conf"
+              }
+            ],
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "aleena",
+            "depthcharge": "grunt",
+            "ec": "aleena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Aleena_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Aleena.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "aleena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 70,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa222173f_2.6.bin",
+              "source": "touch/raydium/raydium_0xa222173f_2.6.bin",
+              "symlink": "/lib/firmware/raydium_0xa222173f.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/176.0_4.0.bin",
+              "source": "touch/elan/176.0_4.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_176.0.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "files": [
+              {
+                "destination": "/etc/cras/aleena/acpd7219m98357",
+                "source": "cras-config/aleena/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/aleena/dsp.ini",
+                "source": "cras-config/aleena/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.aleena/acpd7219m98357.aleena.conf",
+                "source": "ucm-config/acpd7219m98357.aleena/acpd7219m98357.aleena.conf"
+              }
+            ],
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "aleena",
+            "depthcharge": "grunt",
+            "ec": "aleena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Aleena_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Aleena.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "aleena"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 71,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa222173f_2.6.bin",
+              "source": "touch/raydium/raydium_0xa222173f_2.6.bin",
+              "symlink": "/lib/firmware/raydium_0xa222173f.fw"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/176.0_4.0.bin",
+              "source": "touch/elan/176.0_4.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_176.0.bin"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "kasumi",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "kasumi",
+            "files": [
+              {
+                "destination": "/etc/cras/kasumi/acpd7219m98357",
+                "source": "cras-config/kasumi/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/kasumi/dsp.ini",
+                "source": "cras-config/kasumi/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.kasumi/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.kasumi/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.kasumi/acpd7219m98357.kasumi.conf",
+                "source": "ucm-config/acpd7219m98357.kasumi/acpd7219m98357.kasumi.conf"
+              }
+            ],
+            "ucm-suffix": "kasumi"
+          }
+        },
+        "brand-code": "UGAY",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "aleena",
+            "depthcharge": "grunt",
+            "ec": "aleena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Aleena_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Aleena.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "ALEENA",
+          "signature-id": "kasumi"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 80,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "kasumi",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "kasumi",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/188.0_2.0.bin",
+              "source": "touch/elan/188.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_188.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/1d8c_5603.bin",
+              "source": "touch/elan/1d8c_5603.bin",
+              "symlink": "/lib/firmware/elants_i2c_1d8c.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/CDB5_1.2.2904885.bin",
+              "source": "touch/synaptics/CDB5_1.2.2904885.bin",
+              "symlink": "/lib/firmware/hid-06CB_CDB5"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "kasumi",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "kasumi",
+            "files": [
+              {
+                "destination": "/etc/cras/kasumi/acpd7219m98357",
+                "source": "cras-config/kasumi/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/kasumi/dsp.ini",
+                "source": "cras-config/kasumi/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.kasumi/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.kasumi/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.kasumi/acpd7219m98357.kasumi.conf",
+                "source": "ucm-config/acpd7219m98357.kasumi/acpd7219m98357.kasumi.conf"
+              }
+            ],
+            "ucm-suffix": "kasumi"
+          }
+        },
+        "brand-code": "UGAY",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "aleena",
+            "depthcharge": "grunt",
+            "ec": "aleena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Aleena_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Aleena.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "ALEENA",
+          "signature-id": "kasumi"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 81,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "kasumi",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "kasumi",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/188.0_2.0.bin",
+              "source": "touch/elan/188.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_188.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/1d8c_5603.bin",
+              "source": "touch/elan/1d8c_5603.bin",
+              "symlink": "/lib/firmware/elants_i2c_1d8c.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/CDB5_1.2.2904885.bin",
+              "source": "touch/synaptics/CDB5_1.2.2904885.bin",
+              "symlink": "/lib/firmware/hid-06CB_CDB5"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "kasumi360",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "kasumi",
+            "files": [
+              {
+                "destination": "/etc/cras/kasumi/acpd7219m98357",
+                "source": "cras-config/kasumi/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/kasumi/dsp.ini",
+                "source": "cras-config/kasumi/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.kasumi/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.kasumi/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.kasumi/acpd7219m98357.kasumi.conf",
+                "source": "ucm-config/acpd7219m98357.kasumi/acpd7219m98357.kasumi.conf"
+              }
+            ],
+            "ucm-suffix": "kasumi"
+          }
+        },
+        "brand-code": "OFPE",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "aleena",
+            "depthcharge": "grunt",
+            "ec": "aleena",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Aleena_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Aleena.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "ALEENA",
+          "signature-id": "kasumi360"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 82,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "kasumi360",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "kasumi360",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/188.0_2.0.bin",
+              "source": "touch/elan/188.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_188.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/1d8c_5603.bin",
+              "source": "touch/elan/1d8c_5603.bin",
+              "symlink": "/lib/firmware/elants_i2c_1d8c.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/CDB5_1.2.2904885.bin",
+              "source": "touch/synaptics/CDB5_1.2.2904885.bin",
+              "symlink": "/lib/firmware/hid-06CB_CDB5"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "files": [
+              {
+                "destination": "/etc/cras/liara/acpd7219m98357",
+                "source": "cras-config/liara/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/liara/dsp.ini",
+                "source": "cras-config/liara/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.liara/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/acpd7219m98357.liara.conf",
+                "source": "ucm-config/acpd7219m98357.liara/acpd7219m98357.liara.conf"
+              }
+            ],
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "liara",
+            "depthcharge": "grunt",
+            "ec": "liara",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Liara_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Liara.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "liara"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 128,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/1f08_5715.bin",
+              "source": "touch/elan/1f08_5715.bin",
+              "symlink": "/lib/firmware/elants_i2c_1f08.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/7CA0_1.1.2826960.bin",
+              "source": "touch/synaptics/7CA0_1.1.2826960.bin",
+              "symlink": "/lib/firmware/hid-06CB_7CA0"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/181.0_2.0.bin",
+              "source": "touch/elan/181.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_181.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2221840_1.3.bin",
+              "source": "touch/raydium/raydium_0xa2221840_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa2221840.fw"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "files": [
+              {
+                "destination": "/etc/cras/liara/acpd7219m98357",
+                "source": "cras-config/liara/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/liara/dsp.ini",
+                "source": "cras-config/liara/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.liara/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/acpd7219m98357.liara.conf",
+                "source": "ucm-config/acpd7219m98357.liara/acpd7219m98357.liara.conf"
+              }
+            ],
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "liara",
+            "depthcharge": "grunt",
+            "ec": "liara",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Liara_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Liara.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "liara"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 129,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/1f08_5715.bin",
+              "source": "touch/elan/1f08_5715.bin",
+              "symlink": "/lib/firmware/elants_i2c_1f08.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/7CA0_1.1.2826960.bin",
+              "source": "touch/synaptics/7CA0_1.1.2826960.bin",
+              "symlink": "/lib/firmware/hid-06CB_7CA0"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/181.0_2.0.bin",
+              "source": "touch/elan/181.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_181.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2221840_1.3.bin",
+              "source": "touch/raydium/raydium_0xa2221840_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa2221840.fw"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "files": [
+              {
+                "destination": "/etc/cras/liara/acpd7219m98357",
+                "source": "cras-config/liara/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/liara/dsp.ini",
+                "source": "cras-config/liara/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.liara/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/acpd7219m98357.liara.conf",
+                "source": "ucm-config/acpd7219m98357.liara/acpd7219m98357.liara.conf"
+              }
+            ],
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "liara",
+            "depthcharge": "grunt",
+            "ec": "liara",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Liara_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Liara.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "liara"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 130,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/1f08_5715.bin",
+              "source": "touch/elan/1f08_5715.bin",
+              "symlink": "/lib/firmware/elants_i2c_1f08.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/7CA0_1.1.2826960.bin",
+              "source": "touch/synaptics/7CA0_1.1.2826960.bin",
+              "symlink": "/lib/firmware/hid-06CB_7CA0"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/181.0_2.0.bin",
+              "source": "touch/elan/181.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_181.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2221840_1.3.bin",
+              "source": "touch/raydium/raydium_0xa2221840_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa2221840.fw"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "files": [
+              {
+                "destination": "/etc/cras/liara/acpd7219m98357",
+                "source": "cras-config/liara/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/liara/dsp.ini",
+                "source": "cras-config/liara/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.liara/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/acpd7219m98357.liara.conf",
+                "source": "ucm-config/acpd7219m98357.liara/acpd7219m98357.liara.conf"
+              }
+            ],
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "liara",
+            "depthcharge": "grunt",
+            "ec": "liara",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Liara_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Liara.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "liara"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 131,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/1f08_5715.bin",
+              "source": "touch/elan/1f08_5715.bin",
+              "symlink": "/lib/firmware/elants_i2c_1f08.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/7CA0_1.1.2826960.bin",
+              "source": "touch/synaptics/7CA0_1.1.2826960.bin",
+              "symlink": "/lib/firmware/hid-06CB_7CA0"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/181.0_2.0.bin",
+              "source": "touch/elan/181.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_181.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2221840_1.3.bin",
+              "source": "touch/raydium/raydium_0xa2221840_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa2221840.fw"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "files": [
+              {
+                "destination": "/etc/cras/liara/acpd7219m98357",
+                "source": "cras-config/liara/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/liara/dsp.ini",
+                "source": "cras-config/liara/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.liara/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/acpd7219m98357.liara.conf",
+                "source": "ucm-config/acpd7219m98357.liara/acpd7219m98357.liara.conf"
+              }
+            ],
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "liara",
+            "depthcharge": "grunt",
+            "ec": "liara",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Liara_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Liara.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "liara"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 132,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/1f08_5715.bin",
+              "source": "touch/elan/1f08_5715.bin",
+              "symlink": "/lib/firmware/elants_i2c_1f08.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/7CA0_1.1.2826960.bin",
+              "source": "touch/synaptics/7CA0_1.1.2826960.bin",
+              "symlink": "/lib/firmware/hid-06CB_7CA0"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/181.0_2.0.bin",
+              "source": "touch/elan/181.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_181.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2221840_1.3.bin",
+              "source": "touch/raydium/raydium_0xa2221840_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa2221840.fw"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "files": [
+              {
+                "destination": "/etc/cras/liara/acpd7219m98357",
+                "source": "cras-config/liara/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/liara/dsp.ini",
+                "source": "cras-config/liara/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.liara/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/acpd7219m98357.liara.conf",
+                "source": "ucm-config/acpd7219m98357.liara/acpd7219m98357.liara.conf"
+              }
+            ],
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "liara",
+            "depthcharge": "grunt",
+            "ec": "liara",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Liara_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Liara.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "liara"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 133,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/1f08_5715.bin",
+              "source": "touch/elan/1f08_5715.bin",
+              "symlink": "/lib/firmware/elants_i2c_1f08.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/7CA0_1.1.2826960.bin",
+              "source": "touch/synaptics/7CA0_1.1.2826960.bin",
+              "symlink": "/lib/firmware/hid-06CB_7CA0"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/181.0_2.0.bin",
+              "source": "touch/elan/181.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_181.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2221840_1.3.bin",
+              "source": "touch/raydium/raydium_0xa2221840_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa2221840.fw"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "files": [
+              {
+                "destination": "/etc/cras/liara/acpd7219m98357",
+                "source": "cras-config/liara/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/liara/dsp.ini",
+                "source": "cras-config/liara/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.liara/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/acpd7219m98357.liara.conf",
+                "source": "ucm-config/acpd7219m98357.liara/acpd7219m98357.liara.conf"
+              }
+            ],
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "liara",
+            "depthcharge": "grunt",
+            "ec": "liara",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Liara_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Liara.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "liara"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 134,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/1f08_5715.bin",
+              "source": "touch/elan/1f08_5715.bin",
+              "symlink": "/lib/firmware/elants_i2c_1f08.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/7CA0_1.1.2826960.bin",
+              "source": "touch/synaptics/7CA0_1.1.2826960.bin",
+              "symlink": "/lib/firmware/hid-06CB_7CA0"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/181.0_2.0.bin",
+              "source": "touch/elan/181.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_181.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2221840_1.3.bin",
+              "source": "touch/raydium/raydium_0xa2221840_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa2221840.fw"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "files": [
+              {
+                "destination": "/etc/cras/liara/acpd7219m98357",
+                "source": "cras-config/liara/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/liara/dsp.ini",
+                "source": "cras-config/liara/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.liara/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.liara/acpd7219m98357.liara.conf",
+                "source": "ucm-config/acpd7219m98357.liara/acpd7219m98357.liara.conf"
+              }
+            ],
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "liara",
+            "depthcharge": "grunt",
+            "ec": "liara",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Liara_EC.11031.49.0.tbz2",
+          "main-image": "bcs://Liara.11031.49.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "liara"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 135,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "files": [
+            {
+              "destination": "/opt/google/touch/firmware/1f08_5715.bin",
+              "source": "touch/elan/1f08_5715.bin",
+              "symlink": "/lib/firmware/elants_i2c_1f08.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/7CA0_1.1.2826960.bin",
+              "source": "touch/synaptics/7CA0_1.1.2826960.bin",
+              "symlink": "/lib/firmware/hid-06CB_7CA0"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/181.0_2.0.bin",
+              "source": "touch/elan/181.0_2.0.bin",
+              "symlink": "/lib/firmware/elan_i2c_181.0.bin"
+            },
+            {
+              "destination": "/opt/google/touch/firmware/raydium_0xa2221840_1.3.bin",
+              "source": "touch/raydium/raydium_0xa2221840_1.3.bin",
+              "symlink": "/lib/firmware/raydium_0xa2221840.fw"
+            }
+          ],
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "delan",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "delan",
+            "files": [
+              {
+                "destination": "/etc/cras/delan/acpd7219m98357",
+                "source": "cras-config/delan/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/delan/dsp.ini",
+                "source": "cras-config/delan/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.delan/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.delan/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.delan/acpd7219m98357.delan.conf",
+                "source": "ucm-config/acpd7219m98357.delan/acpd7219m98357.delan.conf"
+              }
+            ],
+            "ucm-suffix": "delan"
+          }
+        },
+        "brand-code": "DRYI",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "delan",
+            "depthcharge": "grunt",
+            "ec": "delan",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Delan_EC.11031.44.0.tbz2",
+          "main-image": "bcs://Delan.11031.44.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "delan"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 192,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "delan",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "delan",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "delan",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "delan",
+            "files": [
+              {
+                "destination": "/etc/cras/delan/acpd7219m98357",
+                "source": "cras-config/delan/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/delan/dsp.ini",
+                "source": "cras-config/delan/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.delan/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.delan/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.delan/acpd7219m98357.delan.conf",
+                "source": "ucm-config/acpd7219m98357.delan/acpd7219m98357.delan.conf"
+              }
+            ],
+            "ucm-suffix": "delan"
+          }
+        },
+        "brand-code": "DRYI",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "delan",
+            "depthcharge": "grunt",
+            "ec": "delan",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Delan_EC.11031.44.0.tbz2",
+          "main-image": "bcs://Delan.11031.44.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "delan"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 193,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "delan",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "delan",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "delan",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "delan",
+            "files": [
+              {
+                "destination": "/etc/cras/delan/acpd7219m98357",
+                "source": "cras-config/delan/acpd7219m98357"
+              },
+              {
+                "destination": "/etc/cras/delan/dsp.ini",
+                "source": "cras-config/delan/dsp.ini"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.delan/HiFi.conf",
+                "source": "ucm-config/acpd7219m98357.delan/HiFi.conf"
+              },
+              {
+                "destination": "/usr/share/alsa/ucm/acpd7219m98357.delan/acpd7219m98357.delan.conf",
+                "source": "ucm-config/acpd7219m98357.delan/acpd7219m98357.delan.conf"
+              }
+            ],
+            "ucm-suffix": "delan"
+          }
+        },
+        "brand-code": "DRYI",
+        "firmware": {
+          "bcs-overlay": "overlay-grunt-private",
+          "build-targets": {
+            "coreboot": "delan",
+            "depthcharge": "grunt",
+            "ec": "delan",
+            "libpayload": "grunt",
+            "u-boot": "coreboot"
+          },
+          "ec-image": "bcs://Delan_EC.11031.44.0.tbz2",
+          "main-image": "bcs://Delan.11031.44.0.tbz2"
+        },
+        "firmware-signing": {
+          "key-id": "DEFAULT",
+          "signature-id": "delan"
+        },
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 194,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "delan",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "delan",
+        "wallpaper": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+# Copyright 2016 The Chromium OS Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+# These seccomp rules specify only the syscalls used by the Wacom FW updater
+# tool.  The updater wacom_flash should only be used through minijail with
+# these rules.
+open: 1
+mmap: 1
+stat: 1
+write: 1
+mprotect: 1
+ioctl: 1
+brk: 1
+close: 1
+fstat: 1
+restart_syscall: 1
+exit: 1
+rt_sigreturn: 1
+exit_group: 1
+read: 1
+arch_prctl: 1
+access: 1
+munmap: 1
+execve: 1
+nanosleep: 1

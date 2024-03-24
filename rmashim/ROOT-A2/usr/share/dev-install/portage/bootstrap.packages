@@ -1,0 +1,13 @@
+app-admin/python-updater-0.11
+app-eselect/eselect-python-20140125-r1
+app-misc/mime-types-9
+app-misc/pax-utils-1.2.2
+dev-lang/python-2.7.10-r4
+dev-lang/python-exec-2.0.1-r1
+dev-python/pyxattr-0.5.5-r1
+net-misc/rsync-3.1.3
+sys-apps/install-xattr-0.5
+sys-apps/portage-2.2.28-r22
+sys-apps/sandbox-2.11-r3
+sys-libs/gdbm-1.11
+net-misc/dhcp-4.3.6_p1

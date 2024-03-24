@@ -1,0 +1,20 @@
+; Copyright 2014 The Chromium Authors. All rights reserved.
+; Use of this source code is governed by a BSD-style license that can be
+; found in the LICENSE file.
+;
+; Erase the drive with a pattern, except for the begining and the end.
+;
+[secure]
+filename=${FIO_DEV}
+ioengine=libaio
+iodepth=32
+direct=1
+readwrite=write
+bs=256k
+
+offset=1m
+size=${FIO_DEV_MAIN_AREA_SIZE}
+do_verify=1
+verify=md5
+verify_only=${FIO_VERIFY_ONLY}
+

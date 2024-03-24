@@ -1,0 +1,1 @@
+GROUP ( AS_NEEDED ( -lbrillo-core-395517 -lbrillo-cryptohome-395517 -lbrillo-http-395517 -lbrillo-minijail-395517 -lbrillo-streams-395517 ) )

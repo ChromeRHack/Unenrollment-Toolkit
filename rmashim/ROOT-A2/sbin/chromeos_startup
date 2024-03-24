@@ -1,0 +1,528 @@
+#!/bin/sh
+
+# Copyright (c) 2012 The Chromium OS Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+. /usr/share/misc/chromeos-common.sh
+
+UNDO_MOUNTS=
+cleanup_mounts()
+{
+  # On failure unmount all saved mount points and repair stateful
+  for mount_point in ${UNDO_MOUNTS}; do
+    umount -n ${mount_point}
+  done
+  # Leave /mnt/stateful_partition mounted for clobber-state to handle.
+  chromeos-boot-alert self_repair
+  clobber-log -- \
+    "Self-repair incoherent stateful partition: $*. History: ${UNDO_MOUNTS}"
+  exec clobber-state "fast keepimg"
+}
+remember_mount()
+{
+    UNDO_MOUNTS="$1 ${UNDO_MOUNTS}"
+}
+mount_or_fail()
+{
+  local mount_point
+  # -c: Never canonicalize: it is a hazard to resolve symlinks.
+  # -n: Do not write to mtab: we don't use it.
+  if mount -c -n "$@" ; then
+    # Last parameter contains the mount point
+    shift $(( $# - 1 ))
+    # Push it on the undo stack if we fail later
+    remember_mount "$1"
+    return
+  fi
+  cleanup_mounts "failed to mount $*"
+}
+# Assert that the argument is a directory.
+# On failure, clobbers the stateful partition.
+check_directory()
+{
+  local path="$1"
+  if [ -L "${path}" ] || [ ! -d "${path}" ]; then
+    cleanup_mounts "${path} is not a directory"
+  fi
+}
+
+# Checks if /var is close to being full.
+# Returns exit code of 0 (boolean true) if there is less than 10MB of
+# free space left in /var.
+is_var_full() {
+  local var_avail="$(df -k --output=avail /var | grep -E -o '[0-9]+')"
+  [ ${var_avail} -lt 10000 ]
+}
+
+# Returns if the TPM is owned.
+is_tpm_owned() {
+  local tpm_owned
+  # Depending on the kernel version, the file containing tpm owned information
+  # can be in one of two locations. Specifically, for kernel versions 3.10 and
+  # 3.14 the folder misc is used (/sys/class/misc/tpm0/device/owned). Starting
+  # from version 3.18 the folder tpm is used.
+  if [ -e /sys/class/misc/tpm0/device/owned ]; then
+    tpm_owned=$(cat /sys/class/misc/tpm0/device/owned)
+  else
+    tpm_owned=$(cat /sys/class/tpm/tpm0/device/owned)
+  fi
+  [ "${tpm_owned}" = "1" ]
+}
+
+# Sanity check the date in case the RTC battery died and it initialized to
+# something old (https://crbug.com/195715).  This doesn't need to be perfect,
+# just somewhat recent/sane.  We'll recover later via tlsdate.
+sanity_check_clock() {
+  # We manage this base timestamp by hand.  It isolates us from bad clocks on
+  # the system where this image was built/modified, and on the runtime image
+  # (in case a dev modified random paths while the clock was out of sync).
+  # Calculated using: date -d"01 Jan $(date +%Y) UTC" +%s
+  local year="2017"
+  local base_secs="1483228800"
+
+  # See if the current time is older than our sanity time.  If so, pull up.
+  if [ $(date -u +%s) -lt ${base_secs} ]; then
+    date -u 01020000${year}
+  fi
+}
+
+# Mount debugfs as bootstat depends on /sys/kernel/debug
+mount -n -t debugfs -o nodev,noexec,nosuid,mode=0750,uid=0,gid=debugfs-access \
+  debugfs /sys/kernel/debug
+
+# bootstat writes timings to both tmpfs and debugfs.
+bootstat pre-startup
+
+# Some startup functions are split into a separate library which may be
+# different for different targets (e.g., regular Chrome OS vs. embedded).
+. /usr/share/cros/startup_utils.sh
+
+mkdir -p /dev/pts /dev/shm
+mount -n -t tmpfs -o nodev,noexec,nosuid shmfs /dev/shm
+mount -n -t devpts -o noexec,nosuid,gid=5,mode=0620 devpts /dev/pts
+
+# Mount configfs, if present.
+if [ -d /sys/kernel/config ]; then
+  mount -n -t configfs -o nodev,nosuid,noexec,mode=0750 configfs \
+    /sys/kernel/config
+fi
+
+if [ -e /usr/share/cros/startup/disable_stateful_security_hardening ]; then
+  DISABLE_STATEFUL_SECURITY_HARDENING="true"
+else
+  DISABLE_STATEFUL_SECURITY_HARDENING="false"
+fi
+
+if [ "${DISABLE_STATEFUL_SECURITY_HARDENING}" = "false" ]; then
+  # Mount securityfs as it is used to configure inode security policies below.
+  mount -n -t securityfs -o nodev,noexec,nosuid securityfs /sys/kernel/security
+fi
+
+# Initialize kernel sysctl settings early so that they take effect for boot
+# processes.
+sysctl -q --system
+
+# CROS_DEBUG equals one if we've booted in developer mode or we've
+# booted a developer image.
+crossystem "cros_debug?1"
+CROS_DEBUG=$((! $?))
+
+# Developer mode functions (defined in dev_utils.sh and will be loaded
+# only when CROS_DEBUG=1).
+dev_check_block_dev_mode() { true; }
+dev_update_stateful_partition() { true; }
+dev_gather_logs() { true; }
+dev_mount_packages() { true; }
+dev_is_debug_build() { false; }
+
+# do_* are wrapper functions that may be redefined in developer mode or test
+# images. Find more implementation in {dev,test,factory}_utils.sh.
+do_mount_var_and_home_chronos() { mount_var_and_home_chronos; }
+
+if [ "${CROS_DEBUG}" -eq 1 ]; then
+  . /usr/share/cros/dev_utils.sh
+fi
+
+# Create a directory where PID files can be placed to override suspend and
+# shutdown (e.g. during firmware updates). This needs to happen early since
+# flashrom may run before the powerd job has started.
+POWER_OVERRIDE_DIR="/run/lock/power_override"
+mkdir -p "${POWER_OVERRIDE_DIR}"
+chmod 1777 "${POWER_OVERRIDE_DIR}"
+
+# Prepare to mount stateful partition
+ROOT_DEV=$(rootdev -s)
+ROOTDEV_RET_CODE=$?
+# Example root dev types we need to handle: /dev/sda2 -> /dev/sda,
+# /dev/mmcblk0p0 -> /dev/mmcblk0p, /dev/ubi2_1 -> /dev/ubi
+ROOTDEV_TYPE=$(echo $ROOT_DEV | sed 's/[0-9_]*$//')
+ROOTDEV_NAME=${ROOTDEV_TYPE##/dev/}
+ROOTDEV_REMOVABLE=$(cat "/sys/block/${ROOTDEV_NAME}/removable")
+
+# Load the GPT helper functions and the image settings.
+. "/usr/sbin/write_gpt.sh"
+if [ "${ROOTDEV_REMOVABLE}" = "1" ]; then
+  load_partition_vars
+else
+  load_base_vars
+fi
+
+# Path to the securityfs directory for configuring inode security policies.
+LSM_INODE_POLICIES="/sys/kernel/security/chromiumos/inode_security_policies"
+
+# Block symlink and FIFO access on the given path.
+block_symlink_and_fifo() {
+  printf "$1" > "${LSM_INODE_POLICIES}/block_symlink"
+  printf "$1" > "${LSM_INODE_POLICIES}/block_fifo"
+}
+
+# Allow symlink access on the given path.
+allow_symlink() {
+  printf "$1" > "${LSM_INODE_POLICIES}/allow_symlink"
+}
+
+# Allow fifo access on the given path.
+allow_fifo() {
+  printf "$1" > "${LSM_INODE_POLICIES}/allow_fifo"
+}
+
+# Check if we are booted on physical media. rootdev will fail if we are in
+# an initramfs or tmpfs rootfs (ex, factory installer images. Note recovery
+# image also uses initramfs but it never reach here). When using initrd+tftpboot
+# (some old netboot factory installer), ROOTDEV_TYPE will be /dev/ram.
+STATE_DEV=""
+if [ "$ROOTDEV_RET_CODE" = "0" -a "$ROOTDEV_TYPE" != "/dev/ram" ]; then
+  # Find our stateful partition mount point.
+  # To support multiple volumes on a single UBI device, if the stateful
+  # partition is not found on ubi${PARTITION_NUM_STATE}_0, check
+  # ubi0_${PARTITION_NUM_STATE}.
+  STATE_FLAGS="nodev,noexec,nosuid,noatime"
+  if [ "${FORMAT_STATE}" = "ubi" ]; then
+    STATE_DEV="/dev/ubi${PARTITION_NUM_STATE}_0"
+    if [ ! -e "${STATE_DEV}" ]; then
+      STATE_DEV="/dev/ubi0_${PARTITION_NUM_STATE}"
+    fi
+  else
+    DIRTY_EXPIRE_CENTISECS=$(sysctl -n vm.dirty_expire_centisecs)
+    COMMIT_INTERVAL=$(( DIRTY_EXPIRE_CENTISECS / 100 ))
+    STATE_DEV=${ROOTDEV_TYPE}${PARTITION_NUM_STATE}
+    STATE_FLAGS="${STATE_FLAGS},commit=${COMMIT_INTERVAL}"
+  fi
+
+  # Check if we enable ext4 crypto.
+  if [ "${FS_FORMAT_STATE}" = "ext4" ]; then
+    # Enable directory encryption for existing install.
+    if ! dumpe2fs -h "${STATE_DEV}" 2>/dev/null | \
+         grep -qe "^Filesystem features:.* encrypt.*"; then
+      # The stateful partition is not set for encryption.
+      # Check if we should migrate.
+      if ext4_dir_encryption_supported; then
+        # Ensure to replay the journal first so it doesn't overwrite the flag.
+        e2fsck -p -E journal_only "${STATE_DEV}" || :
+        # The kernel support encryption, do it!
+        tune2fs -O encrypt "${STATE_DEV}" || :
+      fi
+    fi
+  fi
+
+  # Enable/disable quota feature.
+  if [ "${FS_FORMAT_STATE}" = "ext4" ]; then
+    if ! dumpe2fs -h "${STATE_DEV}" 2>/dev/null | \
+         grep -qe "^Reserved blocks gid.*20119"; then
+      # Add Android's AID_RESERVED_DISK to resgid.
+      tune2fs -g 20119 "${STATE_DEV}" || :
+    fi
+    if [ -d /proc/sys/fs/quota ]; then
+      # Quota is enabled in the kernel, make sure that quota is enabled in the
+      # filesystem.
+      if ! dumpe2fs -h "${STATE_DEV}" 2>/dev/null | \
+           grep -qe "^Filesystem features:.* quota.*"; then
+        tune2fs -Oquota -Qusrquota,grpquota "${STATE_DEV}" || :
+      fi
+    else
+      # Quota is not enabled in the kernel, make sure that quota is disabled in
+      # the filesystem.
+      if dumpe2fs -h "${STATE_DEV}" 2>/dev/null | \
+           grep -qe "^Filesystem features:.* quota.*"; then
+        tune2fs -O^quota -Q^usrquota,^grpquota "${STATE_DEV}" || :
+      fi
+    fi
+  fi
+
+  # Mount stateful partition from STATE_DEV.
+  if ! mount -n -t ${FS_FORMAT_STATE} -o ${STATE_FLAGS} \
+         "${STATE_DEV}" /mnt/stateful_partition; then
+    # Try to rebuild the stateful partition by clobber-state. (Not using fast
+    # mode out of security consideration: the device might have gotten into this
+    # state through power loss during dev mode transition).
+    chromeos-boot-alert self_repair
+    clobber-log --repair "${STATE_DEV}" \
+        "Self-repair corrupted stateful partition"
+    exec clobber-state "keepimg"
+  fi
+
+  if [ "${DISABLE_STATEFUL_SECURITY_HARDENING}" = "false" ]; then
+    # Block symlink traversal and opening of FIFOs on stateful. Note that we set
+    # up exceptions for developer mode later on.
+    block_symlink_and_fifo /mnt/stateful_partition
+  fi
+
+  # Mount the OEM partition.
+  # mount_or_fail isn't used since this partition only has a filesystem
+  # on some boards.
+  OEM_FLAGS="ro,nodev,noexec,nosuid"
+  if [ "${FORMAT_OEM}" = "ubi" ]; then
+    OEM_DEV="/dev/ubi${PARTITION_NUM_OEM}_0"
+    if [ ! -e "${OEM_DEV}" ]; then
+      OEM_DEV="/dev/ubi0_${PARTITION_NUM_OEM}"
+    fi
+  else
+    OEM_DEV=${ROOTDEV_TYPE}${PARTITION_NUM_OEM}
+  fi
+  mount -n -t ${FS_FORMAT_OEM} -o ${OEM_FLAGS} ${OEM_DEV} /usr/share/oem
+fi
+
+# Make sure our clock is somewhat up-to-date.
+# TODO: See if we can move this before the stateful initialization above.
+sanity_check_clock
+
+# This file is created by clobber-state after the transition
+# to dev mode.
+DEV_MODE_FILE="/mnt/stateful_partition/.developer_mode"
+
+# This file is created after the TPM is initialized and the device is owned.
+INSTALL_ATTRIBUTES_FILE=\
+"/mnt/stateful_partition/home/.shadow/install_attributes.pb"
+
+# Checks if developer mode is blocked.
+dev_check_block_dev_mode "${DEV_MODE_FILE}"
+
+# 'firmware-boot-update' is provided by chromeos-firmware for legacy systems.
+# On most new boards, it should be simply an empty file.
+#
+# NOTE that in some cases (on any board that doesn't have a
+# chromeos-firmware-* ebuild package) this file may not exist at all and that's
+# OK. /bin/sh will yell about "command not found" but then will continue
+# executing the rest of the script since errors aren't fatal.
+# See https://crbug.com/806383
+firmware-boot-update || true
+
+# File used to trigger a stateful reset.  Contains arguments for
+# the "clobber-state" call.  This file may exist at boot time, as
+# some use cases operate by creating this file with the necessary
+# arguments and then rebooting.
+RESET_FILE="/mnt/stateful_partition/factory_install_reset"
+
+# Check for whether we need a stateful wipe, and alert the user as
+# necessary.  We can wipe for several different reasons:
+#  + User requested "power wash" which will create ${RESET_FILE}.
+#  + Switch from verified mode to dev mode.  We do this if we're in
+#    dev mode, and ${DEV_MODE_FILE} doesn't exist.  clobber-state
+#    in this case will create the file, to prevent re-wipe.
+#  + Switch from dev mode to verified mode.  We do this if we're in
+#    verified mode, and ${DEV_MODE_FILE} still exists.  (This check
+#    isn't necessarily reliable.)
+#
+# Stateful wipe for dev mode switching is skipped if the build is a debug build
+# or if we've booted a non-recovery image in recovery mode (for example, doing
+# Esc-F3-Power on a Chromebook with DEV-signed firmware); this protects various
+# development use cases, most especially prototype units or booting Chromium OS
+# on non-Chrome hardware. And because crossystem is slow on some platforms, we
+# want to do the additional checks only after verified DEV_MODE_FILE existence.
+if [ -O ${RESET_FILE} ]; then
+  # Wipe requested on previous boot.
+  chromeos-boot-alert power_wash
+elif [ -z "${STATE_DEV}" ] || dev_is_debug_build; then
+  # No physical stateful partition available, usually due to initramfs
+  # (recovery image, factory install shim or netboot), or running from a
+  # debug build image. Do not wipe.
+  :
+elif [ -O "${DEV_MODE_FILE}" ] ||
+     ( ! is_tpm_owned && [ -O "${INSTALL_ATTRIBUTES_FILE}" ]); then
+  if crossystem 'devsw_boot?0' && ! crossystem 'mainfw_type?recovery'; then
+    # We're transitioning from dev mode to verified boot.
+    # When coming back from developer mode, we don't need to
+    # clobber as aggressively.  Fast will do the trick.
+    chromeos-boot-alert leave_dev
+    echo "fast keepimg" >"${RESET_FILE}"
+    clobber-log -- "Leave developer mode"
+  fi
+else
+  if crossystem 'devsw_boot?1' && ! crossystem 'mainfw_type?recovery'; then
+    # We're transitioning from verified boot to dev mode.
+    chromeos-boot-alert enter_dev
+    echo "keepimg" >"${RESET_FILE}"
+    clobber-log -- "Enter developer mode"
+  fi
+fi
+
+if [ -O ${RESET_FILE} ]; then
+  ARGS="$(cat ${RESET_FILE})"
+  exec clobber-state "$ARGS"
+fi
+
+# Checks and updates stateful partition.
+dev_update_stateful_partition
+
+# Make sure unencrypted stateful partition has the needed common directories.
+# Any non-common directories should be created in the device implementation of
+# "mount_var_and_home_chronos".
+for d in home home/chronos home/root home/user \
+         unencrypted unencrypted/cache unencrypted/preserve; do
+  mkdir -p -m 0755 "/mnt/stateful_partition/${d}"
+  check_directory "/mnt/stateful_partition/${d}"
+done
+
+# Mount /home.  This mount inherits nodev,noexec,nosuid from
+# /mnt/stateful_partition above.
+mount_or_fail --bind /mnt/stateful_partition/home /home
+
+remember_mount /var
+remember_mount /home/chronos
+do_mount_var_and_home_chronos || cleanup_mounts "var and home"
+
+# If /var is too full, delete the logs so the device can boot successfully.
+# It is possible that the fullness of /var was not due to logs, but that
+# is very unlikely. If such a thing happens, we have a serious problem
+# which should not be covered up here.
+if is_var_full; then
+  rm -r -f /var/log
+  echo "Startup.ReclaimFullVar" > /mnt/stateful_partition/.reclaim_full_var
+fi
+
+# Gather logs if needed.  This might clear /var, so all init has to be after
+# this.
+dev_gather_logs
+
+if [ "${DISABLE_STATEFUL_SECURITY_HARDENING}" = "false" ]; then
+  # Set up symlink traversal and FIFO blocking policy for /var, which may reside
+  # on a separate file system than /mnt/stateful_partition. Block symlink
+  # traversal and opening of FIFOs by default, but allow exceptions in the few
+  # instances where they are used intentionally.
+  block_symlink_and_fifo /var
+  # Generic symlink exceptions.
+  for symlink_exception in /var/cache/echo /var/cache/vpd /var/lib/timezone \
+                           /var/log /home; do
+    mkdir -p "${symlink_exception}"
+    allow_symlink "${symlink_exception}"
+  done
+  # Project-specific symlink exceptions. Projects may add exceptions by adding a
+  # file under /usr/share/cros/startup/symlink_exceptions/ whose contents
+  # contains a list of paths (one per line) for which an exception should be
+  # made. File name should use the following format:
+  # <project-name>-symlink-exceptions.txt
+  for path_file in /usr/share/cros/startup/symlink_exceptions/*; do
+    if [ -f "${path_file}" ]; then
+      while read -r path; do
+        case "${path}" in
+        # Ignore blank lines.
+        "") ;;
+        # Ignore comments.
+        "#"*) ;;
+        *)
+          mkdir -p "${path}"
+          allow_symlink "${path}"
+          ;;
+        esac
+      done < "${path_file}"
+    fi
+  done
+  # Project-specific FIFO exceptions. Projects may add exceptions by adding a
+  # file under /usr/share/cros/startup/fifo_exceptions/ whose contents contains
+  # a list of paths (one per line) for which an exception should be made. File
+  # name should use the following format: <project-name>-fifo-exceptions.txt
+  for path_file in /usr/share/cros/startup/fifo_exceptions/*; do
+    if [ -f "${path_file}" ]; then
+      while read -r path; do
+        case "${path}" in
+        # Ignore blank lines.
+        "") ;;
+        # Ignore comments.
+        "#"*) ;;
+        *)
+          mkdir -p "${path}"
+          allow_fifo "${path}"
+          ;;
+        esac
+      done < "${path_file}"
+    fi
+  done
+fi
+
+# /run is now tmpfs used for runtime data. Make sure /var/run and /var/lock are
+# bind-mounted to /run and /run/lock respectively for backwards compatibility.
+# We recreate these all the time in case they were corrupted to point somewhere
+# else than what we want.
+rm -rf /var/run /var/lock || \
+    cleanup_mounts "failed to delete /var/run and /var/lock"
+mkdir -m 0755 /var/run /var/lock
+mount -o bind /run /var/run
+mount -o bind /run/lock /var/lock
+
+# Create daemon store folders.
+# See https://chromium.googlesource.com/chromiumos/docs/+/master/sandboxing.md#securely-mounting-cryptohome-daemon-store-folders.
+mkdir -m 0755 /run/daemon-store
+for etc_daemon_store in /etc/daemon-store/*; do
+    # If /etc/daemon-store is empty, $etc_daemon_store is /etc/daemon-store/*.
+    # This if statement filters that out.
+    if [ -d "$etc_daemon_store" ]; then
+        daemon_name=${etc_daemon_store##*/}
+        run_daemon_store=/run/daemon-store/${daemon_name}
+        mkdir -m 0755 ${run_daemon_store}
+        mount -o bind --make-shared ${run_daemon_store} ${run_daemon_store}
+    fi
+done
+
+# Make sure required /var subdirectories exist.
+mkdir -p -m 0755 /var/cache /var/db /var/empty /var/log/metrics \
+                 /var/spool /var/tmp /var/lib/misc
+
+# Before operating on them, verify that all stateful partition paths are
+# directories (as opposed to say, symlinks).
+for d in /var/cache /var/db /var/empty /var/log /var/log/metrics \
+         /var/spool /var/tmp /var/lib /var/lib/misc /home/chronos /home/root; do
+  check_directory "${d}"
+done
+
+# /var/tmp must be world-writable and sticky
+chmod 1777 /var/tmp
+# /home/root must be group-writable and sticky
+chmod 1771 /home/root
+# Selected directories must belong to the chronos user.
+chown chronos:chronos /home/chronos /var/log/metrics
+# rsyslog needs to be able to create new logfiles, but not delete other logs
+chgrp syslog /var/log
+chmod 1775 /var/log
+# /var/cache, /var/db, and /var/empty may already exist with wrong permissions.
+# Force the correct ones.
+chmod 0755 /var/cache /var/db /var/empty /var/spool /var/lib /var/lib/misc
+
+# "--make-shared" to let ARC container access mount points under /media.
+mount --make-shared -n -t tmpfs -o nodev,noexec,nosuid media /media
+
+# Restore file contexts for /var.
+# TODO(fqj): use type_transition to correctly label directories at creation so
+# relabel need only be started if SELinux policy updates.
+if [ -f /sys/fs/selinux/enforce ]; then
+  chattr -i /var/empty || :
+  restorecon -R -D /var
+  restorecon -R /sys
+fi
+
+# Make sure the empty dir stays empty (only works on ext4).
+chattr +i /var/empty || :
+
+# Mount dev packages.
+dev_mount_packages
+
+if [ "${DISABLE_STATEFUL_SECURITY_HARDENING}" = "false" ]; then
+  # Unmount securityfs so that further modifications to inode security policies
+  # are not possible.
+  umount /sys/kernel/security
+fi
+
+bootstat post-startup
+
+# Always return success to avoid killing init
+exit 0

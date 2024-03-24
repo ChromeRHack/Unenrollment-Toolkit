@@ -1,0 +1,5 @@
+/* GNU ld script
+   Include missing dependencies
+*/
+
+GROUP ( libc++_shared.so libc++abi.so  )

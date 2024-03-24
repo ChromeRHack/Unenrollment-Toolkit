@@ -1,0 +1,31 @@
+# Copyright 2018 The Chromium OS Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+# These seccomp rules specify only the syscalls used by the Goodix FW updater
+# tool.  The updater gdixupdate should only be used through minijail with
+# these rules.
+
+# TODO: replace "ioctl: 1" with arg1 list when seccomp support bytecode filter.
+# Because we encode buffer size in the arg1, so it's hard to list all the arg
+# values use in the updater code, you can fix it in the future.
+# All the values of arg1 are generate by macros HIDIOCSFEATURE(size) and
+# HIDIOCGFEATURE(size) defined at linux/hidraw.h.
+ioctl: 1
+nanosleep: 1
+mmap: arg2 == 0x1 || arg2 == 0x3 || arg2 == 0x5
+mprotect: arg2 == 0x0 || arg2 == 0x1
+open: 1
+close: 1
+read: 1
+fstat: 1
+brk: 1
+lseek: 1
+restart_syscall: 1
+exit: 1
+write: 1
+rt_sigreturn: 1
+exit_group: 1
+arch_prctl: arg0 == 0x1002
+access: 1
+munmap: 1

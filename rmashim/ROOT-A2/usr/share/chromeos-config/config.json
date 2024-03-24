@@ -1,0 +1,1195 @@
+{
+  "chromeos": {
+    "configs": [
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "grunt",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "grunt",
+            "ucm-suffix": "grunt"
+          }
+        },
+        "brand-code": "ZZCR",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 1,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "grunt",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "grunt",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "grunt",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "grunt",
+            "ucm-suffix": "grunt"
+          }
+        },
+        "brand-code": "ZZCR",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 2,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "grunt",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "grunt",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "grunt",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "grunt",
+            "ucm-suffix": "grunt"
+          }
+        },
+        "brand-code": "ZZCR",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 3,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "grunt",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "grunt",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "grunt",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "grunt",
+            "ucm-suffix": "grunt"
+          }
+        },
+        "brand-code": "ZZCR",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 4,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "grunt",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "grunt",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "grunt",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "grunt",
+            "ucm-suffix": "grunt"
+          }
+        },
+        "brand-code": "ZZCR",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 5,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "grunt",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "grunt",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "grunt",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "grunt",
+            "ucm-suffix": "grunt"
+          }
+        },
+        "brand-code": "ZZCR",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 6,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "grunt",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "grunt",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 16,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 17,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 18,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 19,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 20,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 21,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 22,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "careena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "HHRN",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 23,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "careena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "careena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "barla",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "PXDO",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 32,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "barla",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "barla",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "barla",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "careena",
+            "ucm-suffix": "careena"
+          }
+        },
+        "brand-code": "PXDO",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 33,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "barla",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "barla",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": "hp_default"
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 64,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 65,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 66,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 67,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 68,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 69,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 70,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "aleena",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "aleena",
+            "ucm-suffix": "aleena"
+          }
+        },
+        "brand-code": "MXUY",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 71,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "aleena",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "aleena",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "kasumi",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "kasumi",
+            "ucm-suffix": "kasumi"
+          }
+        },
+        "brand-code": "UGAY",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 80,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "kasumi",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "kasumi",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "kasumi",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "kasumi",
+            "ucm-suffix": "kasumi"
+          }
+        },
+        "brand-code": "UGAY",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 81,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "kasumi",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "kasumi",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "kasumi360",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "kasumi",
+            "ucm-suffix": "kasumi"
+          }
+        },
+        "brand-code": "OFPE",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 82,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "kasumi360",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "kasumi360",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 128,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 129,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 130,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 131,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 132,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 133,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 134,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "liara",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "liara",
+            "ucm-suffix": "liara"
+          }
+        },
+        "brand-code": "JFZB",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 135,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "liara",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "liara",
+        "touch": {
+          "present": "yes"
+        },
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "delan",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "delan",
+            "ucm-suffix": "delan"
+          }
+        },
+        "brand-code": "DRYI",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 192,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "delan",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "delan",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "delan",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "delan",
+            "ucm-suffix": "delan"
+          }
+        },
+        "brand-code": "DRYI",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 193,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "delan",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "delan",
+        "wallpaper": ""
+      },
+      {
+        "arc": {
+          "build-properties": {
+            "device": "grunt_cheets",
+            "first-api-level": "28",
+            "marketing-name": "TBD",
+            "metrics-tag": "delan",
+            "product": "grunt"
+          }
+        },
+        "audio": {
+          "main": {
+            "cras-config-dir": "delan",
+            "ucm-suffix": "delan"
+          }
+        },
+        "brand-code": "DRYI",
+        "identity": {
+          "platform-name": "Grunt",
+          "sku-id": 194,
+          "smbios-name-match": "Grunt"
+        },
+        "name": "delan",
+        "power": {
+          "low-battery-shutdown-percent": "4.0"
+        },
+        "test-label": "delan",
+        "wallpaper": ""
+      }
+    ]
+  }
+}
