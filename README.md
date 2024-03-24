@@ -12,3 +12,4 @@
 - implement install via crosh shell
 - Add access crosh via special shortcut other crosh is blocked by policy. (Safety)
 - Implement website to build Unenrollment Toolkit (UTK)
+- Compile Prebuilt Images
