@@ -5,7 +5,7 @@
 - ~implement Murkmod within RMA shim~ (Murkmod already did this)
 - ~Put Logo in boot via frecon over Chrome OS logo~ (Murkmod solved this for us)
 - ~Design UTK logo~
-- Add cryptosmite/Sh1mmer both to RMA shim and crosh
+- ~Add cryptosmite/Sh1mmer both to RMA shim and crosh~ (We maybe should actually launch sh1mmer idk how tho)
 - Add unenrollment to Cryptosmite
 - implement Crosmidi within RMA shim
 - Implement Crosmidi to be accesible via crosh
