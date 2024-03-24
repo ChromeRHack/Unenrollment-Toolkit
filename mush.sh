@@ -70,6 +70,10 @@ edit() {
     fi
 }
 
+sh1mmer() {
+    echo "Plug in your Sh1mmer usb and press esc+power+refresh. We can't boot your shim for you."
+}
+
 locked_main() {
     traps
     mush_info
@@ -135,6 +139,8 @@ main() {
 (23) [EXPERIMENTAL] Install Chromebrew
 (24) [EXPERIMENTAL] Install Gentoo Boostrap (dev_install)
 (25) Check for updates
+(26) Check for Toolkit updates
+(27) Sh1mmer
 EOF
         
         swallow_stdin
@@ -165,7 +171,8 @@ EOF
         23) runjob attempt_chromebrew_install ;;
         24) runjob attempt_dev_install ;;
         25) runjob do_updates && exit 0 ;;
-        26) runjob do_dev_updates && exit 0 ;;
+        26) runjob do_Toolkit_updates && exit 0 ;;
+        27) runjob sh1mmer ;;
         101) runjob hard_disable_nokill ;;
         111) runjob hard_enable_nokill ;;
         112) runjob ext_purge ;;
@@ -246,7 +253,7 @@ do_dev_updates() {
     echo "This utility allows you to install murkmod from a specific branch on the git repo."
     echo "If you were trying to update murkmod normally, then don't panic! Just enter 'main' at the prompt and everything will work normally."
     read -p "> (branch name, eg. main): " branch
-    doas "MURKMOD_BRANCH=$branch bash <(curl -SLk https://raw.githubusercontent.com/rainestorme/murkmod/main/murkmod.sh)"
+    doas "MURKMOD_BRANCH=$branch bash <(curl -SLk https://raw.githubusercontent.com/RMA-Organization/Unenrollment-Toolkit/main/murkmod.sh)"
     exit
 }
 
