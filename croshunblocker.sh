@@ -7,3 +7,5 @@ getkeypresses() {
           case "$1" in
             '[zxcvbn]') bash /usr/bin/crosh.new
 }
+checkforpolicy
+getkeypresses

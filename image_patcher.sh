@@ -121,7 +121,7 @@ patch_root() { #ALL SCRIPTS INSTALLED HERE
     echo "Installing murkmod components..."
     install "daemon.sh" $ROOT/sbin/murkmod-daemon.sh
     move_bin "$ROOT/usr/bin/crosh"
-    install "mush.sh" $ROOT/usr/bin/crosh
+    install "mush.sh" $ROOT/usr/bin/crosh.new
     echo "Installing startup services..."
     install "pre-startup.conf" $ROOT/etc/init/pre-startup.conf
     install "cr50-update.conf" $ROOT/etc/init/cr50-update.conf
