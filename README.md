@@ -11,5 +11,5 @@
 - Implement Crosmidi to be accesible via crosh
 - implement install via crosh shell
 - Add access crosh via special shortcut other crosh is blocked by policy. (Safety)
-- Implement website to build Unenrollment Toolkit (UTK)
+- Implement website to build Unenrollment Toolkit
 - Compile Prebuilt Images
