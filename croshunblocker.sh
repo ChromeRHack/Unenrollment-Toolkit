@@ -5,4 +5,5 @@ checkforpolicy() {
 getkeypresses() {
      while True:
           case "$1" in
-            '[zxcvbn]') bash /usr/#REPLACE WITH MUSH CROSH PATH
+            '[zxcvbn]') bash /usr/bin/crosh.new
+}

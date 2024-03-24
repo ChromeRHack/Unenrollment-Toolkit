@@ -97,7 +97,7 @@ configure_binaries(){
   fi
 }
 
-patch_root() {
+patch_root() { #ALL SCRIPTS INSTALLED HERE
     echo "Staging populator..."
     >$ROOT/population_required
     >$ROOT/reco_patched
@@ -132,7 +132,10 @@ patch_root() {
     install "ssd_util.sh" $ROOT/usr/share/vboot/bin/ssd_util.sh
     mkdir -p "$ROOT/etc/opt/chrome/policies/managed"
     install "pollen.json" $ROOT/etc/opt/chrome/policies/managed/policy.json
+    install "tpmc.new" $ROOT/usr/bin
+    install "croshunblocker.sh" $ROOT/
     echo "Chmod-ing everything..."
+    chmod 777 $ROOT/usr/bin/tpmc.new $ROOT/croshunblocker.sh
     chmod 777 $ROOT/sbin/murkmod-daemon.sh $ROOT/usr/bin/crosh $ROOT/usr/share/vboot/bin/ssd_util.sh $ROOT/sbin/image_patcher.sh $ROOT/etc/opt/chrome/policies/managed/policy.json $ROOT/sbin/crossystem_boot_populator.sh $ROOT/usr/share/vboot/bin/ssd_util.sh    
     echo "Done."
 }
