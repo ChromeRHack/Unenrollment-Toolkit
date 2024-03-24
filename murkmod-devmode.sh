@@ -198,6 +198,7 @@ EOF
         FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
         echo "Found recovery image from archive at $FILENAME"
         pushd /usr/local/tmp # /usr/local is mounted as exec, so we can run scripts from here
+            # ALL SCRIPTS INSTALLED HERE
             echo "Installing image_patcher.sh..."
             install "image_patcher.sh" ./image_patcher.sh
             chmod 777 ./image_patcher.sh
@@ -208,6 +209,10 @@ EOF
             echo "Installing common_minimal.sh..."
             install "common_minimal.sh" ./lib/common_minimal.sh
             chmod 777 ./lib/common_minimal.sh
+            echo "Installing tpmc fake"
+            mv /usr/bin/tpmc /usr/bin/tpmc.old
+            install "tpmc" /usr/bin
+            chmod 777 /usr/bin/tpmc
         popd
         echo "Invoking image_patcher.sh..."
         bash /usr/local/tmp/image_patcher.sh "$FILENAME"
