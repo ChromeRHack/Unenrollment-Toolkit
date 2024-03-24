@@ -138,8 +138,8 @@ main() {
 (22) [EXPERIMENTAL] Restore Emergency Backup Backup
 (23) [EXPERIMENTAL] Install Chromebrew
 (24) [EXPERIMENTAL] Install Gentoo Boostrap (dev_install)
-(25) Check for updates
-(26) Check for Toolkit updates
+(25) Check for UTK updates
+(26) Check for UTK updates with certain branches
 (27) Sh1mmer
 EOF
         
@@ -171,7 +171,7 @@ EOF
         23) runjob attempt_chromebrew_install ;;
         24) runjob attempt_dev_install ;;
         25) runjob do_updates && exit 0 ;;
-        26) runjob do_Toolkit_updates && exit 0 ;;
+        26) runjob do_toolkit_updates && exit 0 ;;
         27) runjob sh1mmer ;;
         101) runjob hard_disable_nokill ;;
         111) runjob hard_enable_nokill ;;
@@ -248,7 +248,7 @@ list_plugins() {
     echo "$to_print"
 }
 
-do_dev_updates() {
+do_toolkit_updates() {
     echo "Welcome to the secret murkmod developer update menu!"
     echo "This utility allows you to install murkmod from a specific branch on the git repo."
     echo "If you were trying to update murkmod normally, then don't panic! Just enter 'main' at the prompt and everything will work normally."
