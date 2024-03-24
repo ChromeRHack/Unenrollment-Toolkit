@@ -14,3 +14,4 @@
 - implement install via crosh shell
 - Implement website to build Unenrollment Toolkit
 - Compile Prebuilt Images
+- Finalize docs and README.md
