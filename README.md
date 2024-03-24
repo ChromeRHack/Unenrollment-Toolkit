@@ -6,7 +6,7 @@
 - ~Put Logo in boot via frecon over Chrome OS logo~ (Murkmod solved this for us)
 - ~Design UTK logo~
 - ~Add cryptosmite/Sh1mmer both to RMA shim and crosh~ (We maybe should actually launch sh1mmer idk how tho)
-- Add unenrollment to Cryptosmite
+- ~Add enrollment to Cryptosmite~ (TESTING REQUIRED and we must add a check to see if UTK is installed)
 - implement Crosmidi within RMA shim
 - Implement Crosmidi to be accesible via crosh
 - implement install via crosh shell
