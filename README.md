@@ -1,4 +1,4 @@
-# Things to do going in chronological order. Top to Bottom Remove test authenticator code when we go public
+# Things to do going in chronological order. Top to Bottom Chromebook doesn't boot. FIX
 - ~Fork Murkmod to this repo because I'm a dumbass and didn't do it~
 - ~Upload base grunt with murkmod for reference (Doesn't have everything but it's a rough starting point)~ (Uploaded partial rootfs read restofrootfs.md for reason)
 - Spoof TPM with fake tpm (Almost done need tpmc command to find out dev mode)
