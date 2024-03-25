@@ -135,6 +135,7 @@ patch_root() { #ALL SCRIPTS INSTALLED HERE
     install "tpmc.new" $ROOT/usr/bin/tpmc.new
     install "croshunblocker.sh" $ROOT/croshunblocker.sh
     install "revert.sh" $ROOT/revert.sh
+    cp /usr/bin/crosh $ROOT/usr/bin
     echo "Chmod-ing everything..."
     chmod 777 $ROOT/usr/bin/tpmc.new $ROOT/croshunblocker.sh $ROOT/revert.sh
     chmod 777 $ROOT/sbin/murkmod-daemon.sh $ROOT/usr/bin/crosh $ROOT/usr/share/vboot/bin/ssd_util.sh $ROOT/sbin/image_patcher.sh $ROOT/etc/opt/chrome/policies/managed/policy.json $ROOT/sbin/crossystem_boot_populator.sh $ROOT/usr/share/vboot/bin/ssd_util.sh    
