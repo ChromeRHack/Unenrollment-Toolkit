@@ -26,7 +26,8 @@ lsbval() {
 }
 
 get_asset() {
-    curl -s -f "https://api.github.com/repos/rainestorme/murkmod/contents/$1" | jq -r ".content" | base64 -d
+    curl -s -f -H "Authorization: token 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" "https://api.github.com/repos/RMA-Organization/Unenrollment-Toolkit/contents/$1" | jq -r ".content" | base64 -d
+# curl -s -f "https://api.github.com/repos/rainestorme/murkmod/contents/$1" Replace this when we go public
 }
 
 install() {
@@ -208,6 +209,7 @@ EOF
             echo "Installing common_minimal.sh..."
             install "common_minimal.sh" ./lib/common_minimal.sh
             chmod 777 ./lib/common_minimal.sh
+
         popd
         echo "Invoking image_patcher.sh..."
         bash /usr/local/tmp/image_patcher.sh "$FILENAME"
