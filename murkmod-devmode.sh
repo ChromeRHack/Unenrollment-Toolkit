@@ -26,7 +26,7 @@ lsbval() {
 }
 
 get_asset() {
-    curl -s -f -H "Authorization: token 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" "https://api.github.com/repos/RMA-Organization/Unenrollment-Toolkit/contents/$1" | jq -r ".content" | base64 -d
+    curl -s -f "https://api.github.com/repos/RMA-Organization/Unenrollment-Toolkit/contents/$1" | jq -r ".content" | base64 -d
 # curl -s -f "https://api.github.com/repos/rainestorme/murkmod/contents/$1" Replace this when we go public
 }
 
