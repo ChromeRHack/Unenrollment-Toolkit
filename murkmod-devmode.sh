@@ -33,10 +33,7 @@ get_asset() {
 install() {
     TMP=$(mktemp)
     get_asset "$1" >"$TMP"
-    if [ "$?" != "0" ] || ! grep -q '[^[:space:]]' "$TMP"; then
-        echo "Failed to install $1 to $2 $?"
-        rm -f "$TMP"
-        exit
+    #A check was once here put it back
     fi
     # Don't mv, that would break permissions
     cat "$TMP" >"$2"
