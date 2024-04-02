@@ -7,14 +7,15 @@
 - ~Design UTK logo~
 - ~Add cryptosmite/Sh1mmer both to RMA shim and crosh~ (Like halfway done we need to add install to RMA-SHIM)
 - ~Add enrollment to Cryptosmite~ (TESTING REQUIRED)
-- implement Crosmidi within RMA shim (Let's wait on implementing crosmidi until we are done adding checks and testing generally making sure stuff works until we ask crossystem)
 - ~Add access crosh via special shortcut other crosh is blocked by policy. (Safety)~ (TESTING REQUIRED)
 - Design frecon UTK RMA shim images
 - Implement UTK images into RMA shim
+- implement Crosmidi within RMA shim (Let's wait on implementing crosmidi until we are done adding checks and testing generally making sure stuff works until we ask crossystem)
 - Implement Crosmidi into UTK
 - Implement Crosmidi to be accesible via crosh
 - implement install via crosh shell
 - Implement website to build Unenrollment Toolkit
 - Compile Prebuilt Images
 - Finalize docs and README.md
+- PUBLISH!!!
 
