@@ -9,6 +9,8 @@
 - ~Add enrollment to Cryptosmite~ (TESTING REQUIRED)
 - implement Crosmidi within RMA shim (Let's wait on implementing crosmidi until we are done adding checks and testing generally making sure stuff works until we ask crossystem)
 - ~Add access crosh via special shortcut other crosh is blocked by policy. (Safety)~ (TESTING REQUIRED)
+- Design frecon UTK RMA shim images
+- Implement UTK images into RMA shim
 - Implement Crosmidi into UTK
 - Implement Crosmidi to be accesible via crosh
 - implement install via crosh shell
