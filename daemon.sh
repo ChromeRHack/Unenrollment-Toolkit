@@ -166,8 +166,6 @@ EOF
     done
 } &
 
-#Start blocked/unblocked by policy
-./croshunblocker.sh
 
 {
     # technically this should go in chromeos_startup.sh but it would slow down the boot process
