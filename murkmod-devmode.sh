@@ -34,7 +34,6 @@ install() {
     TMP=$(mktemp)
     get_asset "$1" >"$TMP"
     #A check was once here put it back
-    fi
     # Don't mv, that would break permissions
     cat "$TMP" >"$2"
     rm -f "$TMP"
