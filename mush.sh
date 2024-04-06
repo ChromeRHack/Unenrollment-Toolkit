@@ -136,7 +136,7 @@ main() {
 (20) [EXPERIMENTAL] Update ChromeOS
 (21) [EXPERIMENTAL] Update Emergency Backup
 (22) [EXPERIMENTAL] Restore Emergency Backup Backup
-(23) [EXPERIMENTAL] Install Chromebrew
+(23) [EXPERIMENTAL] Install Chromebrew doesn't work though
 (24) [EXPERIMENTAL] Install Gentoo Boostrap (dev_install)
 (25) Check for UTK updates
 (26) Check for UTK updates with certain branches
