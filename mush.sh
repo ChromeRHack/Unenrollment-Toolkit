@@ -24,7 +24,7 @@ traps() {
 }
 
 mush_info() {
-    echo -ne "\033]0;murkmod\007" #REPLACE WITH UTK
+    echo -ne "\033]0;mush\007" #REPLACE WITH UTK
     if [ ! -f /mnt/stateful_partition/custom_greeting ]; then
         cat <<-EOF
 Welcome to mush, the UTK developer shell.
