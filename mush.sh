@@ -174,7 +174,7 @@ EOF
         25) runjob do_updates && exit 0 ;;
         26) runjob do_toolkit_updates && exit 0 ;;
         27) runjob sh1mmer ;;
-        28) runjob cryptosmite
+        28) runjob cryptosmite ;;
         101) runjob hard_disable_nokill ;;
         111) runjob hard_enable_nokill ;;
         112) runjob ext_purge ;;
