@@ -1,4 +1,10 @@
-# Things to do going in chronological order. Top to Bottom we will start croshunblocker when chrome starts by spoofing chrome like we did with tpmc. mush doesn't launch figure out bug
+# Things to Fix in chronological order. Top to bottom
+- mush doesn't install. 
+- mush doesn't launch.
+- we will start croshunblocker when chrome starts by spoofing chrome like we did with tpmc.
+
+
+# Things to do going in chronological order. Top to Bottom.
 - ~Fork Murkmod to this repo because I'm a dumbass and didn't do it~
 - ~Upload base grunt with murkmod for reference (Doesn't have everything but it's a rough starting point)~ (Uploaded partial rootfs read restofrootfs.md for reason)
 - Spoof TPM with fake tpm (Almost done need tpmc command to find out dev mode)
