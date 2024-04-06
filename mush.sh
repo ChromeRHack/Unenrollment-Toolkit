@@ -27,13 +27,13 @@ mush_info() {
     echo -ne "\033]0;mush\007"
     if [ ! -f /mnt/stateful_partition/custom_greeting ]; then
         cat <<-EOF
-Welcome to mush, the murkmod developer shell.
+Welcome to mush, the UTK developer shell.
 
 If you got here by mistake, don't panic! Just close this tab and carry on.
 
-This shell contains a list of utilities for performing various actions on a murkmodded chromebook.
+This shell contains a list of utilities for performing various actions on a chromebook with UTK.
 
-murkmod is now maintained completely independently from fakemurk. Don't report any bugs you encounter with it to the fakemurk developers.
+UTK is maintained completely independently from fakemurk. Don't report any bugs you encounter with it to the fakemurk developers.
 
 EOF
     else
