@@ -71,6 +71,7 @@ edit() {
 }
 
 sh1mmer() {
+    echo "DOESN"T WORK DEBUG"
     echo "Plug in your Sh1mmer usb and press esc+power+refresh. We can't boot your shim for you."
 }
 
@@ -140,8 +141,8 @@ main() {
 (24) [EXPERIMENTAL] Install Gentoo Boostrap (dev_install)
 (25) Check for UTK updates
 (26) Check for UTK updates with certain branches
-(27) Sh1mmer
-(28) Cryptosmite
+(27) Sh1mmer Disabled for now
+(28) Cryptosmite Disabled for now
 EOF
         
         swallow_stdin
@@ -188,7 +189,8 @@ EOF
 }
 
 cryptosmite() {
-bash /opt/cryptosmite.sh
+    echo "Doesn't work DEBUG"
+#bash /opt/cryptosmite.sh
 }
 install_plugin_legacy() {
   local raw_url="https://raw.githubusercontent.com/rainestorme/murkmod/main/plugins"
