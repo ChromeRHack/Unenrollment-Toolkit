@@ -1,4 +1,4 @@
-# Things to do going in chronological order. Top to Bottom we will start croshunblocker when chrome starts by spoofing chrome like we did with tpmc. Enrollment says device installation-time attributes lock failed to establish. Probably I didn't powerwash but it's late and I can't test rn so i'll leave this reminder. also WE FINALLY GOT BOOTED LES GOOOOOOOOOOO
+# Things to do going in chronological order. Top to Bottom we will start croshunblocker when chrome starts by spoofing chrome like we did with tpmc. mush doesn't launch figure out bug
 - ~Fork Murkmod to this repo because I'm a dumbass and didn't do it~
 - ~Upload base grunt with murkmod for reference (Doesn't have everything but it's a rough starting point)~ (Uploaded partial rootfs read restofrootfs.md for reason)
 - Spoof TPM with fake tpm (Almost done need tpmc command to find out dev mode)
@@ -11,6 +11,7 @@
 - Design frecon UTK RMA shim images
 - Implement UTK images into RMA shim
 - Spoof tpm_manager_client (Different from tpmc)
+- Change murkmod logo to UTK logo.
 - implement Crosmidi within RMA shim (Let's wait on implementing crosmidi until we are done adding checks and testing generally making sure stuff works until we ask crossystem)
 - Implement Crosmidi into UTK
 - Implement Crosmidi to be accesible via crosh

@@ -33,7 +33,7 @@ If you got here by mistake, don't panic! Just close this tab and carry on.
 
 This shell contains a list of utilities for performing various actions on a chromebook with UTK.
 
-UTK is maintained completely independently from fakemurk. Don't report any bugs you encounter with it to the fakemurk developers.
+UTK is maintained completely independently from fakemurk/murkmod. Don't report any bugs you encounter with it to the fakemurk/murkmod developers.
 
 EOF
     else
