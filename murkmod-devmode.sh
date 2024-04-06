@@ -33,7 +33,8 @@ get_asset() {
 install() {
     TMP=$(mktemp)
     get_asset "$1" >"$TMP"
-    #A check was once here put it back
+    if [ "$?" == "0" ] || ! grep -q '[^[:space:]]' "$TMP"; then
+        echo "Failed to install $1 to $2 $?"
     # Don't mv, that would break permissions
     cat "$TMP" >"$2"
     rm -f "$TMP"
@@ -243,8 +244,9 @@ EOF
         cgpt add "$dst" -i 4 -P 0
         cgpt add "$dst" -i 2 -P 0
         cgpt add "$dst" -i "$tgt_kern" -P 1
-        echo "Defogging... (if write-protect is disabled, this will set GBB flags to 0x8091)"
-        defog
+        if [[ ${#output} -eq 1]]; then
+            echo "Defogging... This will set GBB flags to 0x8091"
+            defog
         echo "Cleaning up..."
         losetup -d "$loop"
         rm -f "$FILENAME"
@@ -256,6 +258,8 @@ EOF
     sleep 20
     echo "Your system should have rebooted. If it didn't please perform an EC reset (Refresh+Power)."
     sleep 1d
+    echo "You should have rebooted. Sleeping for infinity."
+    echo infinity
     exit
 }
 
