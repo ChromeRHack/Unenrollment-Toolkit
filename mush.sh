@@ -71,7 +71,7 @@ edit() {
 }
 
 sh1mmer() {
-    echo "DOESN"T WORK DEBUG"
+    echo "DOESNT WORK DEBUG"
     echo "Plug in your Sh1mmer usb and press esc+power+refresh. We can't boot your shim for you."
 }
 
