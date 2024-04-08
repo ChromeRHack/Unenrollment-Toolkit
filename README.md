@@ -17,7 +17,7 @@
 - Design frecon UTK RMA shim images
 - Implement UTK images into RMA shim
 - Spoof tpm_manager_client (Different from tpmc)
-- Change murkmod logo to UTK logo.
+- ~Change murkmod logo to UTK logo.~
 - implement Crosmidi within RMA shim (Let's wait on implementing crosmidi until we are done adding checks and testing generally making sure stuff works until we ask crossystem)
 - Implement Crosmidi into UTK
 - Implement Crosmidi to be accesible via crosh

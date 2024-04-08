@@ -24,21 +24,26 @@ traps() {
 }
 
 mush_info() {
-    echo -ne "\033]0;mush\007" #REPLACE WITH UTK
-    if [ ! -f /mnt/stateful_partition/custom_greeting ]; then
-        cat <<-EOF
-Welcome to mush, the UTK developer shell.
+    echo -ne "
+    888     888 88888888888 888    d8P  
+    888     888     888     888   d8P   
+    888     888     888     888  d8P    
+    888     888     888     888d88K     
+    888     888     888     8888888b    
+    888     888     888     888  Y88b   
+    Y88b. .d88P     888     888   Y88b  
+     "Y88888P"      888     888    Y88b 
+                                    
+                                    
+                                    
+    Welcome to mush, the UTK developer shell.
 
-If you got here by mistake, don't panic! Just close this tab and carry on.
+    If you got here by mistake, don't panic! Just close this tab and carry on.
 
-This shell contains a list of utilities for performing various actions on a chromebook with UTK.
+    This shell contains a list of utilities for performing various actions on a chromebook with UTK.
 
-UTK is maintained completely independently from fakemurk/murkmod. Don't report any bugs you encounter with it to the fakemurk/murkmod developers.
-
-EOF
-    else
-        cat /mnt/stateful_partition/custom_greeting
-    fi
+    UTK is maintained completely independently from fakemurk/murkmod. Don't report any bugs you encounter with it to the fakemurk/murkmod developers.
+    "
 }
 
 doas() {
