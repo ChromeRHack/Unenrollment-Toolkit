@@ -1,6 +1,6 @@
 # Things to Fix in chronological order. Top to bottom
 - mush doesn't install. 
-- mush doesn't launch.
+- ~mush doesn't launch.~ Dedchromebook should confirm
 - we will start croshunblocker when chrome starts by spoofing chrome like we did with tpmc.
 
 
