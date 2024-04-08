@@ -3,6 +3,7 @@
 - ~mush doesn't launch.~ Dedchromebook should confirm
 - we will start croshunblocker when chrome starts by spoofing chrome like we did with tpmc.
 - Remember to put info for skids at the bottom of the inevitable faq
+- fix tpmc
 # Things to do going in chronological order. Top to Bottom.
 - ~Fork Murkmod to this repo because I'm a dumbass and didn't do it~
 - ~Upload base grunt with murkmod for reference (Doesn't have everything but it's a rough starting point)~ (Uploaded partial rootfs read restofrootfs.md for reason)
