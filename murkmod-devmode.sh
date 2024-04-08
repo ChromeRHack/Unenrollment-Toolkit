@@ -38,6 +38,7 @@ install() {
     # Don't mv, that would break permissions
     cat "$TMP" >"$2"
     rm -f "$TMP"
+    fi
 }
 
 get_largest_nvme_namespace() {
