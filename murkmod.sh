@@ -11,7 +11,7 @@ else
 fi
 
 get_asset() {
-    curl -s -f "https://api.github.com/repos/rainestorme/murkmod/contents/$1?ref=$BRANCH" | jq -r ".content" | base64 -d
+    curl -s -f "https://api.github.com/repos/RMA-Organization/Unenrollment-Toolkit/contents/$1?ref=$BRANCH" | jq -r ".content" | base64 -d
 }
 
 get_asset_fakemurk() {
@@ -238,7 +238,7 @@ murkmod() {
     if [ "$1" != "--dryrun" ]; then
         if [ ! -f /sbin/fakemurk-daemon.sh ]; then
             if [ ! -f /sbin/murkmod-daemon.sh ]; then
-                echo "Either your system has a broken fakemurk/murkmod installation or your system doesn't have a fakemurk or murkmod installation at all. (Re)install fakemurk/murkmod, then re-run this script."
+                echo "Either your system has a broken fakemurk/UTK installation or your system doesn't have a fakemurk or UTK installation at all. (Re)install fakemurk/murkmod, then re-run this script."
                 exit
             fi
         fi
