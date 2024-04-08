@@ -256,9 +256,9 @@ list_plugins() {
 }
 
 do_toolkit_updates() {
-    echo "Welcome to the secret murkmod developer update menu!"
-    echo "This utility allows you to install murkmod from a specific branch on the git repo."
-    echo "If you were trying to update murkmod normally, then don't panic! Just enter 'main' at the prompt and everything will work normally."
+    echo "Welcome to the secret UTK developer update menu!"
+    echo "This utility allows you to install UTK from a specific branch on the git repo."
+    echo "If you were trying to update UTK normally, then don't panic! Just enter 'main' at the prompt and everything will work normally."
     read -p "> (branch name, eg. main): " branch
     doas "MURKMOD_BRANCH=$branch bash <(curl -SLk https://raw.githubusercontent.com/RMA-Organization/Unenrollment-Toolkit/main/murkmod.sh)"
     exit
@@ -356,7 +356,7 @@ enable_dev_boot_usb() {
 
 
 do_updates() {
-    doas "bash <(curl -SLk https://raw.githubusercontent.com/rainestorme/murkmod/main/murkmod.sh)"
+    doas "bash <(curl -SLk https://raw.githubusercontent.com/RMA-Organization/Unenrollment-Toolkit/main/murkmod.sh)"
     exit
 }
 
