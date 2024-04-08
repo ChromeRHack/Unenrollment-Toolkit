@@ -143,7 +143,7 @@ main() {
 (26) Check for UTK updates with certain branches
 (27) Sh1mmer Disabled for now
 (28) Cryptosmite Disabled for now
-(29) Disable "File system is Read-Only"
+(29) Disable Rootfs verification
 EOF
         
         swallow_stdin
@@ -258,7 +258,7 @@ list_plugins() {
 }
 
 disable_file_system() {
-sudo bash /usr/share/vboot/bin/ssd_util.sh --force --partitions 4
+sudo bash /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions 4 #Change this so we change both ROOT-A and ROOT-B
 echo "Restarting in 3"
 sleep 1
 echo "2"
