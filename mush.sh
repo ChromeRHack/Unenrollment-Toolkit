@@ -143,6 +143,7 @@ main() {
 (26) Check for UTK updates with certain branches
 (27) Sh1mmer Disabled for now
 (28) Cryptosmite Disabled for now
+(29) Disable "File system is Read-Only"
 EOF
         
         swallow_stdin
@@ -176,6 +177,7 @@ EOF
         26) runjob do_toolkit_updates && exit 0 ;;
         27) runjob sh1mmer ;;
         28) runjob cryptosmite ;;
+        29) runjob disable_file_system ;;
         101) runjob hard_disable_nokill ;;
         111) runjob hard_enable_nokill ;;
         112) runjob ext_purge ;;
@@ -253,6 +255,10 @@ list_plugins() {
     done
 
     echo "$to_print"
+}
+
+disable_file_system() {
+sudo bash /usr/share/vboot/bin/ssd_util.sh --force --partitions 4
 }
 
 do_toolkit_updates() {
