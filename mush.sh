@@ -259,6 +259,13 @@ list_plugins() {
 
 disable_file_system() {
 sudo bash /usr/share/vboot/bin/ssd_util.sh --force --partitions 4
+echo "Restarting in 3"
+sleep 1
+echo "2"
+sleep 1
+echo "1"
+sleep 1
+restart 
 }
 
 do_toolkit_updates() {
