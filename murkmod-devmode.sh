@@ -5,8 +5,15 @@ CURRENT_MINOR=0
 CURRENT_VERSION=0
 show_logo() {
     clear
-    echo -e "                      __                      .___\n  _____  __ _________|  | __ _____   ____   __| _/\n /     \|  |  \_  __ \  |/ //     \ /  _ \ / __ | \n|  Y Y  \  |  /|  | \/    <|  Y Y  (  <_> ) /_/ | \n|__|_|  /____/ |__|  |__|_ \__|_|  /\____/\____ | \n      \/                  \/     \/            \/\n"
-    echo "The fakemurk plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION - Developer mode installer"
+    echo -e "888     888 88888888888 888    d8P  
+    888     888     888     888   d8P   
+    888     888     888     888  d8P    
+    888     888     888     888d88K     
+    888     888     888     8888888b    
+    888     888     888     888  Y88b   
+    Y88b. .d88P     888     888   Y88b  
+      Y88888P       888     888    Y88b "
+    echo "The UTK plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION - Developer mode installer"
 }
 
 lsbval() {
@@ -97,7 +104,7 @@ murkmod() {
     if [ -f /sbin/murkmod-daemon.sh ]; then
         echo "!!! Your system already has a murkmod installation! Continuing anyway, but emergency revert will not work correctly. !!!"
     fi
-    echo "What version of murkmod do you want to install?"
+    echo "What version of UTK do you want to install?"
     echo "If you're not sure, choose pheonix (v118) or the latest version. If you know what your original enterprise version was, specify that manually."
     echo " 1) og      (chromeOS v105)"
     echo " 2) mercury (chromeOS v107)"
