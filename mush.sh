@@ -258,6 +258,7 @@ list_plugins() {
 }
 
 disable_file_system() {
+read "If you installed UTK this doesn't apply to you. THIS WILL DISABLE ROOTFS VERIFICATION. IF YOU DO THIS YOU WILL NO LONGER BE ABLE TO BOOT VERIFIED. IF YOU WANT TO BOOT VERIFIED YOU WILL HAVE TO RECOVER. Ctrl-c to stop. Enter to continue."
 sudo bash /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions 4 #Change this so we change both ROOT-A and ROOT-B
 echo "Restarting in 3"
 sleep 1
