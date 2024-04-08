@@ -247,6 +247,7 @@ EOF
         cgpt add "$dst" -i "$tgt_kern" -P 1
         if [[ ${#output} -eq 1 ]]; then
             echo "Defogging... This will set GBB flags to 0x8091"
+            fi
             defog
         echo "Cleaning up..."
         losetup -d "$loop"
