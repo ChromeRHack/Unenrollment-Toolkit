@@ -5,7 +5,8 @@ CURRENT_MINOR=0
 CURRENT_VERSION=0
 show_logo() {
     clear
-    echo -e "888     888 88888888888 888    d8P  
+    echo -e "
+    888     888 88888888888 888    d8P  
     888     888     888     888   d8P   
     888     888     888     888  d8P    
     888     888     888     888d88K     
