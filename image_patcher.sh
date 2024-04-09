@@ -25,8 +25,16 @@ CURRENT_VERSION=0
 # future rainestorme: finally cleaned it up! :D
 
 ascii_info() {
-    echo -e "                      __                      .___\n  _____  __ _________|  | __ _____   ____   __| _/\n /     \|  |  \_  __ \  |/ //     \ /  _ \ / __ | \n|  Y Y  \  |  /|  | \/    <|  Y Y  (  <_> ) /_/ | \n|__|_|  /____/ |__|  |__|_ \__|_|  /\____/\____ | \n      \/                  \/     \/            \/\n"
-    echo "        The fakemurk plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION"
+    echo -e " 
+      888     888 88888888888 888    d8P  
+      888     888     888     888   d8P   
+      888     888     888     888  d8P    
+      888     888     888     888d88K     
+      888     888     888     8888888b    
+      888     888     888     888  Y88b   
+      Y88b. .d88P     888     888   Y88b  
+       'Y88888P'      888     888    Y88b "
+    echo "        The UTK plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION"
 
     # spaces get mangled by makefile, so this must be separate
 }
