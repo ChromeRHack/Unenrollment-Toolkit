@@ -42,10 +42,11 @@ fi
 echo "Oh fuck - ChromeOS is trying to kill itself." >/usr/share/chromeos-assets/text/boot_messages/en/block_devmode_virtual.txt
 echo "ChromeOS detected developer mode and is trying to disable it to" >>/usr/share/chromeos-assets/text/boot_messages/en/block_devmode_virtual.txt
 echo "comply with FWMP. This is most likely a bug and should be reported to" >>/usr/share/chromeos-assets/text/boot_messages/en/block_devmode_virtual.txt
-echo "the murkmod GitHub issues page." >>/usr/share/chromeos-assets/text/boot_messages/en/block_devmode_virtual.txt
-echo "i sure hope you did that on purpose (powerwashing system)" >/usr/share/chromeos-assets/text/boot_messages/en/power_wash.txt
-echo "oops UwU i did a little fucky wucky and your system is trying to repair" >/usr/share/chromeos-assets/text/boot_messages/en/self_repair.txt
-echo "itself~ sorry OwO" >>/usr/share/chromeos-assets/text/boot_messages/en/self_repair.txt
+echo "the UTK GitHub issues page." >>/usr/share/chromeos-assets/text/boot_messages/en/block_devmode_virtual.txt
+echo "Powerwashing. Please do not shut off your chromebook" >/usr/share/chromeos-assets/text/boot_messages/en/power_wash.txt
+echo "This may take a while." >/usr/share/chromeos-assets/text/boot_messages/en/power_wash.txt
+echo "Chrome OS is trying to repair itself." >/usr/share/chromeos-assets/text/boot_messages/en/self_repair.txt
+echo "If it doesn't work try recovering." >>/usr/share/chromeos-assets/text/boot_messages/en/self_repair.txt
 
 crossystem.old block_devmode=0 # prevent chromeos from comitting suicide
 
