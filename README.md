@@ -1,7 +1,7 @@
 # Things to Fix in chronological order. Top to bottom
 - mush doesn't install.
 - mush doesn't launch. NOPE
-- we will start croshunblocker when chrome starts by spoofing chrome like we did with tpmc.~ NO do this with an extension. Murkmod already solved it. We're idiots.
+- ~we will start croshunblocker when chrome starts by spoofing chrome like we did with tpmc.~ NO do this with an extension. Murkmod already solved it. We're idiots.
 - Remember to put info for skids at the bottom of the inevitable faq
 - Fix when powerwash "my chwomebook did a fucky a wucky" Chromebook also bootloops and is not recoverable
 # Things to do going in chronological order. Top to Bottom. Yeah umm half the time we spent is fixing rainstormes shit. y you do dis rainstorm?????
