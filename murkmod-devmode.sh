@@ -96,9 +96,36 @@ defog() {
     vpd -i RW_VPD -s check_enrollment=1
 }
 
+recoverity() {
+    show_logo
+    local recoverity1="1"
+    echo "What version of Chrome OS do you want to install?"
+    echo "This allows for Recovering without having to actually recover via usb"
+    echo " 1) og      (chromeOS v105)"
+    echo " 2) mercury (chromeOS v107)"
+    echo " 3) john    (chromeOS v117)"
+    echo " 4) pheonix (chromeOS v118)"
+    echo " 5) latest version"
+    echo " 6) custom milestone"
+    echo " 7) Default Mode"
+    read -p "(1-7) > " choice
+
+    case $choice in
+        1) VERSION="105" ;;
+        2) VERSION="107" ;;
+        3) VERSION="117" ;;
+        4) VERSION="118" ;;
+        5) VERSION="latest" ;;
+        6) read -p "Enter milestone to target (e.g. 105, 107, 117, 118): " VERSION ;;
+        7) murkmod
+        *) echo "Invalid choice, exiting." && exit ;;
+    esac
+}
 
 murkmod() {
+    clear
     show_logo
+    local recoverity1="0"
     if [ -f /sbin/fakemurk-daemon.sh ]; then
         echo "!!! Your system already has a fakemurk installation! Continuing anyway, but emergency revert will not work correctly. !!!"
     fi
@@ -113,7 +140,8 @@ murkmod() {
     echo " 4) pheonix (chromeOS v118)"
     echo " 5) latest version"
     echo " 6) custom milestone"
-    read -p "(1-6) > " choice
+    echo " 7) Recoverity Mode"
+    read -p "(1-7) > " choice
 
     case $choice in
         1) VERSION="105" ;;
@@ -122,6 +150,7 @@ murkmod() {
         4) VERSION="118" ;;
         5) VERSION="latest" ;;
         6) read -p "Enter milestone to target (e.g. 105, 107, 117, 118): " VERSION ;;
+        7) recoverity
         *) echo "Invalid choice, exiting." && exit ;;
     esac
     show_logo
@@ -205,16 +234,29 @@ EOF
         FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
         echo "Found recovery image from archive at $FILENAME"
         pushd /usr/local/tmp # /usr/local is mounted as exec, so we can run scripts from here
-            echo "Installing image_patcher.sh..."
-            install "image_patcher.sh" ./image_patcher.sh
-            chmod 777 ./image_patcher.sh
-            echo "Installing ssd_util.sh..."
-            mkdir -p ./lib
-            install "ssd_util.sh" ./lib/ssd_util.sh
-            chmod 777 ./lib/ssd_util.sh
-            echo "Installing common_minimal.sh..."
-            install "common_minimal.sh" ./lib/common_minimal.sh
-            chmod 777 ./lib/common_minimal.sh
+            if [recoverity1 == 0]; then
+
+                echo "Installing image_patcher.sh..."
+                install "image_patcher.sh" ./image_patcher.sh
+                chmod 777 ./image_patcher.sh
+                echo "Installing ssd_util.sh..."
+                mkdir -p ./lib
+                install "ssd_util.sh" ./lib/ssd_util.sh
+                chmod 777 ./lib/ssd_util.sh
+                echo "Installing common_minimal.sh..."
+                install "common_minimal.sh" ./lib/common_minimal.sh
+                chmod 777 ./lib/common_minimal.sh
+            else
+                echo "Installing Recovery image_patcher.sh..."
+                install "image_patcher2.sh" ./image_patcher.sh
+                chmod 777 ./image_patcher.sh
+                echo "Installing ssd_util.sh..."
+                mkdir -p ./lib
+                install "ssd_util.sh" ./lib/ssd_util.sh
+                chmod 777 ./lib/ssd_util.sh
+                echo "Installing common_minimal.sh..."
+                install "common_minimal.sh" ./lib/common_minimal.sh
+                chmod 777 ./lib/common_minimal.sh
 
         popd
         echo "Invoking image_patcher.sh..."
@@ -269,8 +311,6 @@ EOF
     sleep 20
     echo "Your system should have rebooted. If it didn't please perform an EC reset (Refresh+Power)."
     sleep 1d
-    echo "You should have rebooted. Sleeping for infinity."
-    echo infinity
     exit
 }
 
