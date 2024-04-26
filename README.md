@@ -1,14 +1,13 @@
 # Things to Fix in chronological order. Top to bottom
-- mush doesn't install.
-- mush doesn't launch. NOPE
+- mush doesn't install and doesn't launch. (Obvious)
 - ~we will start croshunblocker when chrome starts by spoofing chrome like we did with tpmc.~ NO do this with an extension. Murkmod already solved it. We're idiots.
 - Remember to put info for skids at the bottom of the inevitable faq
-- ~Fix when powerwash "my chwomebook did a fucky a wucky"~ Dimmed down a little but didn't entirely get rid of them
-- Chromebook also bootloops and is not recoverable (Research wtf a recovery key and how this connected to resetting chrome os)
+- ~Fix when powerwash "my chwomebook did a fucky a wucky"~ Add an option to the installation script to add the boot messages or not
+- ~Chromebook also bootloops and is not recoverable~ WP has to be disabled for this and chromebook powerwashed while utk is installed. 
 # Things to do going in chronological order. Top to Bottom. 
 - ~Fork Murkmod to this repo because I'm a dumbass and didn't do it~
-- ~Upload base grunt with murkmod for reference (Doesn't have everything but it's a rough starting point)~ (Uploaded partial rootfs read restofrootfs.md for reason)
-- ~Spoof TPM with fake tpm (Almost done need tpmc command to find out dev mode)~ NO do this with an extension. We are idiots.
+- ~Upload base grunt with murkmod for reference (Doesn't have everything but it's a rough starting point)~ (Uploaded partial rootfs we don't need the whole rootfs)
+- ~Spoof TPM with fake tpm (Almost done need tpmc command to find out dev mode)~ 
 - ~implement Murkmod within RMA shim~ (Murkmod already did this)
 - ~Put Logo in boot via frecon over Chrome OS logo~ (Murkmod solved this for us)
 - ~Design UTK logo~
