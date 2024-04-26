@@ -106,7 +106,7 @@ configure_binaries(){
 }
 
 patch_root() { #We don't need this   
-    echo "Done."
+    echo ""
 }
 
 # https://chromium.googlesource.com/chromiumos/docs/+/main/lsb-release.md

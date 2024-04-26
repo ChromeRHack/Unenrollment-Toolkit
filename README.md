@@ -5,7 +5,7 @@
 - Remember to put info for skids at the bottom of the inevitable faq
 - ~Fix when powerwash "my chwomebook did a fucky a wucky"~ Dimmed down a little but didn't entirely get rid of them
 - Chromebook also bootloops and is not recoverable (Research wtf a recovery key and how this connected to resetting chrome os)
-# Things to do going in chronological order. Top to Bottom. Yeah umm half the time we spent is fixing rainstormes shit. y you do dis rainstorm?????
+# Things to do going in chronological order. Top to Bottom. 
 - ~Fork Murkmod to this repo because I'm a dumbass and didn't do it~
 - ~Upload base grunt with murkmod for reference (Doesn't have everything but it's a rough starting point)~ (Uploaded partial rootfs read restofrootfs.md for reason)
 - ~Spoof TPM with fake tpm (Almost done need tpmc command to find out dev mode)~ NO do this with an extension. We are idiots.
