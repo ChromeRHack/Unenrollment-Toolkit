@@ -110,12 +110,82 @@ EOF
     done
 }
 
+debug_mode() {
+    traps
+    clear
+    while true; do
+        echo -ne "\033]0;mush\007"
+        cat <<-EOF
+(1) hard_disable_nokill
+(2) hard_enable_nokill
+(3) ext_purge (kill ext without chmoding them)
+(4) List Plugins
+(5) Install Legacy plugins
+(6) Uninstall Legacy Plugins
+(7) Back
+EOF
+        
+        swallow_stdin
+        read -r -p "> (1-7): " choice
+        case "$choice" in
+        1) runjob hard_disable_nokill ;;
+        2) runjob hard_enable_nokill ;;
+        3) runjob ext_purge ;;
+        4) runjob list_plugins ;;
+        5) runjob install_plugin_legacy ;;
+        6) runjob uninstall_plugin_legacy ;;
+        7) runjob more_options ;;
+    
+        *) echo && echo "Invalid option, dipshit." && echo ;;
+        esac
+    done
+}
+
+more_options() {
+    traps
+    clear
+    mush_info
+    while true; do
+        echo -ne "\033]0;mush\007"
+        cat <<-EOF
+(1) Check for UTK updates
+(2) Check for UTK updates with certain branches
+(3) Sh1mmer Disabled for now
+(4) Cryptosmite Disabled for now
+(5) Disable Rootfs verification
+(6) Debug Mode
+(7) Back
+(8) Root Shell
+(9) Chronos Shell
+(10) Crosh
+EOF
+        
+        swallow_stdin
+        read -r -p "> (1-10): " choice
+        case "$choice" in
+        1) runjob do_updates && exit 0 ;;
+        2) runjob do_toolkit_updates && exit 0 ;;
+        3) runjob sh1mmer ;;
+        4) runjob cryptosmite ;;
+        5) runjob disable_file_system ;;
+        6) runjob debug_mode ;;
+        7) runjob main ;;
+        8) runjob doas bash ;;
+        9) runjob doas "cd /home/chronos; sudo -i -u chronos" ;;
+        10) runjob /usr/bin/crosh.old ;;
+
+        *) echo && echo "Invalid option, dipshit." && echo ;;
+        esac
+    done
+}
+
 main() {
     if [ -f /mnt/stateful_partition/murkmod/mush_password ]; then
         locked_main
         return
     fi
     traps
+    clear
     mush_info
     while true; do
         echo -ne "\033]0;mush\007"
@@ -144,15 +214,10 @@ main() {
 (22) [EXPERIMENTAL] Restore Emergency Backup Backup
 (23) [EXPERIMENTAL] Install Chromebrew doesn't work though
 (24) [EXPERIMENTAL] Install Gentoo Boostrap (dev_install)
-(25) Check for UTK updates
-(26) Check for UTK updates with certain branches
-(27) Sh1mmer Disabled for now
-(28) Cryptosmite Disabled for now
-(29) Disable Rootfs verification
 EOF
         
         swallow_stdin
-        read -r -p "> (1-25): " choice
+        read -r -p "> (1-24): " choice
         case "$choice" in
         1) runjob doas bash ;;
         2) runjob doas "cd /home/chronos; sudo -i -u chronos" ;;
@@ -178,17 +243,6 @@ EOF
         22) runjob attempt_restore_backup_backup ;;
         23) runjob attempt_chromebrew_install ;;
         24) runjob attempt_dev_install ;;
-        25) runjob do_updates && exit 0 ;;
-        26) runjob do_toolkit_updates && exit 0 ;;
-        27) runjob sh1mmer ;;
-        28) runjob cryptosmite ;;
-        29) runjob disable_file_system ;;
-        101) runjob hard_disable_nokill ;;
-        111) runjob hard_enable_nokill ;;
-        112) runjob ext_purge ;;
-        113) runjob list_plugins ;;
-        114) runjob install_plugin_legacy ;;
-        115) runjob uninstall_plugin_legacy ;;
     
         *) echo && echo "Invalid option, dipshit." && echo ;;
         esac
