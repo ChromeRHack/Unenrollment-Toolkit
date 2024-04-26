@@ -15,6 +15,7 @@
 - ~Add cryptosmite/Sh1mmer both to RMA shim and crosh~ (It's probably in crosmidi)
 - ~Add enrollment to Cryptosmite~ (TESTING REQUIRED)
 - ~Add access crosh via special shortcut other crosh is blocked by policy. (Safety)~ (TESTING REQUIRED)
+- ADD RECOVERY OPTION TO UTK VERSION INPUT IN MURKMOD-DEVMODE.SH
 - Change chromeos firmware bitmaps for oops UwU i did a little fucky wucky and your system is trying to repair itself~ sorry OwO
 - Design Extension to cover up crosh unless under special circumstances aka some shortcuts. idk why I didn't think of this earlier. thanks rainstorm VERY COOL
 - Design frecon UTK RMA shim images
