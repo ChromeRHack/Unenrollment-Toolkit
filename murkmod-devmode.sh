@@ -246,22 +246,17 @@ EOF
                 echo "Installing common_minimal.sh..."
                 install "common_minimal.sh" ./lib/common_minimal.sh
                 chmod 777 ./lib/common_minimal.sh
+                popd
+                echo "Invoking image_patcher.sh..."
+                bash /usr/local/tmp/image_patcher.sh "$FILENAME"
             else
-                echo "Installing Recovery image_patcher.sh..."
-                install "image_patcher2.sh" ./image_patcher.sh
-                chmod 777 ./image_patcher.sh
-                echo "Installing ssd_util.sh..."
-                mkdir -p ./lib
-                install "ssd_util.sh" ./lib/ssd_util.sh
-                chmod 777 ./lib/ssd_util.sh
-                echo "Installing common_minimal.sh..."
-                install "common_minimal.sh" ./lib/common_minimal.sh
-                chmod 777 ./lib/common_minimal.sh
+                usleep
 
         popd
-        echo "Invoking image_patcher.sh..."
-        bash /usr/local/tmp/image_patcher.sh "$FILENAME"
-        echo "Patching complete. Determining target partitions..."
+        if [recoverity1 -eq 0]; then
+            echo "Patching complete. Determining target partitions..."
+        else
+            echo "Determining target partitions..."
         local dst=/dev/$(get_largest_nvme_namespace)
         if [[ $dst == /dev/sd* ]]; then
             echo "WARNING: get_largest_nvme_namespace returned $dst - this doesn't seem correct!"
