@@ -128,7 +128,7 @@ patch_root() { #ALL SCRIPTS INSTALLED HERE
     fi
     echo "Installing murkmod components..."
     install "daemon.sh" $ROOT/sbin/murkmod-daemon.sh
-    move_bin "$ROOT/usr/bin/crosh"
+    mv $ROOT/usr/bin/crosh $ROOT/usr/bin/crosh.old
     install "mush.sh" $ROOT/usr/bin/crosh
     echo "Installing startup services..."
     install "pre-startup.conf" $ROOT/etc/init/pre-startup.conf
