@@ -270,6 +270,10 @@ EOF
             echo "Invoking image_patcher.sh..."
             bash /usr/local/tmp/image_patcher.sh "$FILENAME"
         else
+            if [ -f $FILENAME]; then
+                echo "Yes DEBUG REMOVE THIS"
+            else
+                echo "well shit DEBUG REMOVE THIS"
             echo ""
         fi
         popd
