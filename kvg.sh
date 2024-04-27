@@ -17,7 +17,7 @@ echo "Modified string: $spaced"
 
 main() {
     local output="02 4c 57 52 47 $spaced 00 00 00 eb"
-    echo $output
+    echo $output > kernver
 }
 
 main
