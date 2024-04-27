@@ -239,21 +239,12 @@ murkmod() {
     fi
 
     echo "Installing unzip (this may take up to 2 minutes)..."
-    dev_install
+    dev_install --reinstall
     if [ $? -eq 0 ]; then
         echo "Installed!"
     else
-        echo "Uninstalling dev_install"
-        dev_install --uninstall
-        echo "Installing dev_install (for redundancy)"
-        yes n | dev_install
-        if [ $? -eq 0 ]; then
-            echo "Installed!"
-        else
-            echo "Dev_install can't install! Exiting..."
-            exit
-        fi
-    fi
+        echo "Could not install emerge. Exiting..."
+        exit
     emerge unzip > /dev/null
 
     mkdir -p /usr/local/tmp
