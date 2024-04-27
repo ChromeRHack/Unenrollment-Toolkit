@@ -245,11 +245,11 @@ murkmod() {
     echo "Installing unzip (this may take up to 2 minutes)..."
     dev_install <<EOF > /dev/null
 EOF
-    if [ $1 -eq 0 ]; then
+    if [ $? -eq 0 ]; then
         echo "Installed Emerge."
     else
         dev_install --reinstall <<EOF > /dev/null
-    
+        
 EOF
     fi
     emerge unzip > /dev/null
