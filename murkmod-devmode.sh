@@ -234,24 +234,24 @@ EOF
         FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
         echo "Found recovery image from archive at $FILENAME"
         pushd /usr/local/tmp # /usr/local is mounted as exec, so we can run scripts from here
-            if [recoverity1 == 0]; then
+        if [recoverity1 == 0]; then
 
-                echo "Installing image_patcher.sh..."
-                install "image_patcher.sh" ./image_patcher.sh
-                chmod 777 ./image_patcher.sh
-                echo "Installing ssd_util.sh..."
-                mkdir -p ./lib
-                install "ssd_util.sh" ./lib/ssd_util.sh
-                chmod 777 ./lib/ssd_util.sh
-                echo "Installing common_minimal.sh..."
-                install "common_minimal.sh" ./lib/common_minimal.sh
-                chmod 777 ./lib/common_minimal.sh
-                popd
-                echo "Invoking image_patcher.sh..."
-                bash /usr/local/tmp/image_patcher.sh "$FILENAME"
-            else
-                usleep
-
+            echo "Installing image_patcher.sh..."
+            install "image_patcher.sh" ./image_patcher.sh
+            chmod 777 ./image_patcher.sh
+            echo "Installing ssd_util.sh..."
+            mkdir -p ./lib
+            install "ssd_util.sh" ./lib/ssd_util.sh
+            chmod 777 ./lib/ssd_util.sh
+            echo "Installing common_minimal.sh..."
+            install "common_minimal.sh" ./lib/common_minimal.sh
+            chmod 777 ./lib/common_minimal.sh
+            popd
+            echo "Invoking image_patcher.sh..."
+            bash /usr/local/tmp/image_patcher.sh "$FILENAME"
+        else
+            usleep
+        fi
         popd
         if [recoverity1 -eq 0]; then
             echo "Patching complete. Determining target partitions..."
