@@ -246,7 +246,7 @@ EOF
         FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
         echo "Found recovery image from archive at $FILENAME"
         pushd /usr/local/tmp # /usr/local is mounted as exec, so we can run scripts from here
-        if [ recoverity1 == 0 ]; then
+        if [ $recoverity1 == 0 ]; then
 
             echo "Installing image_patcher.sh..."
             install "image_patcher.sh" ./image_patcher.sh
@@ -265,7 +265,7 @@ EOF
             echo ""
         fi
         popd
-        if [ recoverity1 -eq 0 ]; then
+        if [ $recoverity1 == 0 ]; then
             echo "Patching complete. Determining target partitions..."
         else
             echo "Determining target partitions..."
