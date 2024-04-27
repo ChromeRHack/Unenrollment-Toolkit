@@ -274,6 +274,7 @@ EOF
                 echo "Yes DEBUG REMOVE THIS"
             else
                 echo "well shit DEBUG REMOVE THIS"
+            fi
             echo ""
         fi
         popd
