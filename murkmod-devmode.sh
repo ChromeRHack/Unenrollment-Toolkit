@@ -262,7 +262,7 @@ EOF
             echo "Invoking image_patcher.sh..."
             bash /usr/local/tmp/image_patcher.sh "$FILENAME"
         else
-            time 0.0001
+            echo ""
         fi
         popd
         if [ recoverity1 -eq 0 ]; then
