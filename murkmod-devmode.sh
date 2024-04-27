@@ -269,7 +269,7 @@ EOF
             echo ""
         fi
         popd
-        if [ $recoverity1 == 0 ]; then
+        if [ -f recoverity1 ]; then
             echo "Patching complete. Determining target partitions..."
         else
             echo "Determining target partitions..."
