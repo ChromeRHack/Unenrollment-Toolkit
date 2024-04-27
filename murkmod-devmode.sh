@@ -3,7 +3,7 @@
 CURRENT_MAJOR=6
 CURRENT_MINOR=0
 CURRENT_VERSION=0
-show_logo() {
+show_logo() { #Using ASCII font Collasal
     clear
     echo -e "
     888     888 88888888888 888    d8P  
@@ -17,17 +17,20 @@ show_logo() {
     echo "The UTK plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION - Developer mode installer"
 }
 
-show_logo_recovery() {
+show_logo_recovery() { #Using ASCII font Collasal
         clear
     echo -e "
-    888     888 88888888888 888    d8P  
-    888     888     888     888   d8P   
-    888     888     888     888  d8P    
-    888     888     888     888d88K     
-    888     888     888     8888888b    
-    888     888     888     888  Y88b   
-    Y88b. .d88P     888     888   Y88b  
-      Y88888P       888     888    Y88b "
+    888     888 88888888888 888    d8P        8888888b.  8888888888  .d8888b.   .d88888b.  888     888 8888888888 8888888b. Y88b   d88P 
+    888     888     888     888   d8P         888   Y88b 888        d88P  Y88b d88P" "Y88b 888     888 888        888   Y88b Y88b d88P  
+    888     888     888     888  d8P          888    888 888        888    888 888     888 888     888 888        888    888  Y88o88P   
+    888     888     888     888d88K           888   d88P 8888888    888        888     888 Y88b   d88P 8888888    888   d88P   Y888P    
+    888     888     888     8888888b          8888888P   888        888        888     888  Y88b d88P  888        8888888P     888     
+    888     888     888     888  Y88b         888 T88b   888        888    888 888     888   Y88o88P   888        888 T88b      888     
+    Y88b. .d88P     888     888   Y88b        888  T88b  888        Y88b  d88P Y88b. .d88P    Y888P    888        888  T88b     888     
+     "Y88888P"      888     888    Y88b       888   T88b 8888888888  "Y8888P"   "Y88888P"      Y8P     8888888888 888   T88b    888     
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    "
     echo "The UTK Recovery Manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION - Chrome OS Installer"
 }
 
