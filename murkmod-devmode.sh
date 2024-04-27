@@ -115,7 +115,8 @@ defog() {
 
 recoverity() {
     show_logo_recovery
-    local recoverity1="1"
+    echo ""
+    rm -rf recoverity1
     echo "What version of Chrome OS do you want to install?"
     echo "This allows for Recovering without having to actually recover via usb"
     echo " 1) og      (chromeOS v105)"
@@ -142,7 +143,7 @@ recoverity() {
 murkmod() {
     clear
     show_logo
-    local recoverity1="0"
+    mkdir recoverity1
     if [ -f /sbin/fakemurk-daemon.sh ]; then
         echo "!!! Your system already has a fakemurk installation! Continuing anyway, but emergency revert will not work correctly. !!!"
     fi
@@ -249,7 +250,7 @@ EOF
         FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
         echo "Found recovery image from archive at $FILENAME"
         pushd /usr/local/tmp # /usr/local is mounted as exec, so we can run scripts from here
-        if [ $recoverity1 == 0 ]; then
+        if [ -f recoverity1 ]; then
 
             echo "Installing image_patcher.sh..."
             install "image_patcher.sh" ./image_patcher.sh
@@ -313,6 +314,7 @@ EOF
             #fi
         echo "Cleaning up..."
         losetup -d "$loop"
+        rm -rf recoverity1
         rm -f "$FILENAME"
     popd
 
