@@ -122,7 +122,10 @@ debug_mode() {
 (4) List Plugins
 (5) Install Legacy plugins
 (6) Uninstall Legacy Plugins
-(7) Back
+(7) Root Shell
+(8) Chronos Shell
+(9) Crosh
+(10) Back
 EOF
         
         swallow_stdin
@@ -134,7 +137,10 @@ EOF
         4) runjob list_plugins ;;
         5) runjob install_plugin_legacy ;;
         6) runjob uninstall_plugin_legacy ;;
-        7) runjob more_options ;;
+        7) runjob doas bash ;;
+        8) runjob doas "cd /home/chronos; sudo -i -u chronos" ;;
+        9) runjob /usr/bin/crosh.old ;;
+        10) runjob more_options
     
         *) echo && echo "Invalid option, dipshit." && echo ;;
         esac
@@ -317,8 +323,9 @@ list_plugins() {
 }
 
 disable_file_system() {
-read "If you installed UTK this doesn't apply to you. THIS WILL DISABLE ROOTFS VERIFICATION. IF YOU DO THIS YOU WILL NO LONGER BE ABLE TO BOOT VERIFIED. IF YOU WANT TO BOOT VERIFIED YOU WILL HAVE TO RECOVER. Ctrl-c to stop. Enter to continue."
-sudo bash /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions 4 #Change this so we change both ROOT-A and ROOT-B
+read "If you installed UTK this doesn't apply to you. THIS WILL DISABLE ROOTFS VERIFICATION. IF YOU DO THIS YOU WILL NO LONGER BE ABLE TO BOOT VERIFIED. IF YOU WANT TO BOOT VERIFIED YOU WILL HAVE TO RECOVER."
+echo "Ctrl-c to stop. Enter to continue."
+sudo bash /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions 4 && sudo bash /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions 2
 echo "Restarting in 3"
 sleep 1
 echo "2"

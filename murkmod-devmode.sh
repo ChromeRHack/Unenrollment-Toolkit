@@ -171,7 +171,10 @@ murkmod() {
         7) recoverity ;;
         *) echo "Invalid choice, exiting." && exit ;;
     esac
-    show_logo
+    if [ -f recoverity1 ]; then
+        show_logo_recovery
+    else
+        show_logo
     echo "Finding latest Chrome100 build ID..."
     local build_id=$(curl -s "https://chrome100.dev" | grep -o '"buildId":"[^"]*"' | cut -d':' -f2 | tr -d '"')
     echo "Finding recovery image..."
@@ -239,8 +242,14 @@ murkmod() {
     fi
 
     echo "Installing unzip (this may take up to 2 minutes)..."
-    dev_install --reinstall <<EOF > /dev/null
+    dev_install <<EOF > /dev/null
 EOF
+    if [ $1 -eq 0 ]; then
+        echo "Installed Emerge."
+    else
+      dev_install --reinstall <<EOF > /dev/null
+EOF  
+
     emerge unzip > /dev/null
 
     mkdir -p /usr/local/tmp
