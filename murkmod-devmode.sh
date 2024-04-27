@@ -249,6 +249,11 @@ EOF
         echo "Downloading recovery image from '$FINAL_URL'..."
         curl --progress-bar -k "$FINAL_URL" -o recovery.zip
         echo "Unzipping image..."
+        if [ -f "recovery.zip" ]; then
+                echo "Yes DEBUG REMOVE THIS"
+            else
+                echo "well shit DEBUG REMOVE THIS"
+        fi
         unzip -o recovery.zip
         rm recovery.zip
         FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
