@@ -117,7 +117,7 @@ recoverity() {
         4) VERSION="118" ;;
         5) VERSION="latest" ;;
         6) read -p "Enter milestone to target (e.g. 105, 107, 117, 118): " VERSION ;;
-        7) murkmod
+        7) murkmod ;;
         *) echo "Invalid choice, exiting." && exit ;;
     esac
 }
