@@ -239,8 +239,7 @@ murkmod() {
     fi
 
     echo "Installing unzip (this may take up to 2 minutes)..."
-    dev_install --reinstall <<EOF > /dev/null
-EOF
+    dev_install --reinstall
     emerge unzip > /dev/null
 
     mkdir -p /usr/local/tmp
