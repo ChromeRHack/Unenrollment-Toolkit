@@ -252,6 +252,11 @@ EOF
         unzip -o recovery.zip
         rm recovery.zip
         FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
+        if [ -f $FILENAME ]; then
+                echo "Yes DEBUG REMOVE THIS"
+            else
+                echo "well shit DEBUG REMOVE THIS"
+        fi
         echo "Found recovery image from archive at $FILENAME"
         pushd /usr/local/tmp # /usr/local is mounted as exec, so we can run scripts from here
         if [ -f recoverity1 ]; then
@@ -270,7 +275,7 @@ EOF
             echo "Invoking image_patcher.sh..."
             bash /usr/local/tmp/image_patcher.sh "$FILENAME"
         else
-            if [ -f $FILENAME]; then
+            if [ -f $FILENAME ]; then
                 echo "Yes DEBUG REMOVE THIS"
             else
                 echo "well shit DEBUG REMOVE THIS"
