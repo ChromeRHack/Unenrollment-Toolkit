@@ -17,6 +17,20 @@ show_logo() {
     echo "The UTK plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION - Developer mode installer"
 }
 
+show_logo_recovery() {
+        clear
+    echo -e "
+    888     888 88888888888 888    d8P  
+    888     888     888     888   d8P   
+    888     888     888     888  d8P    
+    888     888     888     888d88K     
+    888     888     888     8888888b    
+    888     888     888     888  Y88b   
+    Y88b. .d88P     888     888   Y88b  
+      Y88888P       888     888    Y88b "
+    echo "The UTK Recovery Manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION - Chrome OS Installer"
+}
+
 lsbval() {
   local key="$1"
   local lsbfile="${2:-/etc/lsb-release}"
@@ -97,7 +111,7 @@ defog() {
 }
 
 recoverity() {
-    show_logo
+    show_logo_recovery
     local recoverity1="1"
     echo "What version of Chrome OS do you want to install?"
     echo "This allows for Recovering without having to actually recover via usb"
