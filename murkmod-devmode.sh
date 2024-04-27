@@ -247,8 +247,8 @@ EOF
     if [ $1 -eq 0 ]; then
         echo "Installed Emerge."
     else
+        dev_install --reinstall <<EOF > /dev/null
     fi
-      dev_install --reinstall <<EOF > /dev/null
 EOF
 
     emerge unzip > /dev/null
