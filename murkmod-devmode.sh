@@ -204,6 +204,8 @@ murkmod() {
             MATCH_FOUND=1
             #https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15117.112.0_hatch_recovery_stable-channel_mp-v6.bin.zip
             FINAL_URL="https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_${platform}_${board}_recovery_${channel}_${mp_token}-v${mp_key}.bin.zip"
+            echo $FINAL_URL
+            echo "DEBUG REMOVE THIS"
             break
         fi
     done
