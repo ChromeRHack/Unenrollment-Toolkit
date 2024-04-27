@@ -246,7 +246,7 @@ murkmod() {
         echo "Uninstalling dev_install"
         dev_install --uninstall
         echo "Installing dev_install (for redundancy)"
-        dev_install
+        yes n | dev_install
         if [ $? -eq 0 ]; then
             echo "Installed!"
         else
