@@ -255,6 +255,7 @@ EOF
             echo "Patching complete. Determining target partitions..."
         else
             echo "Determining target partitions..."
+        fi
         local dst=/dev/$(get_largest_nvme_namespace)
         if [[ $dst == /dev/sd* ]]; then
             echo "WARNING: get_largest_nvme_namespace returned $dst - this doesn't seem correct!"
