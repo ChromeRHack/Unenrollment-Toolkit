@@ -245,6 +245,7 @@ murkmod() {
     else
         echo "Could not install emerge. Exiting..."
         exit
+    fi
     emerge unzip > /dev/null
 
     mkdir -p /usr/local/tmp
