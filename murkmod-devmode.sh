@@ -175,6 +175,7 @@ murkmod() {
         show_logo_recovery
     else
         show_logo
+    fi
     echo "Finding latest Chrome100 build ID..."
     local build_id=$(curl -s "https://chrome100.dev" | grep -o '"buildId":"[^"]*"' | cut -d':' -f2 | tr -d '"')
     echo "Finding recovery image..."
@@ -248,9 +249,9 @@ EOF
         echo "Installed Emerge."
     else
         dev_install --reinstall <<EOF > /dev/null
-    fi
+    
 EOF
-
+    fi
     emerge unzip > /dev/null
 
     mkdir -p /usr/local/tmp
