@@ -252,6 +252,8 @@ murkmod() {
         else
             echo "Dev_install can't install! Exiting..."
             exit
+        fi
+    fi
     emerge unzip > /dev/null
 
     mkdir -p /usr/local/tmp
