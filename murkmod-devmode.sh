@@ -143,7 +143,7 @@ recoverity() {
 murkmod() {
     clear
     show_logo
-    echo "" > recoverity1
+    echo "recoverity1" > recoverity1
     if [ -f /sbin/fakemurk-daemon.sh ]; then
         echo "!!! Your system already has a fakemurk installation! Continuing anyway, but emergency revert will not work correctly. !!!"
     fi
@@ -172,9 +172,9 @@ murkmod() {
         *) echo "Invalid choice, exiting." && exit ;;
     esac
     if [ -f recoverity1 ]; then
-        show_logo_recovery
-    else
         show_logo
+    else
+        show_logo_recovery
     fi
     echo "Finding latest Chrome100 build ID..."
     local build_id=$(curl -s "https://chrome100.dev" | grep -o '"buildId":"[^"]*"' | cut -d':' -f2 | tr -d '"')
