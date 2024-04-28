@@ -143,7 +143,7 @@ recoverity() {
 murkmod() {
     clear
     show_logo
-    echo "recoverity1" > recoverity1
+    echo "" > recoverity1
     if [ -f /sbin/fakemurk-daemon.sh ]; then
         echo "!!! Your system already has a fakemurk installation! Continuing anyway, but emergency revert will not work correctly. !!!"
     fi
@@ -243,14 +243,13 @@ murkmod() {
     fi
 
     echo "Installing unzip (this may take up to 2 minutes)..."
-    dev_install <<EOF > /dev/null
+    yes| dev_install <<EOF > /dev/null
 EOF
     if [ $? -eq 0 ]; then
         echo "Installed Emerge."
     else
-        dev_install --uninstall
-        dev_install <<EOF > /dev/null
-        
+        yes | dev_install --uninstall
+        yes | dev_install <<EOF > /dev/null   
 EOF
     fi
     emerge unzip > /dev/null
@@ -269,7 +268,7 @@ EOF
         unzip -o recovery.zip
         rm recovery.zip
         FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
-        if [ -f $FILENAME ]; then
+        if [[ -f $FILENAME ]]; then
                 echo "Yes DEBUG REMOVE THIS"
             else
                 echo "well shit DEBUG REMOVE THIS"
