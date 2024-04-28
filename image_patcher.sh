@@ -198,7 +198,7 @@ main() {
   configure_binaries
   echo $SSD_UTIL
 
-  if [ -z $1 ] || [ ! -f $1 ]; then
+  if [[ -z $1 ]] || [[ ! -f $1 ]]; then
     echo "\"$1\" isn't a real file, dipshit! You need to pass the path to the recovery image. Optional args: <path to custom bootsplash: path to a png> <unfuck stateful: int 0 or 1>"
     exit
   fi
