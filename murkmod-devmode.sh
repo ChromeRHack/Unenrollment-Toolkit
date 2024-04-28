@@ -143,7 +143,7 @@ recoverity() {
 murkmod() {
     clear
     show_logo
-    mkdir recoverity1
+    echo "" > recoverity1
     if [ -f /sbin/fakemurk-daemon.sh ]; then
         echo "!!! Your system already has a fakemurk installation! Continuing anyway, but emergency revert will not work correctly. !!!"
     fi
@@ -248,7 +248,8 @@ EOF
     if [ $? -eq 0 ]; then
         echo "Installed Emerge."
     else
-        dev_install --reinstall <<EOF > /dev/null
+        dev_install --uninstall
+        dev_install <<EOF > /dev/null
         
 EOF
     fi
@@ -275,29 +276,21 @@ EOF
         fi
         echo "Found recovery image from archive at $FILENAME"
         pushd /usr/local/tmp # /usr/local is mounted as exec, so we can run scripts from here
-        if [ -f recoverity1 ]; then
-
-            echo "Installing image_patcher.sh..."
-            install "image_patcher.sh" ./image_patcher.sh
-            chmod 777 ./image_patcher.sh
-            echo "Installing ssd_util.sh..."
-            mkdir -p ./lib
-            install "ssd_util.sh" ./lib/ssd_util.sh
-            chmod 777 ./lib/ssd_util.sh
-            echo "Installing common_minimal.sh..."
-            install "common_minimal.sh" ./lib/common_minimal.sh
-            chmod 777 ./lib/common_minimal.sh
-            popd
-            echo "Invoking image_patcher.sh..."
-            bash /usr/local/tmp/image_patcher.sh "$FILENAME"
-        else
-            if [ -f $FILENAME ]; then
-                echo "Yes DEBUG REMOVE THIS"
-            else
-                echo "well shit DEBUG REMOVE THIS"
-            fi
-            echo ""
-        fi
+        
+        echo "Installing image_patcher.sh..."
+        install "image_patcher.sh" ./image_patcher.sh
+        chmod 777 ./image_patcher.sh
+        echo "Installing ssd_util.sh..."
+        mkdir -p ./lib
+        install "ssd_util.sh" ./lib/ssd_util.sh
+        chmod 777 ./lib/ssd_util.sh
+        echo "Installing common_minimal.sh..."
+        install "common_minimal.sh" ./lib/common_minimal.sh
+        chmod 777 ./lib/common_minimal.sh
+        popd
+        echo "Invoking image_patcher.sh..."
+        bash /usr/local/tmp/image_patcher.sh "$FILENAME"
+        
         popd
         if [ -f recoverity1 ]; then
             echo "Patching complete. Determining target partitions..."
@@ -344,13 +337,13 @@ EOF
             #fi
         echo "Cleaning up..."
         losetup -d "$loop"
-        rm -rf recoverity1
+        rm -rf /home/user/Myfiles/Downloads/recoverity1
         rm -f "$FILENAME"
     popd
 
     read -n 1 -s -r -p "Done! Press any key to continue and your system will reboot automatically."
     reboot
-    echo "Bye!"
+    echo " Bye!"
     sleep 20
     echo "Your system should have rebooted. If it didn't please perform an EC reset (Refresh+Power)."
     sleep 1d

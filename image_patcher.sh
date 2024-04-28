@@ -106,49 +106,56 @@ configure_binaries(){
 }
 
 patch_root() { #ALL SCRIPTS INSTALLED HERE
-    echo "Staging populator..."
-    >$ROOT/population_required
-    >$ROOT/reco_patched
-    echo "Murkmod-ing root..."
-    echo "Disabling autoupdates..."
-    disable_autoupdates
-    local milestone=$(lsbval CHROMEOS_RELEASE_CHROME_MILESTONE $ROOT/etc/lsb-release)
-    echo "Installing startup scripts..."
-    move_bin "$ROOT/sbin/chromeos_startup.sh"
-    if [ "$milestone" -gt "116" ]; then
-        echo "Detected newer version of CrOS, using new chromeos_startup"
-        move_bin "$ROOT/sbin/chromeos_startup"
-        install "chromeos_startup.sh" $ROOT/sbin/chromeos_startup
-        chmod 755 $ROOT/sbin/chromeos_startup # whoops
-        touch $ROOT/new-startup
+    if [ -f recoverity1 ]; then
+      echo "Staging populator..."
+      >$ROOT/population_required
+      >$ROOT/reco_patched
+      echo "Murkmod-ing root..."
+      echo "Disabling autoupdates..."
+      disable_autoupdates
+      local milestone=$(lsbval CHROMEOS_RELEASE_CHROME_MILESTONE $ROOT/etc/lsb-release)
+      echo "Installing startup scripts..."
+      move_bin "$ROOT/sbin/chromeos_startup.sh"
+      if [ "$milestone" -gt "116" ]; then
+          echo "Detected newer version of CrOS, using new chromeos_startup"
+          move_bin "$ROOT/sbin/chromeos_startup"
+          install "chromeos_startup.sh" $ROOT/sbin/chromeos_startup
+          chmod 755 $ROOT/sbin/chromeos_startup # whoops
+          touch $ROOT/new-startup
+      else
+          move_bin "$ROOT/sbin/chromeos_startup.sh"
+          install "chromeos_startup.sh" $ROOT/sbin/chromeos_startup.sh
+          chmod 755 $ROOT/sbin/chromeos_startup.sh
+      fi
+      echo "Installing murkmod components..."
+      install "daemon.sh" $ROOT/sbin/murkmod-daemon.sh
+      mv $ROOT/usr/bin/crosh $ROOT/usr/bin/crosh.old
+      install "mush.sh" $ROOT/usr/bin/crosh
+      echo "Installing startup services..."
+      install "pre-startup.conf" $ROOT/etc/init/pre-startup.conf
+      install "cr50-update.conf" $ROOT/etc/init/cr50-update.conf
+      echo "Installing other utilities..."
+      install "ssd_util.sh" $ROOT/usr/share/vboot/bin/ssd_util.sh
+      install "image_patcher.sh" $ROOT/sbin/image_patcher.sh
+      install "crossystem_boot_populator.sh" $ROOT/sbin/crossystem_boot_populator.sh
+      install "ssd_util.sh" $ROOT/usr/share/vboot/bin/ssd_util.sh
+      mkdir -p "$ROOT/etc/opt/chrome/policies/managed"
+      install "pollen.json" $ROOT/etc/opt/chrome/policies/managed/policy.json
+      #mv $ROOT/usr/bin/tpmc $ROOT/usr/bin/tpmc.old
+      #install "tpmc.new" $ROOT/usr/bin/tpmc
+      install "croshunblocker.sh" $ROOT/croshunblocker.sh
+      install "revert.sh" $ROOT/revert.sh
+      cp /usr/bin/crosh $ROOT/usr/bin
+      echo "Chmod-ing everything..."
+      chmod 777 $ROOT/usr/bin/tpmc $ROOT/croshunblocker.sh $ROOT/revert.sh #$ROOT/usr/bin/tpmc $ROOT/usr/bin/tpmc.old
+      chmod 777 $ROOT/sbin/murkmod-daemon.sh $ROOT/usr/bin/crosh $ROOT/usr/share/vboot/bin/ssd_util.sh $ROOT/sbin/image_patcher.sh $ROOT/etc/opt/chrome/policies/managed/policy.json $ROOT/sbin/crossystem_boot_populator.sh $ROOT/usr/share/vboot/bin/ssd_util.sh    
+      echo "Done."
     else
-        move_bin "$ROOT/sbin/chromeos_startup.sh"
-        install "chromeos_startup.sh" $ROOT/sbin/chromeos_startup.sh
-        chmod 755 $ROOT/sbin/chromeos_startup.sh
+      echo "Resetting OOBE"
+      rm $ROOT/mnt/stateful_partition
+      rm $ROOT/mnt/stateful_partition
+      echo "Done"
     fi
-    echo "Installing murkmod components..."
-    install "daemon.sh" $ROOT/sbin/murkmod-daemon.sh
-    mv $ROOT/usr/bin/crosh $ROOT/usr/bin/crosh.old
-    install "mush.sh" $ROOT/usr/bin/crosh
-    echo "Installing startup services..."
-    install "pre-startup.conf" $ROOT/etc/init/pre-startup.conf
-    install "cr50-update.conf" $ROOT/etc/init/cr50-update.conf
-    echo "Installing other utilities..."
-    install "ssd_util.sh" $ROOT/usr/share/vboot/bin/ssd_util.sh
-    install "image_patcher.sh" $ROOT/sbin/image_patcher.sh
-    install "crossystem_boot_populator.sh" $ROOT/sbin/crossystem_boot_populator.sh
-    install "ssd_util.sh" $ROOT/usr/share/vboot/bin/ssd_util.sh
-    mkdir -p "$ROOT/etc/opt/chrome/policies/managed"
-    install "pollen.json" $ROOT/etc/opt/chrome/policies/managed/policy.json
-    #mv $ROOT/usr/bin/tpmc $ROOT/usr/bin/tpmc.old
-    #install "tpmc.new" $ROOT/usr/bin/tpmc
-    install "croshunblocker.sh" $ROOT/croshunblocker.sh
-    install "revert.sh" $ROOT/revert.sh
-    cp /usr/bin/crosh $ROOT/usr/bin
-    echo "Chmod-ing everything..."
-    chmod 777 $ROOT/usr/bin/tpmc $ROOT/croshunblocker.sh $ROOT/revert.sh #$ROOT/usr/bin/tpmc $ROOT/usr/bin/tpmc.old
-    chmod 777 $ROOT/sbin/murkmod-daemon.sh $ROOT/usr/bin/crosh $ROOT/usr/share/vboot/bin/ssd_util.sh $ROOT/sbin/image_patcher.sh $ROOT/etc/opt/chrome/policies/managed/policy.json $ROOT/sbin/crossystem_boot_populator.sh $ROOT/usr/share/vboot/bin/ssd_util.sh    
-    echo "Done."
 }
 
 # https://chromium.googlesource.com/chromiumos/docs/+/main/lsb-release.md
