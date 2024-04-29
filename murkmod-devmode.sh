@@ -140,6 +140,32 @@ recoverity() {
     esac
 }
 
+recovery-download() {
+    if [ -f $(find . -maxdepth 2 -name "chromeos_*.zip") ]; then
+        echo "Unzipping image..."
+        unzip -o recovery.zip
+        rm recovery.zip
+        if [ -f $(find . -maxdepth 2 -name "chromeos_*.bin")]; then
+            FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
+            echo "Found recovery image from archive at $FILENAME"
+            return 0
+        fi
+    else
+        if [ -f $(find . -maxdepth 2 -name "chromeos_*.bin")]; then
+            FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
+            echo "Found recovery image from archive at $FILENAME"
+            return 0
+        fi
+        echo "Downloading recovery image from '$FINAL_URL'..."
+        curl --progress-bar -k "$FINAL_URL" -o recovery.zip
+        echo "Unzipping image..."
+        unzip -o recovery.zip
+        rm recovery.zip
+        FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
+        echo "Found recovery image from archive at $FILENAME"
+    fi
+}
+
 murkmod() {
     clear
     show_logo
@@ -255,16 +281,7 @@ EOF
     mkdir -p /usr/local/tmp
     pushd /mnt/stateful_partition
         set -e
-        if [ -f $(find . -maxdepth 2 -name "chromeos_*.bin") ]; then
-
-            echo "Downloading recovery image from '$FINAL_URL'..."
-            curl --progress-bar -k "$FINAL_URL" -o recovery.zip
-            echo "Unzipping image..."
-            unzip -o recovery.zip
-            rm recovery.zip
-            FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
-            echo "Found recovery image from archive at $FILENAME"
-        fi
+        recovery-download
         pushd /usr/local/ # /usr/local is mounted as exec, so we can run scripts from here
             echo "Installing image_patcher.sh..."
             install "image_patcher.sh" ./image_patcher.sh

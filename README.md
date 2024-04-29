@@ -1,5 +1,5 @@
 # Things to Fix in chronological order. Top to bottom
-- murkmod-devmode.sh doesn't work cause image-patcher.sh cause for some reason recovery image was like fuck this and dissapeared.
+- murkmod-devmode.sh doesn't work cause image-patcher.sh doesn't work cause for some reason recovery image was like fuck this and dissapeared. Currently trying to speed up test time with recovery-download function.  continue debugging soon.
 - mush doesn't install and doesn't launch. (Obvious)
 - ~we will start croshunblocker when chrome starts by spoofing chrome like we did with tpmc.~ NO do this with an extension. Murkmod already solved it. We're idiots.
 - Remember to put info for skids at the bottom of the inevitable faq
