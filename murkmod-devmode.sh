@@ -268,7 +268,6 @@ murkmod() {
 
     echo "Installing unzip (this may take up to 2 minutes)..."
     dev_install --reinstall <<EOF > /dev/null
-
 y
 n
 EOF
