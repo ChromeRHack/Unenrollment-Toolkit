@@ -262,7 +262,7 @@ EOF
         rm recovery.zip
         FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
         echo "Found recovery image from archive at $FILENAME"
-        pushd /usr/local/tmp # /usr/local is mounted as exec, so we can run scripts from here
+        pushd /usr/local/ # /usr/local is mounted as exec, so we can run scripts from here
             echo "Installing image_patcher.sh..."
             install "image_patcher.sh" ./image_patcher.sh
             chmod 777 ./image_patcher.sh
