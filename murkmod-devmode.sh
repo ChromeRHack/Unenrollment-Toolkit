@@ -260,32 +260,22 @@ EOF
         echo "Downloading recovery image from '$FINAL_URL'..."
         curl --progress-bar -k "$FINAL_URL" -o recovery.zip
         echo "Unzipping image..."
-        if [ -f "recovery.zip" ]; then
-                echo "Yes DEBUG REMOVE THIS"
-            else
-                echo "well shit DEBUG REMOVE THIS"
-        fi
         unzip -o recovery.zip
         rm recovery.zip
         FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
-        if [[ -f $FILENAME ]]; then
-                echo "Yes DEBUG REMOVE THIS"
-            else
-                echo "well shit DEBUG REMOVE THIS"
-        fi
         echo "Found recovery image from archive at $FILENAME"
         pushd /usr/local/tmp # /usr/local is mounted as exec, so we can run scripts from here
         
-        echo "Installing image_patcher.sh..."
-        install "image_patcher.sh" ./image_patcher.sh
-        chmod 777 ./image_patcher.sh
-        echo "Installing ssd_util.sh..."
-        mkdir -p ./lib
-        install "ssd_util.sh" ./lib/ssd_util.sh
-        chmod 777 ./lib/ssd_util.sh
-        echo "Installing common_minimal.sh..."
-        install "common_minimal.sh" ./lib/common_minimal.sh
-        chmod 777 ./lib/common_minimal.sh
+            echo "Installing image_patcher.sh..."
+            install "image_patcher.sh" ./image_patcher.sh
+            chmod 777 ./image_patcher.sh
+            echo "Installing ssd_util.sh..."
+            mkdir -p ./lib
+            install "ssd_util.sh" ./lib/ssd_util.sh
+            chmod 777 ./lib/ssd_util.sh
+            echo "Installing common_minimal.sh..."
+            install "common_minimal.sh" ./lib/common_minimal.sh
+            chmod 777 ./lib/common_minimal.sh
         popd
         echo "Invoking image_patcher.sh..."
         bash /usr/local/tmp/image_patcher.sh "$FILENAME"
