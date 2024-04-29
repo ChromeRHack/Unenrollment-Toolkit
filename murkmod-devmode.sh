@@ -61,6 +61,7 @@ install() {
     if [ "$?" == "1" ] || ! grep -q '[^[:space:]]' "$TMP"; then
         echo "Failed in install from $1 to $2 $?"
     # Don't mv, that would break permissions
+        cat "$TMP" >"$2"
         rm -f "$TMP"
     fi
 }
