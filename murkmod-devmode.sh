@@ -56,7 +56,7 @@ get_asset() {
 }
 
 install() {
-    TMMP=$(mktemp)
+    TMP=$(mktemp)
     get_asset "$1" >"$TMP"
     if [ "$?" == "1" ] || ! grep -q '[^[:space:]]' "$TMP"; then
         echo "Failed to install $1 to $2"
@@ -186,7 +186,7 @@ murkmod() {
     echo " 4) pheonix (chromeOS v118)"
     echo " 5) latest version"
     echo " 6) custom milestone"
-    echo " 7) Recoverity Mode"
+    echo " 7) Recovery Mode"
     read -p "(1-7) > " choice
 
     case $choice in
