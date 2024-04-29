@@ -56,14 +56,16 @@ get_asset() {
 }
 
 install() {
-    TMP=$(mktemp)
+    TMMP=$(mktemp)
     get_asset "$1" >"$TMP"
     if [ "$?" == "1" ] || ! grep -q '[^[:space:]]' "$TMP"; then
-        echo "Failed in install from $1 to $2 $?"
-    # Don't mv, that would break permissions
-        cat "$TMP" >"$2"
+        echo "Failed to install $1 to $2"
         rm -f "$TMP"
+        exit
     fi
+    #Don't mv that would break perms
+    cat "$TMP" >"$2"
+    rm -f "$TMP"
 }
 
 get_largest_nvme_namespace() {
@@ -234,8 +236,6 @@ murkmod() {
             MATCH_FOUND=1
             #https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15117.112.0_hatch_recovery_stable-channel_mp-v6.bin.zip
             FINAL_URL="https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_${platform}_${board}_recovery_${channel}_${mp_token}-v${mp_key}.bin.zip"
-            echo $FINAL_URL
-            echo "DEBUG REMOVE THIS"
             break
         fi
     done
@@ -267,22 +267,18 @@ murkmod() {
     fi
 
     echo "Installing unzip (this may take up to 2 minutes)..."
-    yes| dev_install <<EOF > /dev/null
+    dev_install --reinstall <<EOF > /dev/null
+
+y
+n
 EOF
-    if [ $? -eq 0 ]; then
-        echo "Installed Emerge."
-    else
-        yes | dev_install --uninstall
-        yes | dev_install <<EOF > /dev/null   
-EOF
-    fi
     emerge unzip > /dev/null
 
     mkdir -p /usr/local/tmp
     pushd /mnt/stateful_partition
         set -e
         recovery-download
-        pushd /usr/local/ # /usr/local is mounted as exec, so we can run scripts from here
+        pushd /usr/local/tmp # /usr/local is mounted as exec, so we can run scripts from here
             echo "Installing image_patcher.sh..."
             install "image_patcher.sh" ./image_patcher.sh
             chmod 777 ./image_patcher.sh
