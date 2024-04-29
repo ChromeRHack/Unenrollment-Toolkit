@@ -58,7 +58,7 @@ get_asset() {
 install() {
     TMP=$(mktemp)
     get_asset "$1" >"$TMP"
-    if [ "$?" == "0" ] || ! grep -q '[^[:space:]]' "$TMP"; then
+    if [ "$?" != "0" ] || ! grep -q '[^[:space:]]' "$TMP"; then
         echo "Failed to install $1 to $2 $?"
     # Don't mv, that would break permissions
     cat "$TMP" >"$2"
@@ -230,8 +230,6 @@ murkmod() {
                 MATCH_FOUND=1
                 FINAL_URL=$(jq -r ".builds.$board[].$hwid.pushRecoveries[\"$milestone\"]" <<<"$builds")
                 echo "Found a match!"
-                echo $FINAL_URL
-                echo "DEBUG REMOVE THIS"
                 break
             fi
         done
