@@ -255,13 +255,16 @@ EOF
     mkdir -p /usr/local/tmp
     pushd /mnt/stateful_partition
         set -e
-        echo "Downloading recovery image from '$FINAL_URL'..."
-        curl --progress-bar -k "$FINAL_URL" -o recovery.zip
-        echo "Unzipping image..."
-        unzip -o recovery.zip
-        rm recovery.zip
-        FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
-        echo "Found recovery image from archive at $FILENAME"
+        if [ -f $(find . -maxdepth 2 -name "chromeos_*.bin") ]; then
+
+            echo "Downloading recovery image from '$FINAL_URL'..."
+            curl --progress-bar -k "$FINAL_URL" -o recovery.zip
+            echo "Unzipping image..."
+            unzip -o recovery.zip
+            rm recovery.zip
+            FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
+            echo "Found recovery image from archive at $FILENAME"
+        fi
         pushd /usr/local/ # /usr/local is mounted as exec, so we can run scripts from here
             echo "Installing image_patcher.sh..."
             install "image_patcher.sh" ./image_patcher.sh
