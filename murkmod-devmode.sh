@@ -297,7 +297,13 @@ EOF
             chmod 777 ./lib/common_minimal.sh
         popd
         echo "Invoking image_patcher.sh..."
+    popd
+    if [ -f recoverity1 ]; then
         bash /usr/local/tmp/image_patcher.sh "$FILENAME"
+    else
+        bash /usr/local/tmp/image_patcher.sh "$FILENAME" "0"
+    fi
+    pushd /mnt/stateful_partition
         
         #popd back a line if interferes
         if [ -f recoverity1 ]; then
