@@ -117,6 +117,10 @@ defog() {
 
 recoverity() {
     show_logo_recovery
+    echo "Would you like to reset the OOBE when startup occurs?"
+    read -p "Yes or No? > " oobe-reset
+    if [ oobe-reset -eq Yes] && [ oobe-reset -eq yes]; then
+        echo "" > oobe-reset
     echo ""
     rm -rf recoverity1
     echo "What version of Chrome OS do you want to install?"
@@ -143,31 +147,31 @@ recoverity() {
 }
 
 recovery-download() {
-    pushd /mnt/stateful_partition
-        if [[ -f chromeos_*.zip ]]; then
-            echo "Unzipping image..."
-            unzip -o recovery.zip
-            rm recovery.zip
-            if [[ -f chromeos_*.bin ]]; then
-                FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
-                echo "Found recovery image from archive at $FILENAME"
-                return 0
-            fi
-        else
-            if [[ -f chromeos_*.bin ]]; then
-                FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
-                echo "Found recovery image from archive at $FILENAME"
-                return 0
-            fi
-            echo "Downloading recovery image from '$FINAL_URL'..."
-            curl --progress-bar -k "$FINAL_URL" -o recovery.zip
-            echo "Unzipping image..."
-            unzip -o recovery.zip
-            rm recovery.zip
+    
+    if [[ -f chromeos_*.zip ]]; then
+        echo "Unzipping image..."
+        unzip -o recovery.zip
+        rm recovery.zip
+        if [[ -f chromeos_*.bin ]]; then
             FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
             echo "Found recovery image from archive at $FILENAME"
+            return 0
         fi
-    popd
+    else
+        if [[ -f chromeos_*.bin ]]; then
+            FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
+            echo "Found recovery image from archive at $FILENAME"
+            return 0
+        fi
+        echo "Downloading recovery image from '$FINAL_URL'..."
+        curl --progress-bar -k "$FINAL_URL" -o recovery.zip
+        echo "Unzipping image..."
+        unzip -o recovery.zip
+        rm recovery.zip
+        FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
+        echo "Found recovery image from archive at $FILENAME"
+    fi
+    
 }
 
 murkmod() {

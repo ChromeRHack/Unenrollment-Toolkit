@@ -151,13 +151,11 @@ patch_root() { #ALL SCRIPTS INSTALLED HERE
       chmod 777 $ROOT/sbin/murkmod-daemon.sh $ROOT/usr/bin/crosh $ROOT/usr/share/vboot/bin/ssd_util.sh $ROOT/sbin/image_patcher.sh $ROOT/etc/opt/chrome/policies/managed/policy.json $ROOT/sbin/crossystem_boot_populator.sh $ROOT/usr/share/vboot/bin/ssd_util.sh    
       echo "Done."
     else
-      if [[ -f recoverity1 ]]; then
-        echo "Done"
-      else
+      if [[ -f oobe-reset ]]; then
         echo "Resetting OOBE"
         rm -rf $ROOT/mnt/stateful_partition
-        echo "Done"
       fi
+      echo "Done"
     fi
 }
 
