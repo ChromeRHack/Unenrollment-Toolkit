@@ -1,3 +1,4 @@
+# ALSO FUCKING REMEMBER TO REMOVE BEFORE PUBLISH API KEY FOR TESTING "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" Created testing account and api key for org and to test without having to public it
 # Things to Fix in chronological order. Top to bottom
 - ~murkmod-devmode.sh doesn't work cause image-patcher.sh doesn't work cause for some reason recovery image was like fuck this and dissapeared. Almost done fixing need to TEST to confirm~ WORKS
 Currently trying to speed up test time with recovery-download function.  continue debugging soon.
@@ -31,5 +32,5 @@ Currently trying to speed up test time with recovery-download function.  continu
 - Implement website to build Unenrollment Toolkit
 - Compile Prebuilt Images
 - Finalize docs and README.md
-- PUBLISH!!!
+- PUBLISH!!! REMEMBER TO FUCKING EXPIRE API KEY 
 
