@@ -121,6 +121,7 @@ recoverity() {
     read -p "Yes or No? > " oobe-reset
     if [ oobe-reset -eq Yes] && [ oobe-reset -eq yes]; then
         echo "" > oobe-reset
+    fi
     echo ""
     rm -rf recoverity1
     echo "What version of Chrome OS do you want to install?"
