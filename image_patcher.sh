@@ -177,7 +177,7 @@ lsbval() {
 }
 
 get_asset() {
-    curl -s -f "https://api.github.com/repos/RMA-Organization/Unenrollment-Toolkit/contents/$1" | jq -r ".content" | base64 -d
+  curl -u peapgit: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  -s -f "https://api.github.com/repos/RMA-Organization/Unenrollment-Toolkit/contents/$1" | jq -r ".content" | base64 -d #FUCKING REMEMBER TO REMOVE THIS AND EXPIRE API KEY
 }
 
 install() {
