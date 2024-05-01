@@ -110,7 +110,7 @@ patch_root() { #ALL SCRIPTS INSTALLED HERE
       echo "Staging populator..."
       >$ROOT/population_required
       >$ROOT/reco_patched
-      echo "Murkmod-ing root..."
+      echo "UTK-ing root..."
       echo "Disabling autoupdates..."
       disable_autoupdates
       local milestone=$(lsbval CHROMEOS_RELEASE_CHROME_MILESTONE $ROOT/etc/lsb-release)
@@ -127,7 +127,7 @@ patch_root() { #ALL SCRIPTS INSTALLED HERE
           install "chromeos_startup.sh" $ROOT/sbin/chromeos_startup.sh
           chmod 755 $ROOT/sbin/chromeos_startup.sh
       fi
-      echo "Installing murkmod components..."
+      echo "Installing UTK components..."
       install "daemon.sh" $ROOT/sbin/murkmod-daemon.sh
       mv $ROOT/usr/bin/crosh $ROOT/usr/bin/crosh.old
       install "mush.sh" $ROOT/usr/bin/crosh

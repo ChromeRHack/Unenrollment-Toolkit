@@ -117,11 +117,6 @@ defog() {
 
 recoverity() {
     show_logo_recovery
-    echo "Would you like to reset the OOBE when startup occurs?"
-    read -p "Yes or No? > " oobe-reset
-    if [ oobe-reset -eq Yes] && [ oobe-reset -eq yes]; then
-        echo "" > oobe-reset
-    fi
     echo ""
     rm -rf recoverity1
     echo "What version of Chrome OS do you want to install?"
@@ -145,7 +140,16 @@ recoverity() {
         7) murkmod ;;
         *) echo "Invalid choice, exiting." && exit ;;
     esac
-}
+    echo "Would you like to reset the OOBE when startup occurs?"
+    read -p "Yes or No? > " oobe
+    case $oobe in
+        yes) echo "" > oobe-reset ;;
+        Yes) echo "" > oobe-reset ;;
+        no) echo "Not doing OOBE reset" ;;
+        No) echo "Not doing OOBE reset" ;;
+        *) echo "Invalid Option. Defaulting to No. Press ctrl-c to restart.";;
+    esac
+ }
 
 recovery-download() {
     
@@ -302,7 +306,7 @@ EOF
         bash /usr/local/tmp/image_patcher.sh "$FILENAME"
     else
         bash /usr/local/tmp/image_patcher.sh "$FILENAME" "0"
-    fi
+    fi 
     pushd /mnt/stateful_partition
         
         #popd back a line if interferes
