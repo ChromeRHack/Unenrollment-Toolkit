@@ -140,7 +140,7 @@ EOF
         7) runjob doas bash ;;
         8) runjob doas "cd /home/chronos; sudo -i -u chronos" ;;
         9) runjob /usr/bin/crosh.old ;;
-        10) runjob more_options
+        10) runjob more_options ;;
     
         *) echo && echo "Invalid option, dipshit." && echo ;;
         esac
