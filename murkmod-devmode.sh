@@ -51,8 +51,9 @@ lsbval() {
 }
 
 get_asset() {
-    curl -u peapalt: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  -s -f "https://api.github.com/repos/RMA-Organization/Unenrollment-Toolkit/contents/$1" | jq -r ".content" | base64 -d #FUCKING REMEMBER TO REMOVE THIS AND EXPIRE API KEY
+    curl -s -f "https://api.github.com/repos/RMA-Organization/Unenrollment-Toolkit/contents/$1" | jq -r ".content" | base64 -d #FUCKING REMEMBER TO REMOVE THIS AND EXPIRE API KEY
 # curl -s -f "https://api.github.com/repos/rainestorme/murkmod/contents/$1" Replace this when we go public
+# -u peapalt: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
 }
 
 install() {
