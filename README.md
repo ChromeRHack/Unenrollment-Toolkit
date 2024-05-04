@@ -19,6 +19,7 @@ Currently trying to speed up test time with recovery-download function.  continu
 - ~Add access crosh via special shortcut other crosh is blocked by policy. (Safety)~ (TESTING REQUIRED)
 - ADD RECOVERY OPTION TO UTK VERSION INPUT IN MURKMOD-DEVMODE.SH CURRENTLY WORKING ON IT -PEAP
 - Add more options to mush
+- Cleanup code with shellcheck.net
 - ~Change chromeos firmware bitmaps for oops UwU i did a little fucky wucky and your system is trying to repair itself~ it's not firmware bitmaps cuase were dumb also we already did it sorry OwO
 - Design Extension to cover up crosh unless under special circumstances aka some shortcuts. idk why I didn't think of this earlier. thanks rainstorm VERY COOL
 - Design frecon UTK RMA shim images
