@@ -5,7 +5,7 @@ Currently trying to speed up test time with recovery-download function.  continu
 - mush doesn't install and doesn't launch. (Obvious)
 - ~we will start croshunblocker when chrome starts by spoofing chrome like we did with tpmc.~ NO do this with an extension. Murkmod already solved it. We're idiots.
 - Remember to put info for skids at the bottom of the inevitable faq
-- ~Fix when powerwash "my chwomebook did a fucky a wucky"~ Add an option to the installation script to add the boot messages or not
+- ~Fix when powerwash "my chwomebook did a fucky a wucky"~ Add an option to the installation script to add the boot messages or not -Working on it peap
 - ~Chromebook also bootloops and is not recoverable~ WP has to be disabled for this and chromebook powerwashed while utk is installed. 
 # Things to do going in chronological order. Top to Bottom. 
 - ~Fork Murkmod to this repo because I'm a dumbass and didn't do it~
