@@ -142,29 +142,24 @@ recoverity() {
         *) echo "Invalid choice, exiting." && exit ;;
     esac
     echo "Would you like to reset the OOBE when startup occurs?"
-    read -p "Yes or No? > " oobe
+    read -p "y or n? > " oobe
     case $oobe in
-        yes) echo "" > oobe-reset ;;
-        Yes) echo "" > oobe-reset ;;
-        no) echo "Not doing OOBE reset" ;;
-        No) echo "Not doing OOBE reset" ;;
+        y) echo "" > oobe-reset ;;
+        n) echo "" > oobe-reset ;;
         *) echo "Invalid Option. Defaulting to No. Press ctrl-c to restart.";;
     esac
  }
 
 recovery-download() {
-    
-    if [[ -f chromeos_*.zip ]]; then
+    FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
+    if [[ $? != 0 ]]; then
         echo "Unzipping image..."
         unzip -o recovery.zip
         rm recovery.zip
-        if [[ -f chromeos_*.bin ]]; then
-            FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
-            echo "Found recovery image from archive at $FILENAME"
-            return 0
-        fi
+        echo "Found recovery image from archive at $FILENAME"
+        return 0
     else
-        if [[ -f chromeos_*.bin ]]; then
+        if [[ $? == 0 ]]; then
             FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
             echo "Found recovery image from archive at $FILENAME"
             return 0
