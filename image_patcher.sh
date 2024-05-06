@@ -39,11 +39,11 @@ ascii_info() {
     # spaces get mangled by makefile, so this must be separate
 }
 nullify_bin() {
-    cat <<-EOF >"$1"
+    cat <<-EOF >$1
 #!/bin/bash
 exit
 EOF
-    chmod 777 "$1"
+    chmod 777 $1
     # shebangs crash makefile
 }
 
@@ -197,7 +197,7 @@ main() {
   traps
   ascii_info
   configure_binaries
-  echo "$SSD_UTIL"
+  echo $SSD_UTIL
 
   if [[ -z $1 ]] || [[ ! -f $1 ]]; then
     echo "\"$1\" isn't a real file, dipshit! You need to pass the path to the recovery image. Optional args: <path to custom bootsplash: path to a png> <unfuck stateful: int 0 or 1>"
@@ -206,7 +206,7 @@ main() {
   if [ -z "$2" ]; then
     echo "Not using a custom bootsplash."
     local bootsplash="0"
-  elif [ ! -f "$2" ]; then
+  elif [ ! -f $2 ]; then
     echo "file $2 not found for custom bootsplash"
     local bootsplash="0"
   else
