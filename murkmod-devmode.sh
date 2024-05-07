@@ -228,6 +228,7 @@ murkmod() {
             FINAL_URL=$(jq -r ".builds.$board[].$hwid.pushRecoveries[\"$milestone\"]" <<<"$builds")
             echo "Found a match!"
             break
+        fi
     done
 
     if [ $MATCH_FOUND -eq 0 ]; then
