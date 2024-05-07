@@ -228,8 +228,7 @@ murkmod() {
             FINAL_URL=$(jq -r ".builds.$board[].$hwid.pushRecoveries[\"$milestone\"]" <<<"$builds")
             echo "Found a match!"
             break
-        done
-    fi
+    done
 
     if [ $MATCH_FOUND -eq 0 ]; then
         echo "No recovery image found for your board and target version. Exiting."
