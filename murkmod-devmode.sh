@@ -211,6 +211,7 @@ murkmod() {
     else
         show_logo_recovery
     fi
+<<<<<<< Updated upstream
     echo "No match found on chrome100. Falling back to Chromium Dash. Because we are debug and chrome100.dev is down this is temp. Versions only go down to 114."
     local builds=$(curl -ks "https://chromiumdash.appspot.com/cros/fetch_serving_builds?deviceCategory=Chrome%20OS\\")
     local hwid=$(jq "(.builds.$board[] | keys)[0]" <<<"$builds")
@@ -220,6 +221,27 @@ murkmod() {
     milestones=$(jq ".builds.$board[].$hwid.pushRecoveries | keys | .[]" <<<"$builds")
 
     # Loop through all milestones
+=======
+    echo "Would you l"
+    echo "Finding latest Chrome100 build ID..."
+    local build_id=$(curl -s "https://chrome100.dev" | grep -o '"buildId":"[^"]*"' | cut -d':' -f2 | tr -d '"')
+    echo "Finding recovery image..."
+    local release_board=$(lsbval CHROMEOS_RELEASE_BOARD)
+    #local release_board="hatch"
+    local board=${release_board%%-*}
+    if [ $VERSION == "latest" ]; then
+        local builds=$(curl -ks "https://chromiumdash.appspot.com/cros/fetch_serving_builds?deviceCategory=Chrome%20OS\\")
+        local hwid=$(jq "(.builds.$board[] | keys)[0]" <<<"$builds")
+        local hwid=${hwid:1:-1}
+        local milestones=$(jq ".builds.$board[].$hwid.pushRecoveries | keys | .[]" <<<"$builds")
+        local VERSION=$(echo "$milestones" | tail -n 1 | tr -d '"')
+        echo "Latest version is $VERSION"
+    fi
+    local url="https://chrome100.dev/_next/data/$build_id/board/$board.json"
+    local json=$(curl -ks "$url")
+    chrome_versions=$(echo "$json" | jq -r '.pageProps.images[].chrome')
+    echo "Found $(echo "$chrome_versions" | wc -l) versions of chromeOS for your board on chrome100."
+>>>>>>> Stashed changes
     echo "Searching for a match..."
     for milestone in $milestones; do
         milestone=$(echo "$milestone" | tr -d '"')
