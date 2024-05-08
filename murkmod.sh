@@ -99,7 +99,7 @@ lsbval() {
 
 install_patched_files() {
     install "daemon.sh" /sbin/murkmod-daemon.sh
-    local milestone=$(lsbval CHROMEOS_RELEASE_CHROME_MILESTONE $ROOT/etc/lsb-release)
+    local milestone=$(lsbval CHROMEOS_RELEASE_CHROME_MILESTONE "$ROOT"/etc/lsb-release)
     if [ "$milestone" -gt "116" ]; then
         echo "Detected v116 or higher, using new chromeos_startup"
         install "chromeos_startup.sh" /sbin/chromeos_startup
