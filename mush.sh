@@ -268,7 +268,7 @@ install_plugin_legacy() {
   read -r plugin_name
 
   local plugin_url="$raw_url/$plugin_name"
-  local plugin_info=$(curl -s $plugin_url)
+  local plugin_info=$(curl -s "$plugin_url")
 
   if [[ $plugin_info == *"Not Found"* ]]; then
     echo "Plugin not found"
@@ -365,12 +365,12 @@ ext_purge() {
 
 hard_disable_nokill() {
     read -r -p "Enter extension ID > " extid
-    disable_ext_nokill $extid
+    disable_ext_nokill "$extid"
 }
 
 hard_enable_nokill() {
     read -r -p "Enter extension ID > " extid
-    enable_ext_nokill $extid
+    enable_ext_nokill "$extid"
 }
 
 autodisableexts() {
@@ -494,7 +494,7 @@ show_plugins() {
     selected_file=${plugin_files[$((selection-1))]}
 
     # Execute the plugin
-    bash <(cat $selected_file) # weird syntax due to noexec mount
+    bash <(cat "$selected_file") # weird syntax due to noexec mount
     return 0
 }
 
@@ -548,7 +548,7 @@ install_plugins() {
 
     while true; do
         for i in "${!plugin_info[@]}"; do
-            if [ $i -eq $selected_option ]; then
+            if [ "$i" -eq $selected_option ]; then
                 printf " -> "
             else
                 printf "    "
@@ -847,9 +847,9 @@ attempt_chromeos_update(){
         local rootdev=${dst}p${tgt_root}
 
         echo "Dumping kernel..."
-        doas dd if=$kerndev of=/mnt/stateful_partition/murkmod/kern_backup.img bs=4M status=progress
+        doas dd if="$kerndev" of=/mnt/stateful_partition/murkmod/kern_backup.img bs=4M status=progress
         echo "Dumping rootfs..."
-        doas dd if=$rootdev of=/mnt/stateful_partition/murkmod/root_backup.img bs=4M status=progress
+        doas dd if="$rootdev" of=/mnt/stateful_partition/murkmod/root_backup.img bs=4M status=progress
 
         echo "Creating restore flag..."
         doas touch /mnt/stateful_partition/restore-emergency-backup
@@ -935,9 +935,9 @@ attempt_backup_update(){
         echo "Dumping emergency revert backup to stateful (this might take a while)..."
 
         echo "Dumping kernel..."
-        doas dd if=$kerndev of=/mnt/stateful_partition/murkmod/kern_backup.img bs=4M status=progress
+        doas dd if="$kerndev" of=/mnt/stateful_partition/murkmod/kern_backup.img bs=4M status=progress
         echo "Dumping rootfs..."
-        doas dd if=$rootdev of=/mnt/stateful_partition/murkmod/root_backup.img bs=4M status=progress
+        doas dd if="$rootdev" of=/mnt/stateful_partition/murkmod/root_backup.img bs=4M status=progress
 
         echo "Backups complete, actually updating now..."
     fi
@@ -990,9 +990,9 @@ attempt_restore_backup_backup() {
     if [ -f /mnt/stateful_partition/murkmod/kern_backup.img ] && [ -f /mnt/stateful_partition/murkmod/root_backup.img ]; then
         echo "Backup files found!"
         echo "Restoring kernel..."
-        dd if=/mnt/stateful_partition/murkmod/kern_backup.img of=$kerndev bs=4M status=progress
+        dd if=/mnt/stateful_partition/murkmod/kern_backup.img of="$kerndev" bs=4M status=progress
         echo "Restoring rootfs..."
-        dd if=/mnt/stateful_partition/murkmod/root_backup.img of=$rootdev bs=4M status=progress
+        dd if=/mnt/stateful_partition/murkmod/root_backup.img of="$rootdev" bs=4M status=progress
         echo "Removing backup files..."
         rm /mnt/stateful_partition/murkmod/kern_backup.img
         rm /mnt/stateful_partition/murkmod/root_backup.img
