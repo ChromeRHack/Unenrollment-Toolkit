@@ -29,7 +29,7 @@ DEFAULT_BACKUP_FOLDER="${DEFAULT_BACKUP_FOLDER}/cros_sign_backups"
 # TODO(hungte) The default image selection is no longer a SSD, so the script
 # works more like "make_dev_image".  We may change the file name in future.
 ROOTDEV="$(rootdev -s 2>/dev/null)"
-ROOTDEV_PARTITION="$(echo $ROOTDEV | sed -n 's/.*[^0-9]\([0-9][0-9]*\)$/\1/p')"
+ROOTDEV_PARTITION="$(echo "$ROOTDEV" | sed -n 's/.*[^0-9]\([0-9][0-9]*\)$/\1/p')"
 ROOTDEV_DISK="$(rootdev -s -d 2>/dev/null)"
 ROOTDEV_KERNEL="$((ROOTDEV_PARTITION - 1))"
 
@@ -124,7 +124,7 @@ insert_parameter() {
   local cmdline="$1"
   local param="$2"
 
-  if [ -n "${cmdline##*${param}*}" ]; then
+  if [ -n "${cmdline##*"${param}"*}" ]; then
     cmdline="${param} ${cmdline}"
   fi
 
@@ -170,7 +170,7 @@ find_valid_kernel_partitions() {
   local part_id
   local valid_partitions=""
   for part_id in $*; do
-    local name="$(cros_kernel_name $part_id)"
+    local name="$(cros_kernel_name "$part_id")"
     local kernel_part="$(make_partition_dev "$FLAGS_image" "$part_id")"
     info "futil: $FUTILITY"
     if [ -z "$(${FUTILITY} dump_kernel_config "$kernel_part" 2>"$EXEC_LOG")" ]; then
@@ -198,7 +198,7 @@ resign_ssd_kernel() {
   for kernel_index in $FLAGS_partitions; do
     local old_blob="$(make_temp_file)"
     local new_blob="$(make_temp_file)"
-    local name="$(cros_kernel_name $kernel_index)"
+    local name="$(cros_kernel_name "$kernel_index")"
     local rootfs_index="$(($kernel_index + 1))"
 
     debug_msg "Probing $name information"
@@ -207,13 +207,13 @@ resign_ssd_kernel() {
       die "Failed to get partition ${kernel_index} offset from ${ssd_device}"
     size="$(partsize "$ssd_device" "$kernel_index")" ||
       die "Failed to get partition ${kernel_index} size from ${ssd_device}"
-    if [ ! $size -gt $min_kernel_size ]; then
+    if [ ! "$size" -gt $min_kernel_size ]; then
       info "${name} seems too small (${size}), ignored."
       continue
     fi
 
     debug_msg "Reading $name from partition $kernel_index"
-    mydd if="$ssd_device" of="$old_blob" bs=$bs skip=$offset count=$size
+    mydd if="$ssd_device" of="$old_blob" bs="$bs" skip="$offset" count="$size"
 
     debug_msg "Checking if $name is valid"
 
@@ -227,7 +227,7 @@ resign_ssd_kernel() {
 
   if [ "$FLAGS_no_resign_kernel" = "$FLAGS_TRUE" ]; then
     info "Skipping resign for ${FLAGS_image}"
- if [ ${FLAGS_remove_rootfs_verification} = $FLAGS_TRUE ]; then
+ if [ "${FLAGS_remove_rootfs_verification}" = $FLAGS_TRUE ]; then
       local root_offset_sector=$(partoffset "$ssd_device" $rootfs_index)
       local root_offset_bytes=$((root_offset_sector * bs))
       info "dev: ${ssd_device} $root_offset_bytes"
@@ -293,7 +293,7 @@ resign_ssd_kernel() {
       fi
     fi
 
-    if [ ${FLAGS_remove_rootfs_verification} = $FLAGS_FALSE ]; then
+    if [ "${FLAGS_remove_rootfs_verification}" = $FLAGS_FALSE ]; then
       debug_msg "Bypassing rootfs verification check"
     else
       debug_msg "Changing boot parameter to remove rootfs verification"
@@ -373,9 +373,9 @@ resign_ssd_kernel() {
     mydd \
       if="$new_kern" \
       of="$ssd_device" \
-      seek=$offset \
-      bs=$bs \
-      count=$size \
+      seek="$offset" \
+      bs="$bs" \
+      count="$size" \
       conv=notrunc
     resigned_kernels=$(($resigned_kernels + 1))
 
@@ -384,7 +384,7 @@ resign_ssd_kernel() {
     # (1) change kernel config to ro
     # (2) check if we can enable rw mount
     # (3) change kernel config to rw
-    if [ ${FLAGS_remove_rootfs_verification} = $FLAGS_TRUE ]; then
+    if [ "${FLAGS_remove_rootfs_verification}" = $FLAGS_TRUE ]; then
       local root_offset_sector=$(partoffset "$ssd_device" $rootfs_index)
       local root_offset_bytes=$((root_offset_sector * bs))
       if ! is_ext2 "$ssd_device" "$root_offset_bytes"; then
@@ -541,7 +541,7 @@ validity_check() {
 main() {
   local num_signed=0
   local num_given=$(echo "$FLAGS_partitions" | wc -w)
-  local kaltdir=$(dirname $0)/keys
+  local kaltdir=$(dirname "$0")/keys
   if [ -d "$kaltdir" ]; then
    FLAGS_keys=$kaltdir
   fi
@@ -567,7 +567,7 @@ main() {
   # checks for running on a live system image.
   if [ "$FLAGS_image" = "$ROOTDEV_DISK" ]; then
     debug_msg "check valid kernel partitions for live system"
-    local valid_partitions="$(find_valid_kernel_partitions $FLAGS_partitions)"
+    local valid_partitions="$(find_valid_kernel_partitions "$FLAGS_partitions")"
     [ -n "$valid_partitions" ] ||
       die "No valid kernel partitions on ${FLAGS_image} (${FLAGS_partitions})."
     FLAGS_partitions="$valid_partitions"
@@ -593,7 +593,7 @@ main() {
     resign_ssd_kernel "$FLAGS_image" || num_signed=$?
 
     debug_msg "Complete."
-    if [ $num_signed -gt 0 -a $num_signed -le $num_given ]; then
+    if [ $num_signed -gt 0 -a $num_signed -le "$num_given" ]; then
     # signed something at least
       info "Successfully re-signed ${num_signed} of ${num_given} kernel(s)" \
       " on device ${FLAGS_image}."
