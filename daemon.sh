@@ -185,9 +185,9 @@ EOF
         if [ -f /mnt/stateful_partition/murkmod/kern_backup.img ] && [ -f /mnt/stateful_partition/murkmod/root_backup.img ]; then
             echo "Backup files found!"
             echo "Restoring kernel..."
-            dd if=/mnt/stateful_partition/murkmod/kern_backup.img of=$kerndev bs=4M status=progress
+            dd if=/mnt/stateful_partition/murkmod/kern_backup.img of="$kerndev" bs=4M status=progress
             echo "Restoring rootfs..."
-            dd if=/mnt/stateful_partition/murkmod/root_backup.img of=$rootdev bs=4M status=progress
+            dd if=/mnt/stateful_partition/murkmod/root_backup.img of="$rootdev" bs=4M status=progress
             echo "Removing restore flag..."
             rm /restore-emergency-backup
             echo "Removing backup files..."
@@ -210,7 +210,7 @@ EOF
     for file in /mnt/stateful_partition/murkmod/plugins/*.sh; do
         if grep -q "daemon_plugin" "$file"; then
             echo "Spawning plugin $file..."
-            run_plugin $file
+            run_plugin "$file"
         fi
         sleep 1
     done
