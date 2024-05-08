@@ -211,7 +211,6 @@ murkmod() {
     else
         show_logo_recovery
     fi
-<<<<<<< Updated upstream
     echo "No match found on chrome100. Falling back to Chromium Dash. Because we are debug and chrome100.dev is down this is temp. Versions only go down to 114."
     local builds=$(curl -ks "https://chromiumdash.appspot.com/cros/fetch_serving_builds?deviceCategory=Chrome%20OS\\")
     local hwid=$(jq "(.builds.$board[] | keys)[0]" <<<"$builds")
