@@ -221,7 +221,6 @@ murkmod() {
     milestones=$(jq ".builds.$board[].$hwid.pushRecoveries | keys | .[]" <<<"$builds")
 
     # Loop through all milestones
-=======
     echo "Would you l"
     echo "Finding latest Chrome100 build ID..."
     local build_id=$(curl -s "https://chrome100.dev" | grep -o '"buildId":"[^"]*"' | cut -d':' -f2 | tr -d '"')
@@ -241,7 +240,6 @@ murkmod() {
     local json=$(curl -ks "$url")
     chrome_versions=$(echo "$json" | jq -r '.pageProps.images[].chrome')
     echo "Found $(echo "$chrome_versions" | wc -l) versions of chromeOS for your board on chrome100."
->>>>>>> Stashed changes
     echo "Searching for a match..."
     for milestone in $milestones; do
         milestone=$(echo "$milestone" | tr -d '"')
