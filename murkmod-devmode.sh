@@ -217,7 +217,7 @@ murkmod() {
     local release_board=$(lsbval CHROMEOS_RELEASE_BOARD)
     #local release_board="hatch"
     local board=${release_board%%-*}
-    if [ $VERSION == "latest" ]; then
+    if [ "$VERSION" == "latest" ]; then
         local builds=$(curl -ks "https://chromiumdash.appspot.com/cros/fetch_serving_builds?deviceCategory=Chrome%20OS\\")
         local hwid=$(jq "(.builds.$board[] | keys)[0]" <<<"$builds")
         local hwid=${hwid:1:-1}
