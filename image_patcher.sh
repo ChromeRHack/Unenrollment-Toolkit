@@ -25,25 +25,17 @@ CURRENT_VERSION=0
 # future rainestorme: finally cleaned it up! :D
 
 ascii_info() {
-    echo -e " 
-      888     888 88888888888 888    d8P  
-      888     888     888     888   d8P   
-      888     888     888     888  d8P    
-      888     888     888     888d88K     
-      888     888     888     8888888b    
-      888     888     888     888  Y88b   
-      Y88b. .d88P     888     888   Y88b  
-       'Y88888P'      888     888    Y88b "
-    echo "        The UTK plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION"
+    echo -e "                      __                      .___\n  _____  __ _________|  | __ _____   ____   __| _/\n /     \|  |  \_  __ \  |/ //     \ /  _ \ / __ | \n|  Y Y  \  |  /|  | \/    <|  Y Y  (  <_> ) /_/ | \n|__|_|  /____/ |__|  |__|_ \__|_|  /\____/\____ | \n      \/                  \/     \/            \/\n"
+    echo "        The fakemurk plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION"
 
     # spaces get mangled by makefile, so this must be separate
 }
 nullify_bin() {
-    cat <<-EOF >"$1"
+    cat <<-EOF >$1
 #!/bin/bash
 exit
 EOF
-    chmod 777 "$1"
+    chmod 777 $1
     # shebangs crash makefile
 }
 
@@ -105,54 +97,44 @@ configure_binaries(){
   fi
 }
 
-patch_root() { #ALL SCRIPTS INSTALLED HERE
-    if [ -f recoverity1 ]; then
-      echo "Staging populator..."
-      >$ROOT/population_required
-      >$ROOT/reco_patched
-      echo "UTK-ing root..."
-      echo "Disabling autoupdates..."
-      disable_autoupdates
-      local milestone=$(lsbval CHROMEOS_RELEASE_CHROME_MILESTONE $ROOT/etc/lsb-release)
-      echo "Installing startup scripts..."
-      move_bin "$ROOT/sbin/chromeos_startup.sh"
-      if [ "$milestone" -gt "116" ]; then
-          echo "Detected newer version of CrOS, using new chromeos_startup"
-          move_bin "$ROOT/sbin/chromeos_startup"
-          install "chromeos_startup.sh" $ROOT/sbin/chromeos_startup
-          chmod 755 $ROOT/sbin/chromeos_startup # whoops
-          touch $ROOT/new-startup
-      else
-          move_bin "$ROOT/sbin/chromeos_startup.sh"
-          install "chromeos_startup.sh" $ROOT/sbin/chromeos_startup.sh
-          chmod 755 $ROOT/sbin/chromeos_startup.sh
-      fi
-      echo "Installing UTK components..."
-      install "daemon.sh" $ROOT/sbin/murkmod-daemon.sh
-      move_bin "$ROOT/usr/bin/crosh"
-      install "mush.sh" $ROOT/usr/bin/crosh
-      echo "Installing startup services..."
-      install "pre-startup.conf" $ROOT/etc/init/pre-startup.conf
-      install "cr50-update.conf" $ROOT/etc/init/cr50-update.conf
-      echo "Installing other utilities..."
-      install "ssd_util.sh" $ROOT/usr/share/vboot/bin/ssd_util.sh
-      install "image_patcher.sh" $ROOT/sbin/image_patcher.sh
-      install "crossystem_boot_populator.sh" $ROOT/sbin/crossystem_boot_populator.sh
-      install "ssd_util.sh" $ROOT/usr/share/vboot/bin/ssd_util.sh
-      mkdir -p "$ROOT/etc/opt/chrome/policies/managed"
-      install "pollen.json" $ROOT/etc/opt/chrome/policies/managed/policy.json
-      install "revert.sh" $ROOT/revert.sh
-      echo "Chmod-ing everything..."
-      chmod 777 $ROOT/croshunblocker.sh $ROOT/revert.sh
-      chmod 777 $ROOT/sbin/murkmod-daemon.sh $ROOT/usr/bin/crosh $ROOT/usr/share/vboot/bin/ssd_util.sh $ROOT/sbin/image_patcher.sh $ROOT/etc/opt/chrome/policies/managed/policy.json $ROOT/sbin/crossystem_boot_populator.sh $ROOT/usr/share/vboot/bin/ssd_util.sh    
-      echo "Done."
+patch_root() {
+    echo "Staging populator..."
+    >$ROOT/population_required
+    >$ROOT/reco_patched
+    echo "Murkmod-ing root..."
+    echo "Disabling autoupdates..."
+    disable_autoupdates
+    local milestone=$(lsbval CHROMEOS_RELEASE_CHROME_MILESTONE $ROOT/etc/lsb-release)
+    echo "Installing startup scripts..."
+    move_bin "$ROOT/sbin/chromeos_startup.sh"
+    if [ "$milestone" -gt "116" ]; then
+        echo "Detected newer version of CrOS, using new chromeos_startup"
+        move_bin "$ROOT/sbin/chromeos_startup"
+        install "chromeos_startup.sh" $ROOT/sbin/chromeos_startup
+        chmod 755 $ROOT/sbin/chromeos_startup # whoops
+        touch $ROOT/new-startup
     else
-      if [[ -f oobe-reset ]]; then
-        echo "Resetting OOBE"
-        rm -rf $ROOT/mnt/stateful_partition
-      fi
-      echo "Done"
+        move_bin "$ROOT/sbin/chromeos_startup.sh"
+        install "chromeos_startup.sh" $ROOT/sbin/chromeos_startup.sh
+        chmod 755 $ROOT/sbin/chromeos_startup.sh
     fi
+    echo "Installing murkmod components..."
+    install "daemon.sh" $ROOT/sbin/murkmod-daemon.sh
+    move_bin "$ROOT/usr/bin/crosh"
+    install "mush.sh" $ROOT/usr/bin/crosh
+    echo "Installing startup services..."
+    install "pre-startup.conf" $ROOT/etc/init/pre-startup.conf
+    install "cr50-update.conf" $ROOT/etc/init/cr50-update.conf
+    echo "Installing other utilities..."
+    install "ssd_util.sh" $ROOT/usr/share/vboot/bin/ssd_util.sh
+    install "image_patcher.sh" $ROOT/sbin/image_patcher.sh
+    install "crossystem_boot_populator.sh" $ROOT/sbin/crossystem_boot_populator.sh
+    install "ssd_util.sh" $ROOT/usr/share/vboot/bin/ssd_util.sh
+    mkdir -p "$ROOT/etc/opt/chrome/policies/managed"
+    install "pollen.json" $ROOT/etc/opt/chrome/policies/managed/policy.json
+    echo "Chmod-ing everything..."
+    chmod 777 $ROOT/sbin/murkmod-daemon.sh $ROOT/usr/bin/crosh $ROOT/usr/share/vboot/bin/ssd_util.sh $ROOT/sbin/image_patcher.sh $ROOT/etc/opt/chrome/policies/managed/policy.json $ROOT/sbin/crossystem_boot_populator.sh $ROOT/usr/share/vboot/bin/ssd_util.sh    
+    echo "Done."
 }
 
 # https://chromium.googlesource.com/chromiumos/docs/+/main/lsb-release.md
@@ -173,7 +155,7 @@ lsbval() {
 }
 
 get_asset() {
-  curl -s -f "https://api.github.com/repos/RMA-Organization/Unenrollment-Toolkit/contents/$1" | jq -r ".content" | base64 -d #FUCKING REMEMBER TO REMOVE THIS AND EXPIRE API KEY
+    curl -s -f "https://api.github.com/repos/rainestorme/murkmod/contents/$1" | jq -r ".content" | base64 -d
 }
 
 install() {
@@ -193,23 +175,26 @@ main() {
   traps
   ascii_info
   configure_binaries
-  echo "$SSD_UTIL"
+  echo $SSD_UTIL
 
-  if [[ -z $1 ]] || [[ ! -f $1 ]]; then
+  if [ -z $1 ] || [ ! -f $1 ]; then
     echo "\"$1\" isn't a real file, dipshit! You need to pass the path to the recovery image. Optional args: <path to custom bootsplash: path to a png> <unfuck stateful: int 0 or 1>"
     exit
   fi
-  if [ -z "$2" ]; then
+  if [ -z $2 ]; then
     echo "Not using a custom bootsplash."
     local bootsplash="0"
-  elif [ ! -f "$2" ]; then
-    echo "file $2 not found for custom bootsplash"
+  elif [ "$2" == "cros" ]; then
+    echo "Using cros bootsplash."
+    local bootsplash="cros"
+  elif [ ! -f $2 ]; then
+    echo "File $2 not found for custom bootsplash"
     local bootsplash="0"
   else
     echo "Using custom bootsplash $2"
     local bootsplash=$2
   fi
-  if [ -z "$3" ]; then
+  if [ -z $3 ]; then
     local unfuckstateful="1"
   else 
     local unfuckstateful=$3
@@ -226,9 +211,9 @@ main() {
   losetup -P "$loop" "$bin"
 
   echo "Disabling kernel verity..."
-  $SSD_UTIL --debug --remove_rootfs_verification -i "${loop}" --partitions 4
+  $SSD_UTIL --debug --remove_rootfs_verification -i ${loop} --partitions 4
   echo "Enabling RW mount..."
-  $SSD_UTIL --debug --remove_rootfs_verification --no_resign_kernel -i "${loop}" --partitions 2
+  $SSD_UTIL --debug --remove_rootfs_verification --no_resign_kernel -i ${loop} --partitions 2
 
   # for good measure
   sync
@@ -240,20 +225,22 @@ main() {
   ROOT=/tmp/mnt
   patch_root
 
-  if [ "$bootsplash" != "0" ]; then
-    echo "Adding custom bootsplash..."
-    for i in $(seq -f "%02g" 0 30); do
-      rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame"${i}".png
-    done
-    cp "$bootsplash" $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
-  else
-    echo "Adding murkmod bootsplash..."
-    install "chromeos-bootsplash-v2.png" /tmp/bootsplash.png
-    for i in $(seq -f "%02g" 0 30); do
-      rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame"${i}".png
-    done
-    cp /tmp/bootsplash.png $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
-    rm /tmp/bootsplash.png
+  if [ "$bootsplash" != "cros" ]; then
+    if [ "$bootsplash" != "0" ]; then
+      echo "Adding custom bootsplash..."
+      for i in $(seq -f "%02g" 0 30); do
+        rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame${i}.png
+      done
+      cp $bootsplash $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
+    else
+      echo "Adding murkmod bootsplash..."
+      install "chromeos-bootsplash-v2.png" /tmp/bootsplash.png
+      for i in $(seq -f "%02g" 0 30); do
+        rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame${i}.png
+      done
+      cp /tmp/bootsplash.png $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
+      rm /tmp/bootsplash.png
+    fi
   fi
 
   if [ "$unfuckstateful" == "0" ]; then
