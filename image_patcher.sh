@@ -233,14 +233,6 @@ main() {
   ROOT=/tmp/mnt
   patch_root
 
-  if [ "$bootsplash" != "cros" ]; then
-    if [ "$bootsplash" != "0" ]; then
-      echo "Adding custom bootsplash..."
-      for i in $(seq -f "%02g" 0 30); do
-        rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame${i}.png
-      done
-      cp $bootsplash $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
-    else
       echo "Adding murkmod bootsplash..."
       install "chromeos-bootsplash-v2.png" /tmp/bootsplash.png
       for i in $(seq -f "%02g" 0 30); do
