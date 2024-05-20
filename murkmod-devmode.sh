@@ -106,7 +106,7 @@ murkmod() {
     if [ -f /sbin/murkmod-daemon.sh ]; then
         echo "!!! Your system already has a murkmod installation! Continuing anyway, but emergency revert will not work correctly. !!!"
     fi
-    echo "What version of murkmod do you want to install?"
+    echo "What version of UTK do you want to install?"
     echo "If you're not sure, choose pheonix (v118) or the latest version. If you know what your original enterprise version was, specify that manually."
     echo " 1) og      (chromeOS v105)"
     echo " 2) mercury (chromeOS v107)"
