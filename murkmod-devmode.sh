@@ -126,11 +126,6 @@ murkmod() {
         *) echo "Invalid choice, exiting." && exit ;;
     esac
     show_logo
-
-            USE_ORIG_SPLASH="0"
-            ;;
-    esac
-    show_logo
     echo "Finding latest Chrome100 build ID..."
     local build_id=$(curl -s "https://chrome100.dev" | grep -o '"buildId":"[^"]*"' | cut -d':' -f2 | tr -d '"')
     echo "Finding recovery image..."
