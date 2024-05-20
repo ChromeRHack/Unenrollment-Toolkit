@@ -1,3 +1,5 @@
+#Use an extension for this instead
+
 checkforpolicy() {
      #Check for crosh blocked by policy
 }
