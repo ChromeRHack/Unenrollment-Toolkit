@@ -25,8 +25,16 @@ CURRENT_VERSION=0
 # future rainestorme: finally cleaned it up! :D
 
 ascii_info() {
-    echo -e "                      __                      .___\n  _____  __ _________|  | __ _____   ____   __| _/\n /     \|  |  \_  __ \  |/ //     \ /  _ \ / __ | \n|  Y Y  \  |  /|  | \/    <|  Y Y  (  <_> ) /_/ | \n|__|_|  /____/ |__|  |__|_ \__|_|  /\____/\____ | \n      \/                  \/     \/            \/\n"
-    echo "        The fakemurk plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION"
+       echo -e " 
+      888     888 88888888888 888    d8P  
+      888     888     888     888   d8P   
+      888     888     888     888  d8P    
+      888     888     888     888d88K     
+      888     888     888     8888888b    
+      888     888     888     888  Y88b   
+      Y88b. .d88P     888     888   Y88b  
+       'Y88888P'      888     888    Y88b "
+    echo "        The UTK plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION"
 
     # spaces get mangled by makefile, so this must be separate
 }
@@ -101,7 +109,7 @@ patch_root() {
     echo "Staging populator..."
     >$ROOT/population_required
     >$ROOT/reco_patched
-    echo "Murkmod-ing root..."
+    echo "UTK-ing root..."
     echo "Disabling autoupdates..."
     disable_autoupdates
     local milestone=$(lsbval CHROMEOS_RELEASE_CHROME_MILESTONE $ROOT/etc/lsb-release)
@@ -155,7 +163,7 @@ lsbval() {
 }
 
 get_asset() {
-    curl -s -f "https://api.github.com/repos/rainestorme/murkmod/contents/$1" | jq -r ".content" | base64 -d
+    curl -s -f "https://api.github.com/repos/RMA-Organization/Unenrollment-Toolkit/contents/$1" | jq -r ".content" | base64 -d
 }
 
 install() {
