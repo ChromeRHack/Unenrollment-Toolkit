@@ -126,12 +126,7 @@ murkmod() {
         *) echo "Invalid choice, exiting." && exit ;;
     esac
     show_logo
-    read -p "Do you want to use the default ChromeOS bootsplash? [y/N] " use_orig_bootsplash
-    case "$use_orig_bootsplash" in
-        [yY][eE][sS]|[yY]) 
-            USE_ORIG_SPLASH="1"
-            ;;
-        *)
+
             USE_ORIG_SPLASH="0"
             ;;
     esac
