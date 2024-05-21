@@ -221,8 +221,8 @@ main() {
 (22) [EXPERIMENTAL] Restore Emergency Backup Backup
 (23) [EXPERIMENTAL] Install Chromebrew doesn't work though
 (24) [EXPERIMENTAL] Install Gentoo Boostrap (dev_install)
-EOF
 (25) More Options
+EOF
         
         swallow_stdin
         read -r -p "> (1-24): " choice
