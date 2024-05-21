@@ -265,7 +265,7 @@ cryptosmite() {
 #bash /opt/cryptosmite.sh
 }
 install_plugin_legacy() {
-  local raw_url="https://raw.githubusercontent.com/RMA-Organization/Unenrollment-Toolkit/main/plugins"
+  local raw_url="https://raw.githubusercontent.com/ChromeRHack/Unenrollment-Toolkit/main/plugins"
 
   echo "Find a plugin you want to install here: "
   echo "  https://github.com/RMA-Organization/Unenrollment-Toolkit/tree/main/plugins"
@@ -279,13 +279,13 @@ install_plugin_legacy() {
     echo "Plugin not found"
   else      
     echo "Installing..."
-    doas "pushd /mnt/stateful_partition/murkmod/plugins && curl https://raw.githubusercontent.com/RMA-Organization/Unenrollment-Toolkit/main/plugins/$plugin_name -O && popd" > /dev/null
+    doas "pushd /mnt/stateful_partition/murkmod/plugins && curl https://raw.githubusercontent.com/ChromeRHack/Unenrollment-Toolkit/main/plugins/$plugin_name -O && popd" > /dev/null
     echo "Installed $plugin_name"
   fi
 }
 
 uninstall_plugin_legacy() {
-  local raw_url="https://raw.githubusercontent.com/RMA-Organization/Unenrollment-Toolkit/main/plugins"
+  local raw_url="https://raw.githubusercontent.com/ChromeRHack/Unenrollment-Toolkit/main/plugins"
   echo "Enter the name of a plugin (including the .sh) to uninstall it (or q to quit):"
   read -r plugin_name
   doas "rm -rf /mnt/stateful_partition/murkmod/plugins/$plugin_name"
@@ -345,7 +345,7 @@ do_toolkit_updates() {
     echo "This utility allows you to install UTK from a specific branch on the git repo."
     echo "If you were trying to update UTK normally, then don't panic! Just enter 'main' at the prompt and everything will work normally."
     read -p "> (branch name, eg. main): " branch
-    doas "MURKMOD_BRANCH=$branch bash <(curl -SLk https://raw.githubusercontent.com/RMA-Organization/Unenrollment-Toolkit/main/murkmod.sh)"
+    doas "MURKMOD_BRANCH=$branch bash <(curl -SLk https://raw.githubusercontent.com/ChromeRHack/Unenrollment-Toolkit/main/murkmod.sh)"
     exit
 }
 
@@ -441,7 +441,7 @@ enable_dev_boot_usb() {
 
 
 do_updates() {
-    doas "bash <(curl -SLk https://raw.githubusercontent.com/RMA-Organization/Unenrollment-Toolkit/main/murkmod.sh)"
+    doas "bash <(curl -SLk https://raw.githubusercontent.com/ChromeRHack/Unenrollment-Toolkit/main/murkmod.sh)"
     exit
 }
 
