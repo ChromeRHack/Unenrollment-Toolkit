@@ -196,6 +196,7 @@ main() {
     while true; do
         echo -ne "\033]0;mush\007"
         cat <<-EOF
+
 (1) Root Shell
 (2) Chronos Shell
 (3) Crosh
@@ -221,6 +222,7 @@ main() {
 (23) [EXPERIMENTAL] Install Chromebrew doesn't work though
 (24) [EXPERIMENTAL] Install Gentoo Boostrap (dev_install)
 EOF
+(25) More Options
         
         swallow_stdin
         read -r -p "> (1-24): " choice
@@ -249,6 +251,7 @@ EOF
         22) runjob attempt_restore_backup_backup ;;
         23) runjob attempt_chromebrew_install ;;
         24) runjob attempt_dev_install ;;
+        25) runjob more_options ;;
     
         *) echo && echo "Invalid option, dipshit." && echo ;;
         esac
