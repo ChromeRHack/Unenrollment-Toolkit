@@ -233,14 +233,13 @@ main() {
   ROOT=/tmp/mnt
   patch_root
 
-      echo "Adding murkmod bootsplash..."
+      echo "Adding UTK bootsplash..."
       install "chromeos-bootsplash-v2.png" /tmp/bootsplash.png
       for i in $(seq -f "%02g" 0 30); do
         rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame${i}.png
       done
       cp /tmp/bootsplash.png $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
       rm /tmp/bootsplash.png
-    fi
   fi
 
   if [ "$unfuckstateful" == "0" ]; then
