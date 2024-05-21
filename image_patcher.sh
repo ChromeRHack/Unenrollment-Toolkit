@@ -201,7 +201,6 @@ main() {
     echo "Using custom bootsplash $2"
     local bootsplash=$2
   fi
-  fi
   if [ -z $3 ]; then
     local unfuckstateful="1"
   else 
