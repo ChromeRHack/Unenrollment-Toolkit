@@ -17,6 +17,23 @@ show_logo() { #Using ASCII font Collasal
     echo "The UTK plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION - Developer mode installer"
 }
 
+show_logo_recovery() { #Using ASCII font Collasal
+        clear
+    echo -e "
+    888     888 88888888888 888    d8P        8888888b.  8888888888  .d8888b.   .d88888b.  888     888 8888888888 8888888b. Y88b   d88P 
+    888     888     888     888   d8P         888   Y88b 888        d88P  Y88b d88P   Y88b 888     888 888        888   Y88b Y88b d88P  
+    888     888     888     888  d8P          888    888 888        888    888 888     888 888     888 888        888    888  Y88o88P   
+    888     888     888     888d88K           888   d88P 8888888    888        888     888 Y88b   d88P 8888888    888   d88P   Y888P    
+    888     888     888     8888888b          8888888P   888        888        888     888  Y88b d88P  888        8888888P      888     
+    888     888     888     888  Y88b         888 T88b   888        888    888 888     888   Y88o88P   888        888 T88b      888     
+    Y88b. .d88P     888     888   Y88b        888  T88b  888        Y88b  d88P Y88b. .d88P    Y888P    888        888  T88b     888     
+      Y88888P       888     888    Y88b       888   T88b 8888888888   Y8888P     Y88888P       Y8P     8888888888 888   T88b    888     
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    "
+    echo "The UTK Recovery Manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION - Chrome OS Installer"
+}
+
 lsbval() {
   local key="$1"
   local lsbfile="${2:-/etc/lsb-release}"
@@ -35,6 +52,64 @@ lsbval() {
 
 get_asset() {
     curl -s -f "https://api.github.com/repos/RMA-Organization/Unenrollment-Toolkit/contents/$1" | jq -r ".content" | base64 -d
+}
+recoverity() {
+    show_logo_recovery
+    echo ""
+    rm -rf recoverity1
+    echo "What version of Chrome OS do you want to install?"
+    echo "This allows for Recovering without having to actually recover via usb"
+    echo " 1) og      (chromeOS v105)"
+    echo " 2) mercury (chromeOS v107)"
+    echo " 3) john    (chromeOS v117)"
+    echo " 4) pheonix (chromeOS v118)"
+    echo " 5) latest version"
+    echo " 6) custom milestone"
+    echo " 7) Default Mode"
+    read -p "(1-7) > " choice
+
+    case $choice in
+        1) VERSION="105" ;;
+        2) VERSION="107" ;;
+        3) VERSION="117" ;;
+        4) VERSION="118" ;;
+        5) VERSION="latest" ;;
+        6) read -p "Enter milestone to target (e.g. 105, 107, 117, 118): " VERSION ;;
+        7) murkmod ;;
+        *) echo "Invalid choice, exiting." && exit ;;
+    esac
+    echo "Would you like to reset the OOBE when startup occurs?"
+    read -p "y or n? > " oobe
+    case $oobe in
+        y) echo "" > oobe-reset ;;
+        n) echo "" > oobe-reset ;;
+        *) echo "Invalid Option. Defaulting to No. Press ctrl-c to restart.";;
+    esac
+ }
+
+recovery-download() {
+    FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
+    if [[ $? != 0 ]]; then
+        echo "Unzipping image..."
+        unzip -o recovery.zip
+        rm recovery.zip
+        echo "Found recovery image from archive at $FILENAME"
+        return 0
+    else
+        if [[ $? == 0 ]]; then
+            FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
+            echo "Found recovery image from archive at $FILENAME"
+            return 0
+        fi
+        echo "Downloading recovery image from '$FINAL_URL'..."
+        curl --progress-bar -k "$FINAL_URL" -o recovery.zip
+        echo "Unzipping image..."
+        unzip -o recovery.zip
+        rm recovery.zip
+        FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
+        echo "Found recovery image from archive at $FILENAME"
+    fi
+
 }
 
 install() {
@@ -99,7 +174,9 @@ defog() {
 
 
 murkmod() {
+    clear
     show_logo
+    echo "" > recoverity1
     if [ -f /sbin/fakemurk-daemon.sh ]; then
         echo "!!! Your system already has a fakemurk installation! Continuing anyway, but emergency revert will not work correctly. !!!"
     fi
@@ -114,7 +191,8 @@ murkmod() {
     echo " 4) pheonix (chromeOS v118)"
     echo " 5) latest version"
     echo " 6) custom milestone"
-    read -p "(1-6) > " choice
+    echo " 7) Recovery Mode"
+    read -p "(1-7) > " choice
 
     case $choice in
         1) VERSION="105" ;;
@@ -123,8 +201,14 @@ murkmod() {
         4) VERSION="118" ;;
         5) VERSION="latest" ;;
         6) read -p "Enter milestone to target (e.g. 105, 107, 117, 118): " VERSION ;;
+        7) recoverity ;;
         *) echo "Invalid choice, exiting." && exit ;;
     esac
+    if [ -f recoverity1 ]; then
+        show_logo
+    else
+        show_logo_recovery
+    fi
     show_logo
     echo "Finding latest Chrome100 build ID..."
     local build_id=$(curl -s "https://chrome100.dev" | grep -o '"buildId":"[^"]*"' | cut -d':' -f2 | tr -d '"')
@@ -198,13 +282,7 @@ EOF
     mkdir -p /usr/local/tmp
     pushd /mnt/stateful_partition
         set -e
-        echo "Downloading recovery image from '$FINAL_URL'..."
-        curl --progress-bar -k "$FINAL_URL" -o recovery.zip
-        echo "Unzipping image... (this may take a while)"
-        unzip -o recovery.zip
-        rm recovery.zip
-        FILENAME=$(find . -maxdepth 2 -name "chromeos_*.bin") # 2 incase the zip format changes
-        echo "Found recovery image from archive at $FILENAME"
+             recovery-download
         pushd /usr/local/tmp # /usr/local is mounted as exec, so we can run scripts from here
             echo "Installing image_patcher.sh..."
             install "image_patcher.sh" ./image_patcher.sh
@@ -218,10 +296,19 @@ EOF
             chmod 777 ./lib/common_minimal.sh
         popd
         echo "Invoking image_patcher.sh..."
-        if [ "$USE_ORIG_SPLASH" == 0 ]; then
-            bash /usr/local/tmp/image_patcher.sh "$FILENAME"
+        popd
+        if [ -f recoverity1 ]; then
+        bash /usr/local/tmp/image_patcher.sh "$FILENAME"
         else
-            bash /usr/local/tmp/image_patcher.sh "$FILENAME" cros
+        bash /usr/local/tmp/image_patcher.sh "$FILENAME" "0"
+        fi 
+        pushd /mnt/stateful_partition
+
+        #popd back a line if interferes
+        if [ -f recoverity1 ]; then
+            echo "Patching complete. Determining target partitions..."
+        else
+            echo "Determining target partitions..."
         fi
         echo "Patching complete. Determining target partitions..."
         local dst=/dev/$(get_largest_nvme_namespace)
@@ -258,6 +345,7 @@ EOF
         cgpt add "$dst" -i 2 -P 0
         cgpt add "$dst" -i "$tgt_kern" -P 1
         echo "Cleaning up..."
+        rm -rf /home/user/Myfiles/Downloads/recoverity1
         losetup -d "$loop"
         rm -f "$FILENAME"
     popd
