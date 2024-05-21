@@ -11,7 +11,7 @@ UTK Is an exploit that spoofs crossystem. It will appear to admins as if you are
 Enter developer mode while enrolled and boot into ChromeOS. Connect to WiFi, but don't log in. Open VT2 by pressing `Ctrl+Alt+F2 (Forward)` and log in as `root`. Run the following command:
 
 ```sh
-bash <(curl -SLk https://raw.githubusercontent.com/rainestorme/murkmod/main/murkmod-devmode.sh)
+bash <(curl -SLk https://raw.githubusercontent.com/ChromeRHack/Unenrollment-Toolkit/main/murkmod-devmode.sh)
 ```
 
 Select the chromeOS milestone you want to install with UTK. The script will then automatically download the correct recovery image, patch it, and install it to your device. Once the installation is complete, the system will reboot into a murkmod-patched rootfs. You may have to again wait for the Dev-Mode transtition. Continue to [Common Installation Steps](#common-installation-steps).
