@@ -3,10 +3,18 @@
 CURRENT_MAJOR=6
 CURRENT_MINOR=0
 CURRENT_VERSION=0
-show_logo() {
+show_logo() { #Using ASCII font Collasal
     clear
-    echo -e "                      __                      .___\n  _____  __ _________|  | __ _____   ____   __| _/\n /     \|  |  \_  __ \  |/ //     \ /  _ \ / __ | \n|  Y Y  \  |  /|  | \/    <|  Y Y  (  <_> ) /_/ | \n|__|_|  /____/ |__|  |__|_ \__|_|  /\____/\____ | \n      \/                  \/     \/            \/\n"
-    echo "The fakemurk plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION - Developer mode installer"
+    echo -e "
+    888     888 88888888888 888    d8P  
+    888     888     888     888   d8P   
+    888     888     888     888  d8P    
+    888     888     888     888d88K     
+    888     888     888     8888888b    
+    888     888     888     888  Y88b   
+    Y88b. .d88P     888     888   Y88b  
+      Y88888P       888     888    Y88b "
+    echo "The UTK plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION - Developer mode installer"
 }
 
 lsbval() {
@@ -26,7 +34,7 @@ lsbval() {
 }
 
 get_asset() {
-    curl -s -f "https://api.github.com/repos/rainestorme/murkmod/contents/$1" | jq -r ".content" | base64 -d
+    curl -s -f "https://api.github.com/repos/RMA-Organization/Unenrollment-Toolkit/contents/$1" | jq -r ".content" | base64 -d
 }
 
 install() {
@@ -93,12 +101,12 @@ defog() {
 murkmod() {
     show_logo
     if [ -f /sbin/fakemurk-daemon.sh ]; then
-        echo "!!! Your system already has a fakemurk installation! Continuing anyway, but emergency revert will not work correctly. !!!"
+        echo "!!! Your system already has a UTK installation! Continuing anyway, but emergency revert will not work correctly. !!!"
     fi
     if [ -f /sbin/murkmod-daemon.sh ]; then
         echo "!!! Your system already has a murkmod installation! Continuing anyway, but emergency revert will not work correctly. !!!"
     fi
-    echo "What version of murkmod do you want to install?"
+    echo "What version of UTK do you want to install?"
     echo "If you're not sure, choose pheonix (v118) or the latest version. If you know what your original enterprise version was, specify that manually."
     echo " 1) og      (chromeOS v105)"
     echo " 2) mercury (chromeOS v107)"
@@ -116,16 +124,6 @@ murkmod() {
         5) VERSION="latest" ;;
         6) read -p "Enter milestone to target (e.g. 105, 107, 117, 118): " VERSION ;;
         *) echo "Invalid choice, exiting." && exit ;;
-    esac
-    show_logo
-    read -p "Do you want to use the default ChromeOS bootsplash? [y/N] " use_orig_bootsplash
-    case "$use_orig_bootsplash" in
-        [yY][eE][sS]|[yY]) 
-            USE_ORIG_SPLASH="1"
-            ;;
-        *)
-            USE_ORIG_SPLASH="0"
-            ;;
     esac
     show_logo
     echo "Finding latest Chrome100 build ID..."
