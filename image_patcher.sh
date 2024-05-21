@@ -260,7 +260,7 @@ if [ "$bootsplash" != "0" ]; then
     chmod 777 $ROOT/stateful_unfucked
     # by creating the flag in advance we can prevent running mkfs.ext4 on stateful upon next boot, thus retaining user data
   fi
-
+fi
   sleep 2
   sync
   echo "Done. Have fun."
