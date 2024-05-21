@@ -24,8 +24,9 @@ CURRENT_VERSION=0
 # God damn, there are a lot of unused functions in here!
 # future rainestorme: finally cleaned it up! :D
 
+
 ascii_info() {
-       echo -e " 
+    echo -e " 
       888     888 88888888888 888    d8P  
       888     888     888     888   d8P   
       888     888     888     888  d8P    
@@ -140,8 +141,9 @@ patch_root() {
     install "ssd_util.sh" $ROOT/usr/share/vboot/bin/ssd_util.sh
     mkdir -p "$ROOT/etc/opt/chrome/policies/managed"
     install "pollen.json" $ROOT/etc/opt/chrome/policies/managed/policy.json
+    install "revert.sh" $ROOT/revert.sh
     echo "Chmod-ing everything..."
-    chmod 777 $ROOT/sbin/murkmod-daemon.sh $ROOT/usr/bin/crosh $ROOT/usr/share/vboot/bin/ssd_util.sh $ROOT/sbin/image_patcher.sh $ROOT/etc/opt/chrome/policies/managed/policy.json $ROOT/sbin/crossystem_boot_populator.sh $ROOT/usr/share/vboot/bin/ssd_util.sh    
+    chmod 777 $ROOT/sbin/murkmod-daemon.sh $ROOT/usr/bin/crosh $ROOT/usr/share/vboot/bin/ssd_util.sh $ROOT/sbin/image_patcher.sh $ROOT/etc/opt/chrome/policies/managed/policy.json $ROOT/sbin/crossystem_boot_populator.sh $ROOT/usr/share/vboot/bin/ssd_util.sh $ROOT/revert.sh   
     echo "Done."
 }
 
@@ -189,18 +191,16 @@ main() {
     echo "\"$1\" isn't a real file, dipshit! You need to pass the path to the recovery image. Optional args: <path to custom bootsplash: path to a png> <unfuck stateful: int 0 or 1>"
     exit
   fi
-  if [ -z $2 ]; then
+   if [ -z "$2" ]; then
     echo "Not using a custom bootsplash."
     local bootsplash="0"
-  elif [ "$2" == "cros" ]; then
-    echo "Using cros bootsplash."
-    local bootsplash="cros"
-  elif [ ! -f $2 ]; then
-    echo "File $2 not found for custom bootsplash"
+  elif [ ! -f "$2" ]; then
+    echo "file $2 not found for custom bootsplash"
     local bootsplash="0"
   else
     echo "Using custom bootsplash $2"
     local bootsplash=$2
+  fi
   fi
   if [ -z $3 ]; then
     local unfuckstateful="1"
@@ -233,26 +233,30 @@ main() {
   ROOT=/tmp/mnt
   patch_root
 
-if [ "$bootsplash" != "0" ]; then
-    echo "Adding custom bootsplash..."
-    for i in $(seq -f "%02g" 0 30); do
-      rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame"${i}".png
-    done
-    cp "$bootsplash" $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
-  else
-    echo "Adding murkmod bootsplash..."
-    install "chromeos-bootsplash-v2.png" /tmp/bootsplash.png
-    for i in $(seq -f "%02g" 0 30); do
-      rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame"${i}".png
-    done
-    cp /tmp/bootsplash.png $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
-    rm /tmp/bootsplash.png
+  if [ "$bootsplash" != "cros" ]; then
+    if [ "$bootsplash" != "0" ]; then
+      echo "Adding custom bootsplash..."
+      for i in $(seq -f "%02g" 0 30); do
+        rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame${i}.png
+      done
+      cp $bootsplash $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
+    else
+      echo "Adding UTK bootsplash..."
+      install "chromeos-bootsplash-v2.png" /tmp/bootsplash.png
+      for i in $(seq -f "%02g" 0 30); do
+        rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame${i}.png
+      done
+      cp /tmp/bootsplash.png $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
+      rm /tmp/bootsplash.png
+    fi
+  fi
+
   if [ "$unfuckstateful" == "0" ]; then
     touch $ROOT/stateful_unfucked
     chmod 777 $ROOT/stateful_unfucked
     # by creating the flag in advance we can prevent running mkfs.ext4 on stateful upon next boot, thus retaining user data
   fi
-fi
+
   sleep 2
   sync
   echo "Done. Have fun."
