@@ -240,7 +240,6 @@ main() {
       done
       cp /tmp/bootsplash.png $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
       rm /tmp/bootsplash.png
-  fi
 
   if [ "$unfuckstateful" == "0" ]; then
     touch $ROOT/stateful_unfucked
