@@ -126,6 +126,7 @@ debug_mode() {
 (8) Chronos Shell
 (9) Crosh
 (10) Back
+(11) Disable RootFS Verification
 EOF
         
         swallow_stdin
@@ -140,7 +141,8 @@ EOF
         7) runjob doas bash ;;
         8) runjob doas "cd /home/chronos; sudo -i -u chronos" ;;
         9) runjob /usr/bin/crosh.old ;;
-        10) runjob more_options ;;
+        10) runjob main ;;
+        11) disable_file_system ;;
     
         *) echo && echo "Invalid option, dipshit." && echo ;;
         esac
@@ -251,7 +253,7 @@ EOF
         22) runjob attempt_restore_backup_backup ;;
         23) runjob attempt_chromebrew_install ;;
         24) runjob attempt_dev_install ;;
-        25) runjob more_options ;;
+        25) runjob debug_mode ;;
     
         *) echo && echo "Invalid option, dipshit." && echo ;;
         esac
