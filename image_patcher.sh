@@ -106,11 +106,10 @@ configure_binaries(){
 }
 
 patch_root() {
-    if [ -f recoverity1 ]; then
     echo "Staging populator..."
     >$ROOT/population_required
     >$ROOT/reco_patched
-    echo "UTK-ing root..."
+    echo "Murkmod-ing root..."
     echo "Disabling autoupdates..."
     disable_autoupdates
     local milestone=$(lsbval CHROMEOS_RELEASE_CHROME_MILESTONE $ROOT/etc/lsb-release)
@@ -144,13 +143,6 @@ patch_root() {
     echo "Chmod-ing everything..."
     chmod 777 $ROOT/sbin/murkmod-daemon.sh $ROOT/usr/bin/crosh $ROOT/usr/share/vboot/bin/ssd_util.sh $ROOT/sbin/image_patcher.sh $ROOT/etc/opt/chrome/policies/managed/policy.json $ROOT/sbin/crossystem_boot_populator.sh $ROOT/usr/share/vboot/bin/ssd_util.sh    
     echo "Done."
-    else
-        if [[ -f oobe-reset ]]; then
-        echo "Resetting OOBE"
-        rm -rf $ROOT/mnt/stateful_partition
-       fi
-      echo "Done"
-     fi
 }
 
 # https://chromium.googlesource.com/chromiumos/docs/+/main/lsb-release.md
