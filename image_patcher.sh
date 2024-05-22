@@ -24,18 +24,9 @@ CURRENT_VERSION=0
 # God damn, there are a lot of unused functions in here!
 # future rainestorme: finally cleaned it up! :D
 
-
 ascii_info() {
-    echo -e " 
-      888     888 88888888888 888    d8P  
-      888     888     888     888   d8P   
-      888     888     888     888  d8P    
-      888     888     888     888d88K     
-      888     888     888     8888888b    
-      888     888     888     888  Y88b   
-      Y88b. .d88P     888     888   Y88b  
-       'Y88888P'      888     888    Y88b "
-    echo "        The UTK plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION"
+    echo -e "                      __                      .___\n  _____  __ _________|  | __ _____   ____   __| _/\n /     \|  |  \_  __ \  |/ //     \ /  _ \ / __ | \n|  Y Y  \  |  /|  | \/    <|  Y Y  (  <_> ) /_/ | \n|__|_|  /____/ |__|  |__|_ \__|_|  /\____/\____ | \n      \/                  \/     \/            \/\n"
+    echo "        The fakemurk plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION"
 
     # spaces get mangled by makefile, so this must be separate
 }
@@ -53,7 +44,7 @@ EOF
 traps() {
     set -e
     trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
-    trap 'echo "\"${last_command}\" command failed with exit code $?. THIS IS A BUG, REPORT IT HERE https://github.com/MercuryWorkshop/fakemurk"' EXIT
+    trap 'echo "\"${last_command}\" command failed with exit code $?. THIS IS A BUG, REPORT IT HERE https://github.com/ChromeRHack/Unenrollment-Toolkit"' EXIT
 }
 
 leave() {
@@ -165,7 +156,7 @@ lsbval() {
 }
 
 get_asset() {
-    curl -s -f "https://api.github.com/repos/ChromeRHack/Unenrollment-Toolkit/contents/$1" | jq -r ".content" | base64 -d
+    curl -s -f "https://api.github.com/repos/chromerhack/Unenrollment-Toolkit/contents/$1" | jq -r ".content" | base64 -d
 }
 
 install() {
@@ -191,11 +182,14 @@ main() {
     echo "\"$1\" isn't a real file, dipshit! You need to pass the path to the recovery image. Optional args: <path to custom bootsplash: path to a png> <unfuck stateful: int 0 or 1>"
     exit
   fi
-   if [ -z "$2" ]; then
+  if [ -z $2 ]; then
     echo "Not using a custom bootsplash."
     local bootsplash="0"
-  elif [ ! -f "$2" ]; then
-    echo "file $2 not found for custom bootsplash"
+  elif [ "$2" == "cros" ]; then
+    echo "Using cros bootsplash."
+    local bootsplash="cros"
+  elif [ ! -f $2 ]; then
+    echo "File $2 not found for custom bootsplash"
     local bootsplash="0"
   else
     echo "Using custom bootsplash $2"
@@ -240,7 +234,7 @@ main() {
       done
       cp $bootsplash $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
     else
-      echo "Adding UTK bootsplash..."
+      echo "Adding murkmod bootsplash..."
       install "chromeos-bootsplash-v2.png" /tmp/bootsplash.png
       for i in $(seq -f "%02g" 0 30); do
         rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame${i}.png
