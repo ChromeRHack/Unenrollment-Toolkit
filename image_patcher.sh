@@ -25,8 +25,16 @@ CURRENT_VERSION=0
 # future rainestorme: finally cleaned it up! :D
 
 ascii_info() {
-    echo -e "                      __                      .___\n  _____  __ _________|  | __ _____   ____   __| _/\n /     \|  |  \_  __ \  |/ //     \ /  _ \ / __ | \n|  Y Y  \  |  /|  | \/    <|  Y Y  (  <_> ) /_/ | \n|__|_|  /____/ |__|  |__|_ \__|_|  /\____/\____ | \n      \/                  \/     \/            \/\n"
-    echo "        The fakemurk plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION"
+   echo -e "
+    888     888 88888888888 888    d8P  
+    888     888     888     888   d8P   
+    888     888     888     888  d8P    
+    888     888     888     888d88K     
+    888     888     888     8888888b    
+    888     888     888     888  Y88b   
+    Y88b. .d88P     888     888   Y88b  
+      Y88888P       888     888    Y88b "
+    echo "The UTK plugin manager - v$CURRENT_MAJOR.$CURRENT_MINOR.$CURRENT_VERSION - Developer mode installer"
 
     # spaces get mangled by makefile, so this must be separate
 }
@@ -118,7 +126,7 @@ patch_root() {
         install "chromeos_startup.sh" $ROOT/sbin/chromeos_startup.sh
         chmod 755 $ROOT/sbin/chromeos_startup.sh
     fi
-    echo "Installing murkmod components..."
+    echo "Installing UTK components..."
     install "daemon.sh" $ROOT/sbin/murkmod-daemon.sh
     move_bin "$ROOT/usr/bin/crosh"
     install "mush.sh" $ROOT/usr/bin/crosh
@@ -234,7 +242,7 @@ main() {
       done
       cp $bootsplash $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
     else
-      echo "Adding murkmod bootsplash..."
+      echo "Adding UTK bootsplash..."
       install "chromeos-bootsplash-v2.png" /tmp/bootsplash.png
       for i in $(seq -f "%02g" 0 30); do
         rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame${i}.png
