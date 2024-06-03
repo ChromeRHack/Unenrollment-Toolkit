@@ -1,7 +1,7 @@
 
 # Installation
 
-UTK Is an exploit that spoofs crossystem. It will appear to admins as if you are in verified mode when you are in devoloper mode. You can control extensions and policys use `CTRL+ALT+T` to enter mush (The UTK shell) when you enter the exploit.
+UTK Is an exploit that spoofs crossystem. It will appear to admins as if you are in verified mode when you are in devoloper mode. You can control extensions and policies use `CTRL+ALT+T` to enter mush (The UTK shell) when you enter the exploit.
 
 ## Developer Mode Installer
 
