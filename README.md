@@ -19,7 +19,7 @@ Select the chromeOS milestone you want to install with UTK. The script will then
 This command will download and install UTK to your device. Once the installation is complete, you can start using murkmod by opening mush as usual.
 
 > [!NOTE]
-> Installing (or updating) fakemurk will set the password for the `chronos` user to `murkmod`.
+> Installing (or updating) UTK will set the password for the `chronos` user to `murkmod`.
 
 > [!WARNING]
 > If you get an error about a filesystem being readonly run `fsck -f $(rootdev)` then reboot.
