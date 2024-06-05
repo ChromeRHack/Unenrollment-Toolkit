@@ -257,8 +257,8 @@ EOF
         cgpt add "$dst" -i 4 -P 0
         cgpt add "$dst" -i 2 -P 0
         cgpt add "$dst" -i "$tgt_kern" -P 1
-        echo "Defogging... (if write-protect is disabled, this will set GBB flags to 0x8091)"
-        defog
+        #echo "Defogging... (if write-protect is disabled, this will set GBB flags to 0x8091)"
+        #defog
         echo "Cleaning up..."
         losetup -d "$loop"
         rm -f "$FILENAME"
