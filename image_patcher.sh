@@ -15,7 +15,7 @@
 # v1.0.0 - basic functionality implemented
 
 # image_patcher.sh
-# written based on the original by coolelectronics and r58, modified heavily for murkmod
+# written based on the original by coolelectronics and r58, modified heavily for murkmod and UTK
 
 CURRENT_MAJOR=6
 CURRENT_MINOR=0
@@ -236,19 +236,19 @@ main() {
 
   if [ "$bootsplash" != "cros" ]; then
     if [ "$bootsplash" != "0" ]; then
-      echo "Adding custom bootsplash..."
-      for i in $(seq -f "%02g" 0 30); do
-        rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame${i}.png
-      done
-      cp $bootsplash $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
-    else
-      echo "Adding UTK bootsplash..."
+          echo "Adding UTK bootsplash..."
       install "chromeos-bootsplash-v2.png" /tmp/bootsplash.png
       for i in $(seq -f "%02g" 0 30); do
         rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame${i}.png
       done
       cp /tmp/bootsplash.png $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
       rm /tmp/bootsplash.png
+    else
+     echo "Adding custom bootsplash..."
+      for i in $(seq -f "%02g" 0 30); do
+        rm $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame${i}.png
+      done
+      cp $bootsplash $ROOT/usr/share/chromeos-assets/images_100_percent/boot_splash_frame00.png
     fi
   fi
 
